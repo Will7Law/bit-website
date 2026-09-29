@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Security Headers (defense-in-depth) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com data:; img-src 'self' data: blob:; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="description" content="BIT training centres across all 10 administrative regions of Guyana. Find your nearest centre.">
+  <title>Regional Centres — Board of Industrial Training, Guyana</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,500..800,0..100;1,9..144,400..700,0..100&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="../css/styles.css?v=6">
+  <link rel="stylesheet" href="../css/enhancements.css?v=6">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='15' fill='%231B4D8E'/%3E%3Ctext x='50' y='65' font-family='Arial' font-size='50' font-weight='bold' fill='white' text-anchor='middle'%3EBIT%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar"><div class="container"><div class="top-bar-left"><span><i class="fas fa-landmark"></i> Ministry of Labour & Manpower Planning</span></div><div class="top-bar-right"><a href="tel:+5922251077"><i class="fas fa-phone"></i> +592 225-1077</a><a href="mailto:info@bit.gov.gy"><i class="fas fa-envelope"></i> info@bit.gov.gy</a></div></div></div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container">
+      <a href="../index.html" class="logo"><img src="../images/bit-logo.png" alt="Board of Industrial Training Logo" class="logo-img"><div class="logo-text"><span class="name">Board of Industrial Training</span><span class="tagline">Est. 1910 &bull; Guyana</span></div></a>
+      <nav class="main-nav" id="mainNav">
+        <a href="../index.html">Home</a><a href="about.html">About</a>
+        <div class="nav-dropdown"><a href="programmes.html">Programmes <i class="fas fa-chevron-down nav-chevron"></i></a><div class="dropdown-menu"><a href="programme-detail.html?p=electrical">Electrical</a><a href="programme-detail.html?p=welding">Welding</a><a href="programme-detail.html?p=it">IT</a><a href="programmes.html">View All &rarr;</a></div></div>
+        <a href="regional-centres.html" class="active">Regions</a><a href="news.html">News</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-cta">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button><a href="verify.html" class="btn btn-outline btn-sm">Verify Certificate</a></div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <!-- Page Hero — Regional Centres: Geographic -->
+  <section class="page-hero hero-regions">
+    <div class="regions-bg-circles"></div>
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="sep"><i class="fas fa-chevron-right"></i></span>
+        <span>Regional Centres</span>
+      </div>
+      <div class="regions-badge"><i class="fas fa-map-marked-alt"></i> Nationwide Coverage</div>
+      <h1>Regional<br><span class="accent-text">Training Centres</span></h1>
+      <p>BIT operates training centres across all 10 administrative regions of Guyana, bringing vocational education to every community.</p>
+      <div class="region-count-row">
+        <span class="big-number">10</span>
+        <span class="big-label">Administrative<br>Regions Served</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="overline">Nationwide Coverage</span>
+        <h2>Find Your Nearest Centre</h2>
+        <div class="section-divider"></div>
+        <p>Click on any region below to see centre details, available programmes, and contact information.</p>
+      </div>
+
+      <!-- Interactive Map Placeholder -->
+      <div data-aos="fade-up" style="margin-bottom:var(--space-3xl)">
+        <div class="map-container" style="position:relative;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#e8f5e9,#c8e6c9)">
+          <div style="text-align:center;padding:var(--space-2xl)">
+            <i class="fas fa-map-marked-alt" style="font-size:4rem;color:var(--primary);margin-bottom:var(--space-lg);display:block"></i>
+            <h3 style="margin-bottom:var(--space-sm)">Interactive Map of Guyana</h3>
+            <p style="color:var(--gray-600);max-width:400px;margin:0 auto var(--space-lg)">BIT's 10 regional training centres are strategically located to serve communities across the entire country.</p>
+            <div style="display:flex;gap:var(--space-md);justify-content:center;flex-wrap:wrap">
+              <span class="badge badge-primary" style="font-size:0.85rem;padding:8px 16px"><i class="fas fa-map-pin" style="margin-right:4px"></i> 10 Regions</span>
+              <span class="badge badge-secondary" style="font-size:0.85rem;padding:8px 16px"><i class="fas fa-building" style="margin-right:4px"></i> Multiple Centres</span>
+              <span class="badge badge-accent" style="font-size:0.85rem;padding:8px 16px"><i class="fas fa-users" style="margin-right:4px"></i> 15,000+ Trained</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Programme Availability Matrix -->
+      <div class="pam-wrapper" data-aos="fade-up" style="margin-bottom:var(--space-3xl)">
+        <div class="pam-header">
+          <div>
+            <span class="overline" style="color:var(--secondary)">Availability Matrix</span>
+            <h3 style="margin:4px 0 4px;font-size:1.5rem">Which programmes are offered where?</h3>
+            <p style="color:var(--gray-600);margin:0;font-size:0.95rem">Click any programme to highlight regions that offer it. Click any region to see only its programmes.</p>
+          </div>
+          <button type="button" class="pam-reset" id="pamReset" aria-label="Reset matrix filters">
+            <i class="fas fa-rotate-left"></i> Reset
+          </button>
+        </div>
+
+        <div class="pam-scroll">
+          <table class="pam-table" aria-label="Programme availability by region">
+            <thead>
+              <tr>
+                <th scope="col" class="pam-corner">Region</th>
+                <th scope="col" data-prog="electrical"><button type="button" class="pam-prog-btn" data-prog="electrical"><i class="fas fa-bolt"></i><span>Electrical</span></button></th>
+                <th scope="col" data-prog="plumbing"><button type="button" class="pam-prog-btn" data-prog="plumbing"><i class="fas fa-faucet"></i><span>Plumbing</span></button></th>
+                <th scope="col" data-prog="welding"><button type="button" class="pam-prog-btn" data-prog="welding"><i class="fas fa-fire"></i><span>Welding</span></button></th>
+                <th scope="col" data-prog="motor"><button type="button" class="pam-prog-btn" data-prog="motor"><i class="fas fa-car"></i><span>Motor Vehicle</span></button></th>
+                <th scope="col" data-prog="carpentry"><button type="button" class="pam-prog-btn" data-prog="carpentry"><i class="fas fa-hammer"></i><span>Carpentry</span></button></th>
+                <th scope="col" data-prog="masonry"><button type="button" class="pam-prog-btn" data-prog="masonry"><i class="fas fa-cubes"></i><span>Masonry</span></button></th>
+                <th scope="col" data-prog="it"><button type="button" class="pam-prog-btn" data-prog="it"><i class="fas fa-laptop-code"></i><span>IT</span></button></th>
+                <th scope="col" data-prog="cosmetology"><button type="button" class="pam-prog-btn" data-prog="cosmetology"><i class="fas fa-spa"></i><span>Cosmetology</span></button></th>
+                <th scope="col" data-prog="garment"><button type="button" class="pam-prog-btn" data-prog="garment"><i class="fas fa-scissors"></i><span>Garment</span></button></th>
+                <th scope="col" data-prog="culinary"><button type="button" class="pam-prog-btn" data-prog="culinary"><i class="fas fa-utensils"></i><span>Culinary</span></button></th>
+                <th scope="col" data-prog="ac"><button type="button" class="pam-prog-btn" data-prog="ac"><i class="fas fa-snowflake"></i><span>AC/Refrig.</span></button></th>
+                <th scope="col" data-prog="agriculture"><button type="button" class="pam-prog-btn" data-prog="agriculture"><i class="fas fa-seedling"></i><span>Agriculture</span></button></th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Region 1: Mabaruma — Carpentry, Masonry, Agriculture -->
+              <tr data-region="1">
+                <th scope="row"><button type="button" class="pam-region-btn" data-region="1"><span class="pam-region-num">1</span><span class="pam-region-name">Mabaruma<small>Barima-Waini</small></span></button></th>
+                <td data-prog="electrical"></td><td data-prog="plumbing"></td><td data-prog="welding"></td><td data-prog="motor"></td>
+                <td class="pam-yes" data-prog="carpentry"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="masonry"><i class="fas fa-check"></i></td>
+                <td data-prog="it"></td><td data-prog="cosmetology"></td><td data-prog="garment"></td><td data-prog="culinary"></td><td data-prog="ac"></td>
+                <td class="pam-yes" data-prog="agriculture"><i class="fas fa-check"></i></td>
+              </tr>
+              <!-- Region 2: Anna Regina — Electrical, Welding, Carpentry, Agriculture -->
+              <tr data-region="2">
+                <th scope="row"><button type="button" class="pam-region-btn" data-region="2"><span class="pam-region-num">2</span><span class="pam-region-name">Anna Regina<small>Pomeroon-Supenaam</small></span></button></th>
+                <td class="pam-yes" data-prog="electrical"><i class="fas fa-check"></i></td>
+                <td data-prog="plumbing"></td>
+                <td class="pam-yes" data-prog="welding"><i class="fas fa-check"></i></td>
+                <td data-prog="motor"></td>
+                <td class="pam-yes" data-prog="carpentry"><i class="fas fa-check"></i></td>
+                <td data-prog="masonry"></td><td data-prog="it"></td><td data-prog="cosmetology"></td><td data-prog="garment"></td><td data-prog="culinary"></td><td data-prog="ac"></td>
+                <td class="pam-yes" data-prog="agriculture"><i class="fas fa-check"></i></td>
+              </tr>
+              <!-- Region 3: West Demerara — Full programme offerings -->
+              <tr data-region="3">
+                <th scope="row"><button type="button" class="pam-region-btn" data-region="3"><span class="pam-region-num">3</span><span class="pam-region-name">West Demerara<small>Essequibo Islands</small></span></button></th>
+                <td class="pam-yes" data-prog="electrical"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="plumbing"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="welding"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="motor"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="carpentry"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="masonry"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="it"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="cosmetology"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="garment"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="culinary"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="ac"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="agriculture"><i class="fas fa-check"></i></td>
+              </tr>
+              <!-- Region 4: Georgetown HQ — All 12 programmes -->
+              <tr data-region="4" class="pam-row-hq">
+                <th scope="row"><button type="button" class="pam-region-btn" data-region="4"><span class="pam-region-num pam-region-num-hq">4</span><span class="pam-region-name">Georgetown <span class="pam-hq-tag">HQ</span><small>Demerara-Mahaica</small></span></button></th>
+                <td class="pam-yes" data-prog="electrical"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="plumbing"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="welding"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="motor"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="carpentry"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="masonry"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="it"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="cosmetology"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="garment"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="culinary"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="ac"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="agriculture"><i class="fas fa-check"></i></td>
+              </tr>
+              <!-- Region 5: Fort Wellington — Electrical, Carpentry, Agriculture -->
+              <tr data-region="5">
+                <th scope="row"><button type="button" class="pam-region-btn" data-region="5"><span class="pam-region-num">5</span><span class="pam-region-name">Fort Wellington<small>Mahaica-Berbice</small></span></button></th>
+                <td class="pam-yes" data-prog="electrical"><i class="fas fa-check"></i></td>
+                <td data-prog="plumbing"></td><td data-prog="welding"></td><td data-prog="motor"></td>
+                <td class="pam-yes" data-prog="carpentry"><i class="fas fa-check"></i></td>
+                <td data-prog="masonry"></td><td data-prog="it"></td><td data-prog="cosmetology"></td><td data-prog="garment"></td><td data-prog="culinary"></td><td data-prog="ac"></td>
+                <td class="pam-yes" data-prog="agriculture"><i class="fas fa-check"></i></td>
+              </tr>
+              <!-- Region 6: Berbice — Expanded (treat as full, new facility) -->
+              <tr data-region="6" class="pam-row-new">
+                <th scope="row"><button type="button" class="pam-region-btn" data-region="6"><span class="pam-region-num pam-region-num-new">6</span><span class="pam-region-name">Berbice <span class="pam-new-tag">New</span><small>East Berbice-Corentyne</small></span></button></th>
+                <td class="pam-yes" data-prog="electrical"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="plumbing"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="welding"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="motor"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="carpentry"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="masonry"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="it"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="cosmetology"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="garment"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="culinary"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="ac"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="agriculture"><i class="fas fa-check"></i></td>
+              </tr>
+              <!-- Region 7: Bartica — Welding, Carpentry, Masonry -->
+              <tr data-region="7">
+                <th scope="row"><button type="button" class="pam-region-btn" data-region="7"><span class="pam-region-num">7</span><span class="pam-region-name">Bartica<small>Cuyuni-Mazaruni</small></span></button></th>
+                <td data-prog="electrical"></td><td data-prog="plumbing"></td>
+                <td class="pam-yes" data-prog="welding"><i class="fas fa-check"></i></td>
+                <td data-prog="motor"></td>
+                <td class="pam-yes" data-prog="carpentry"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="masonry"><i class="fas fa-check"></i></td>
+                <td data-prog="it"></td><td data-prog="cosmetology"></td><td data-prog="garment"></td><td data-prog="culinary"></td><td data-prog="ac"></td><td data-prog="agriculture"></td>
+              </tr>
+              <!-- Region 8: Mahdia — Carpentry, Masonry, Agriculture -->
+              <tr data-region="8">
+                <th scope="row"><button type="button" class="pam-region-btn" data-region="8"><span class="pam-region-num">8</span><span class="pam-region-name">Mahdia<small>Potaro-Siparuni</small></span></button></th>
+                <td data-prog="electrical"></td><td data-prog="plumbing"></td><td data-prog="welding"></td><td data-prog="motor"></td>
+                <td class="pam-yes" data-prog="carpentry"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="masonry"><i class="fas fa-check"></i></td>
+                <td data-prog="it"></td><td data-prog="cosmetology"></td><td data-prog="garment"></td><td data-prog="culinary"></td><td data-prog="ac"></td>
+                <td class="pam-yes" data-prog="agriculture"><i class="fas fa-check"></i></td>
+              </tr>
+              <!-- Region 9: Lethem — Agriculture, Carpentry, Masonry -->
+              <tr data-region="9">
+                <th scope="row"><button type="button" class="pam-region-btn" data-region="9"><span class="pam-region-num">9</span><span class="pam-region-name">Lethem<small>Upper Takutu</small></span></button></th>
+                <td data-prog="electrical"></td><td data-prog="plumbing"></td><td data-prog="welding"></td><td data-prog="motor"></td>
+                <td class="pam-yes" data-prog="carpentry"><i class="fas fa-check"></i></td>
+                <td class="pam-yes" data-prog="masonry"><i class="fas fa-check"></i></td>
+                <td data-prog="it"></td><td data-prog="cosmetology"></td><td data-prog="garment"></td><td data-prog="culinary"></td><td data-prog="ac"></td>
+                <td class="pam-yes" data-prog="agriculture"><i class="fas fa-check"></i></td>
+              </tr>
+              <!-- Region 10: Linden — Electrical, Welding, Carpentry, IT -->
+              <tr data-region="10">
+                <th scope="row"><button type="button" class="pam-region-btn" data-region="10"><span class="pam-region-num">10</span><span class="pam-region-name">Linden<small>Upper Demerara</small></span></button></th>
+                <td class="pam-yes" data-prog="electrical"><i class="fas fa-check"></i></td>
+                <td data-prog="plumbing"></td>
+                <td class="pam-yes" data-prog="welding"><i class="fas fa-check"></i></td>
+                <td data-prog="motor"></td>
+                <td class="pam-yes" data-prog="carpentry"><i class="fas fa-check"></i></td>
+                <td data-prog="masonry"></td>
+                <td class="pam-yes" data-prog="it"><i class="fas fa-check"></i></td>
+                <td data-prog="cosmetology"></td><td data-prog="garment"></td><td data-prog="culinary"></td><td data-prog="ac"></td><td data-prog="agriculture"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="pam-footnote" id="pamFootnote" role="status" aria-live="polite">
+          <i class="fas fa-circle-info"></i>
+          <span>Showing all 12 programmes across all 10 regions. All regional centres can be contacted through HQ at <a href="tel:+5922251077">+592 225-1077</a>.</span>
+        </div>
+      </div>
+
+      <!-- ───────────────────────────────────────────────────────────
+           Featured: New Berbice Facility (Region 6)
+           Photo supplied by PR, June 2026. Self-contained banner — uses
+           a CSS grid so it stacks gracefully on mobile.
+           ─────────────────────────────────────────────────────────── -->
+      <div class="berbice-feature" data-aos="fade-up" id="region-6-feature">
+        <div class="berbice-feature-photo">
+          <img src="../images/gallery/gallery-04-modern-facility.jpg?v=2"
+               alt="The BIT Berbice training centre — modern grey-and-orange building exterior with Board of Industrial Training signage"
+               loading="lazy" decoding="async">
+        </div>
+        <div class="berbice-feature-body">
+          <span class="berbice-feature-eyebrow"><i class="fas fa-star"></i> Region 6 &middot; Newly Commissioned</span>
+          <h3>The Berbice Training Centre</h3>
+          <p>BIT&rsquo;s newest training facility serves East Berbice-Corentyne with three operating offices &mdash; New Amsterdam, Corriverton, and Orealla &mdash; supported by a modern central campus designed to expand vocational training in Region 6.</p>
+          <div class="berbice-feature-pills">
+            <span class="berbice-pill"><i class="fas fa-map-marker-alt"></i> New Amsterdam, Berbice</span>
+            <span class="berbice-pill"><i class="fas fa-building"></i> 3 Offices</span>
+            <span class="berbice-pill"><i class="fas fa-graduation-cap"></i> 14 Programmes</span>
+          </div>
+        </div>
+      </div>
+      <style>
+        .berbice-feature{
+          display: grid;
+          grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+          gap: var(--space-xl);
+          align-items: stretch;
+          background: linear-gradient(135deg, rgba(242,101,34,0.04), rgba(27,77,142,0.03));
+          border: 1px solid var(--gray-200);
+          border-left: 4px solid var(--secondary);
+          border-radius: var(--radius-lg);
+          overflow: hidden;
+          margin-bottom: var(--space-2xl);
+          box-shadow: 0 6px 22px rgba(0,0,0,0.05);
+        }
+        .berbice-feature-photo{
+          position: relative;
+          min-height: 280px;
+          background: var(--gray-100);
+        }
+        .berbice-feature-photo img{
+          position: absolute; inset: 0;
+          width: 100%; height: 100%;
+          object-fit: cover; display: block;
+        }
+        .berbice-feature-body{
+          padding: var(--space-xl) var(--space-xl) var(--space-xl) 0;
+          display: flex; flex-direction: column; justify-content: center;
+        }
+        .berbice-feature-eyebrow{
+          font-family: 'JetBrains Mono', ui-monospace, monospace;
+          font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+          color: var(--secondary); font-weight: 700;
+          display: inline-flex; align-items: center; gap: 8px;
+          margin-bottom: 12px;
+        }
+        .berbice-feature-body h3{
+          font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+          font-weight: 700; color: var(--dark);
+          margin: 0 0 12px; line-height: 1.15;
+        }
+        .berbice-feature-body p{
+          color: var(--gray-700);
+          font-size: 0.98rem; line-height: 1.6;
+          margin: 0 0 16px;
+        }
+        .berbice-feature-pills{
+          display: flex; flex-wrap: wrap; gap: 8px;
+        }
+        .berbice-pill{
+          display: inline-flex; align-items: center; gap: 6px;
+          padding: 6px 12px; border-radius: 999px;
+          background: rgba(27,77,142,0.08);
+          color: var(--primary);
+          font-size: 0.82rem; font-weight: 600;
+          border: 1px solid rgba(27,77,142,0.18);
+        }
+        .berbice-pill i{ font-size: 0.78rem; color: var(--secondary); }
+        @media (max-width: 768px){
+          .berbice-feature{ grid-template-columns: 1fr; }
+          .berbice-feature-photo{ min-height: 220px; }
+          .berbice-feature-body{ padding: var(--space-lg); }
+        }
+      </style>
+
+      <!-- Region Cards — 24 offices across 10 regions (BIT website Info.docx Table 0) -->
+      <div class="region-grid" data-aos="fade-up">
+
+        <!-- Region 1 — 2 offices -->
+        <div class="region-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="region-number">1</div>
+          <div class="region-info">
+            <h4>Barima-Waini</h4>
+            <p style="font-size:0.75rem;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px">2 Offices</p>
+            <p><i class="fas fa-map-marker-alt" style="color:var(--primary);width:14px;margin-right:5px"></i> <strong>Mabaruma</strong> — Regional Administrative Building, Mabaruma Compound</p>
+            <p><i class="fas fa-map-marker-alt" style="color:var(--primary);width:14px;margin-right:5px"></i> <strong>Port Kaituma</strong> — Lot 1, Port Kaituma</p>
+            <p style="margin-top:6px"><i class="fas fa-phone" style="color:var(--gray-500);width:14px;margin-right:5px"></i> Contact HQ: +592 225-1077</p>
+          </div>
+        </div>
+
+        <!-- Region 2 — 1 office -->
+        <div class="region-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="region-number">2</div>
+          <div class="region-info">
+            <h4>Pomeroon-Supenaam</h4>
+            <p style="font-size:0.75rem;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px">1 Office</p>
+            <p><i class="fas fa-map-marker-alt" style="color:var(--primary);width:14px;margin-right:5px"></i> <strong>Anna Regina</strong> — Lot 1 Suddie Road, Anna Regina</p>
+            <p style="margin-top:6px"><i class="fas fa-phone" style="color:var(--gray-500);width:14px;margin-right:5px"></i> Contact HQ: +592 225-1077</p>
+          </div>
+        </div>
+
+        <!-- Region 3 — 2 offices -->
+        <div class="region-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="region-number">3</div>
+          <div class="region-info">
+            <h4>Essequibo Islands-West Demerara</h4>
+            <p style="font-size:0.75rem;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px">2 Offices</p>
+            <p><i class="fas fa-map-marker-alt" style="color:var(--primary);width:14px;margin-right:5px"></i> <strong>Leonora</strong> — Leonora Training Centre Compound</p>
+            <p><i class="fas fa-map-marker-alt" style="color:var(--primary);width:14px;margin-right:5px"></i> <strong>Parika</strong> — Parika Market Building, Parika</p>
+            <p style="margin-top:6px"><i class="fas fa-phone" style="color:var(--gray-500);width:14px;margin-right:5px"></i> Contact HQ: +592 225-1077</p>
+          </div>
+        </div>
+
+        <!-- Region 4 — 5 offices (HQ) -->
+        <div class="region-card" data-aos="fade-up" data-aos-delay="0" style="border-color:var(--primary);background:rgba(27,77,142,0.02)">
+          <div class="region-number">4</div>
+          <div class="region-info">
+            <h4>Demerara-Mahaica <span class="badge badge-primary" style="margin-left:4px">HQ</span></h4>
+            <p style="font-size:0.75rem;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px">5 Offices</p>
+            <p><i class="fas fa-map-marker-alt" style="color:var(--primary);width:14px;margin-right:5px"></i> <strong>Georgetown — North</strong> — 82 Brickdam &nbsp;<i class="fas fa-phone" style="font-size:0.75rem;color:var(--gray-500)"></i> 649-2189</p>
+            <p><i class="fas fa-map-marker-alt" style="color:var(--primary);width:14px;margin-right:5px"></i> <strong>Georgetown — Central</strong> — 82 Brickdam &nbsp;<i class="fas fa-phone" style="font-size:0.75rem;color:var(--gray-500)"></i> 699-8458</p>
+            <p><i class="fas fa-map-marker-alt" style="color:var(--primary);width:14px;margin-right:5px"></i> <strong>Georgetown — South</strong> — 82 Brickdam &nbsp;<i class="fas fa-phone" style="font-size:0.75rem;color:var(--gray-500)"></i> 699-7877</p>
+            <p><i class="fas fa-map-marker-alt" style="color:var(--primary);width:14px;margin-right:5px"></i> <strong>Sophia</strong> — Lot 4 Section C Sophia, Georgetown</p>
+            <p><i class="fas fa-map-marker-alt" style="color:var(--primary);width:14px;margin-right:5px"></i> <strong>Timehri</strong> — Timehri Public Road, Timehri</p>
+            <p style="margin-top:6px"><i class="fas fa-envelope" style="color:var(--gray-500);width:14px;margin-right:5px"></i> info@bit.gov.gy</p>
+          </div>
+        </div>
+
+        <!-- Region 5 — 1 office -->
+        <div class="region-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="region-number">5</div>
+          <div class="region-info">
+            <h4>Mahaica-Berbice</h4>
+            <p style="font-size:0.75rem;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px">1 Office</p>
+            <p><i class="fas fa-map-marker-alt" style="color:var(--primary);width:14px;margin-right:5px"></i> <strong>Fort Wellington</strong> — Fort Wellington, West Coast Berbice</p>
+            <p style="margin-top:6px"><i class="fas fa-phone" style="color:var(--gray-500);width:14px;margin-right:5px"></i> Contact HQ: +592 225-1077</p>
+          </div>
+        </div>
+
+        <!-- Region 6 — 3 offices -->
+        <div class="region-card" data-aos="fade-up" data-aos-delay="200" style="border-color:var(--secondary);background:rgba(242,101,34,0.03)">
+          <div class="region-number" style="background:linear-gradient(135deg,var(--secondary-dark),var(--secondary))">6</div>
+          <div class="region-info">
+            <h4>East Berbice-Corentyne <span class="badge badge-secondary" style="margin-left:4px">New Facility</span></h4>
+            <p style="font-size:0.75rem;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px">3 Offices</p>
+            <p><i class="fas fa-map-marker-alt" style="color:var(--primary);width:14px;margin-right:5px"></i> <strong>New Amsterdam</strong> — Lot 1 Main Street, New Amsterdam</p>
+            <p><i class="fas fa-map-marker-alt" style="color:var(--primary);width:14px;margin-right:5px"></i> <strong>Corriverton</strong> — Corentyne Highway, Corriverton</p>
+            <p><i class="fas fa-map-marker-alt" style="color:var(--primary);width:14px;margin-right:5px"></i> <strong>Orealla</strong> — Orealla Village, Corentyne River</p>
+            <p style="margin-top:6px"><i class="fas fa-phone" style="color:var(--gray-500);width:14px;margin-right:5px"></i> Contact HQ: +592 225-1077</p>
+          </div>
+        </div>
+
+        <!-- Region 7 — 1 office -->
+        <div class="region-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="region-number">7</div>
+          <div class="region-info">
+            <h4>Cuyuni-Mazaruni</h4>
+            <p style="font-size:0.75rem;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px">1 Office</p>
+            <p><i class="fas fa-map-marker-alt" style="color:var(--primary);width:14px;margin-right:5px"></i> <strong>Bartica</strong> — Second Avenue, Bartica</p>
+            <p style="margin-top:6px"><i class="fas fa-phone" style="color:var(--gray-500);width:14px;margin-right:5px"></i> Contact HQ: +592 225-1077</p>
+          </div>
+        </div>
+
+        <!-- Region 8 — 1 office -->
+        <div class="region-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="region-number">8</div>
+          <div class="region-info">
+            <h4>Potaro-Siparuni</h4>
+            <p style="font-size:0.75rem;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px">1 Office</p>
+            <p><i class="fas fa-map-marker-alt" style="color:var(--primary);width:14px;margin-right:5px"></i> <strong>Mahdia</strong> — Mahdia, Potaro-Siparuni</p>
+            <p style="margin-top:6px"><i class="fas fa-phone" style="color:var(--gray-500);width:14px;margin-right:5px"></i> Contact HQ: +592 225-1077</p>
+          </div>
+        </div>
+
+        <!-- Region 9 — 1 office -->
+        <div class="region-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="region-number">9</div>
+          <div class="region-info">
+            <h4>Upper Takutu-Upper Essequibo</h4>
+            <p style="font-size:0.75rem;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px">1 Office</p>
+            <p><i class="fas fa-map-marker-alt" style="color:var(--primary);width:14px;margin-right:5px"></i> <strong>Lethem</strong> — Lethem, Rupununi</p>
+            <p style="margin-top:6px"><i class="fas fa-phone" style="color:var(--gray-500);width:14px;margin-right:5px"></i> Contact HQ: +592 225-1077</p>
+          </div>
+        </div>
+
+        <!-- Region 10 — 3 offices -->
+        <div class="region-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="region-number">10</div>
+          <div class="region-info">
+            <h4>Upper Demerara-Berbice</h4>
+            <p style="font-size:0.75rem;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px">3 Offices</p>
+            <p><i class="fas fa-map-marker-alt" style="color:var(--primary);width:14px;margin-right:5px"></i> <strong>Linden</strong> — Wismar, Linden</p>
+            <p><i class="fas fa-map-marker-alt" style="color:var(--primary);width:14px;margin-right:5px"></i> <strong>Kwakwani</strong> — Kwakwani, Upper Demerara</p>
+            <p><i class="fas fa-map-marker-alt" style="color:var(--primary);width:14px;margin-right:5px"></i> <strong>Ituni</strong> — Ituni, Upper Demerara</p>
+            <p style="margin-top:6px"><i class="fas fa-phone" style="color:var(--gray-500);width:14px;margin-right:5px"></i> Contact HQ: +592 225-1077</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Info Section -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="grid grid-3" data-aos="fade-up">
+        <div class="feature-card" data-aos="zoom-in">
+          <div class="icon-circle"><i class="fas fa-bus"></i></div>
+          <h4>Accessible Locations</h4>
+          <p>Training centres are strategically located near public transport routes and community hubs for easy access.</p>
+        </div>
+        <div class="feature-card" data-aos="zoom-in">
+          <div class="icon-circle"><i class="fas fa-tools"></i></div>
+          <h4>Equipped Workshops</h4>
+          <p>Each centre features industry-standard workshops with modern tools and equipment for hands-on training.</p>
+        </div>
+        <div class="feature-card" data-aos="zoom-in">
+          <div class="icon-circle"><i class="fas fa-chalkboard-teacher"></i></div>
+          <h4>Qualified Instructors</h4>
+          <p>Experienced, certified instructors deliver training at every regional centre across the country.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Visit Your Nearest Centre</h2>
+      <p>Contact us to learn about programmes available at your regional training centre, or apply online today.</p>
+      <div class="cta-buttons">
+        
+        <a href="contact.html" class="btn btn-outline-white btn-lg"><i class="fas fa-phone"></i> Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><a href="../index.html" class="logo"><img src="../images/bit-logo.png" alt="Board of Industrial Training Logo" class="logo-img"><div class="logo-text"><span class="name">Board of Industrial Training</span><span class="tagline">Est. 1910 &bull; Guyana</span></div></a><p>Industrial training and trades certification for Guyana, established 1910.</p></div>
+        <div><h4>Quick Links</h4><div class="footer-links"><a href="about.html">About BIT</a><a href="programmes.html">Programmes</a><a href="regional-centres.html">Regional Centres</a><a href="faq.html">FAQs</a></div></div>
+        <div><h4>Services</h4><div class="footer-links"><a href="verify.html">Verify Certificate</a><a href="downloads.html">Resources</a><a href="news.html">News</a></div></div>
+        <div><h4>Contact</h4><div class="footer-links"><a href="https://www.google.com/maps/search/?api=1&query=82+Brickdam,+Georgetown,+Guyana" target="_blank" rel="noopener"><i class="fas fa-map-marker-alt" style="width:16px"></i> 82 Brickdam, Georgetown</a><a href="tel:+5922251077"><i class="fas fa-phone" style="width:16px"></i> +592 225-1077</a><a href="mailto:info@bit.gov.gy"><i class="fas fa-envelope" style="width:16px"></i> info@bit.gov.gy</a></div></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 Board of Industrial Training.</span><div><a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a> | <a href="accessibility.html">Accessibility</a></div></div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+  <script defer src="../js/main.js?v=2"></script>
+  <script defer src="../js/a11y-widget.js?v=1"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" integrity="sha384-n1AULnKdMJlK1oQCLNDL9qZsDgXtH6jRYFCpBtWFc+a9Yve0KSoMn575rk755NJZ" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script defer src="../js/enhancements.js?v=6"></script>
+
+  <!-- Programme Availability Matrix — interactivity -->
+  <script defer src="../js/inline/regional-centres-1.js?v=1"></script>
+  <script defer src="../js/aos-init.js?v=1"></script>
+</body>
+</html>

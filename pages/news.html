@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Security Headers (defense-in-depth) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com data:; img-src 'self' data: blob:; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="description" content="Latest news, press releases, and announcements from the Board of Industrial Training, Guyana.">
+  <title>News & Media — Board of Industrial Training, Guyana</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,500..800,0..100;1,9..144,400..700,0..100&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="../css/styles.css?v=6">
+  <link rel="stylesheet" href="../css/enhancements.css?v=6">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='15' fill='%231B4D8E'/%3E%3Ctext x='50' y='65' font-family='Arial' font-size='50' font-weight='bold' fill='white' text-anchor='middle'%3EBIT%3C/text%3E%3C/svg%3E">
+  <style>
+    .news-featured { display:grid; grid-template-columns:1.2fr 1fr; gap:var(--space-2xl); align-items:center; background:var(--white); border-radius:var(--radius-xl); overflow:hidden; box-shadow:var(--shadow-md); border:1px solid var(--gray-200); margin-bottom:var(--space-3xl); }
+    .news-featured-img { height:100%; min-height:350px; background:linear-gradient(135deg,var(--primary),var(--dark-2)); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.2); font-size:5rem; }
+    .news-featured-body { padding:var(--space-2xl); }
+    .news-list-item { display:flex; gap:var(--space-xl); padding:var(--space-xl) 0; border-bottom:1px solid var(--gray-200); }
+    .news-list-item:last-child { border-bottom:none; }
+    .news-list-thumb { width:200px; min-width:200px; height:140px; border-radius:var(--radius-md); overflow:hidden; background:linear-gradient(135deg,var(--gray-200),var(--gray-300)); display:flex; align-items:center; justify-content:center; font-size:2rem; color:var(--gray-500); }
+    .news-list-body h3 { font-size:1.1rem; margin-bottom:var(--space-xs); }
+    .news-list-body p { font-size:0.9rem; color:var(--gray-600); }
+    .news-sidebar { position:sticky; top:140px; }
+    .news-layout { display:grid; grid-template-columns:2fr 1fr; gap:var(--space-3xl); }
+    @media(max-width:768px) { .news-featured { grid-template-columns:1fr; } .news-featured-img { min-height:200px; } .news-list-item { flex-direction:column; } .news-list-thumb { width:100%; } .news-layout { grid-template-columns:1fr; } .news-sidebar { position:static; } }
+  </style>
+</head>
+<body>
+  <div class="top-bar"><div class="container"><div class="top-bar-left"><span><i class="fas fa-landmark"></i> Ministry of Labour & Manpower Planning</span></div><div class="top-bar-right"><a href="tel:+5922251077"><i class="fas fa-phone"></i> +592 225-1077</a><a href="mailto:info@bit.gov.gy"><i class="fas fa-envelope"></i> info@bit.gov.gy</a></div></div></div>
+
+  <header class="header" id="header">
+    <div class="container">
+      <a href="../index.html" class="logo"><img src="../images/bit-logo.png" alt="Board of Industrial Training Logo" class="logo-img"><div class="logo-text"><span class="name">Board of Industrial Training</span><span class="tagline">Est. 1910 &bull; Guyana</span></div></a>
+      <nav class="main-nav" id="mainNav"><a href="../index.html">Home</a><a href="about.html">About</a><div class="nav-dropdown"><a href="programmes.html">Programmes <i class="fas fa-chevron-down nav-chevron"></i></a><div class="dropdown-menu"><a href="programme-detail.html?p=electrical">Electrical</a><a href="programme-detail.html?p=welding">Welding</a><a href="programmes.html">View All &rarr;</a></div></div><a href="regional-centres.html">Regions</a><a href="news.html" class="active">News</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></nav>
+      <div class="header-cta">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button><a href="verify.html" class="btn btn-outline btn-sm">Verify Certificate</a></div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <!-- Page Hero — News: Editorial Magazine -->
+  <section class="page-hero hero-news">
+    <div class="container">
+      <div class="news-label-bar">
+        <span class="news-dot"></span>
+        <span class="news-label">BIT BULLETIN</span>
+        <span class="news-divider">|</span>
+        <span>Latest News & Media</span>
+      </div>
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="sep"><i class="fas fa-chevron-right"></i></span>
+        <span>News & Media</span>
+      </div>
+      <h1>News &<br><span class="accent-text">Media</span></h1>
+      <p>Stay updated with the latest press releases, announcements, success stories, and events from the Board of Industrial Training.</p>
+      <div class="news-category-tabs" id="newsCategoryTabs">
+        <span class="active" data-news-filter="all" role="button" tabindex="0">All</span>
+        <span data-news-filter="announcements" role="button" tabindex="0">Announcements</span>
+        <span data-news-filter="events" role="button" tabindex="0">Events</span>
+        <!-- "Success Stories" tab removed: its only item was the fabricated
+             graduate achievement story withdrawn after the NDMA assessment
+             (10 July 2026). Restore this tab when BIT publishes a real,
+             sourced success story with the graduate's consent. -->
+        <span data-news-filter="press" role="button" tabindex="0">Press Releases</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <!-- Featured Story -->
+      <div class="news-featured" data-aos="fade-up" data-news-cat="announcements">
+        <div class="news-featured-img" style="background:none;padding:0">
+          <img src="../images/gallery/gallery-04-modern-facility.jpg?v=2"
+               alt="The BIT Berbice training centre — modern grey-and-orange building exterior with Board of Industrial Training signage"
+               loading="lazy" decoding="async"
+               style="width:100%;height:100%;object-fit:cover;display:block">
+        </div>
+        <div class="news-featured-body">
+          <span class="badge badge-accent" style="margin-bottom:var(--space-sm)">Featured</span>
+          <div class="news-card-meta" style="margin-bottom:var(--space-sm)">
+            <span class="date"><i class="far fa-calendar"></i> March 28, 2026</span>
+            <span>|</span>
+            <span>Infrastructure</span>
+          </div>
+          <h2 style="font-size:1.5rem;margin-bottom:var(--space-md)">New $55.4 Million Region 6 Training Facility Officially Commissioned</h2>
+          <p style="color:var(--gray-600);margin-bottom:var(--space-lg)">The Board of Industrial Training has officially opened its newest state-of-the-art training facility in Berbice, Region 6. The $55.4 million investment significantly expands BIT's capacity for trades training in the Berbice corridor, featuring modern workshops equipped with industry-standard tools and equipment for welding, electrical, carpentry, and IT programmes.</p>
+          <a href="regional-centres.html#region-6-feature" class="btn btn-primary btn-sm"><i class="fas fa-arrow-right"></i> Read Full Story</a>
+        </div>
+      </div>
+
+      <!-- News Layout -->
+      <div class="news-layout">
+        <!-- News List -->
+        <div>
+          <h2 style="margin-bottom:var(--space-xl)">Recent News</h2>
+
+          <div class="news-list-item" data-aos="fade-up" data-news-cat="events">
+            <div class="news-list-thumb" style="background:none">
+              <img src="../images/gallery/gallery-02-graduation-2025.jpg?v=1"
+                   alt="Wide audience shot of BIT graduates in black and gold gowns at the 2025 graduation ceremony"
+                   loading="lazy" decoding="async"
+                   style="width:100%;height:100%;object-fit:cover;display:block">
+            </div>
+            <div class="news-list-body">
+              <div class="news-card-meta" style="margin-bottom:var(--space-xs)">
+                <span class="date"><i class="far fa-calendar"></i> March 15, 2026</span>
+                <span class="badge badge-primary">Graduation</span>
+              </div>
+              <h3>2025 Graduation Ceremony Celebrates 1,200 New Graduates</h3>
+              <p>BIT's annual graduation ceremony held at the National Cultural Centre recognised outstanding achievements across all 12 training disciplines and 10 regions. Minister of Labour delivered the keynote address highlighting the critical role of skilled workers in Guyana's economic transformation.</p>
+              <a href="gallery.html" class="card-link" style="margin-top:var(--space-sm);display:inline-flex">See photos <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- "BIT Signs New MOU with USAID" article removed per review-2:
+               all USAID references stripped from the site. -->
+
+          <!-- "BIT Welding Graduate Wins National Skills Competition" removed
+               following the NDMA security assessment (10 July 2026). The item
+               attributed a named individual's competition result without a
+               verifiable source or the individual's consent. Achievement
+               stories naming a graduate should only be published once BIT
+               holds written consent and can evidence the claim. -->
+
+          <div class="news-list-item" data-aos="fade-up" data-news-cat="press">
+            <div class="news-list-thumb" style="background:none">
+              <img src="../images/gallery/gallery-05-it-class.jpg?v=1"
+                   alt="BIT Information Technology trainee at a laptop, classroom of students in the background"
+                   loading="lazy" decoding="async"
+                   style="width:100%;height:100%;object-fit:cover;display:block">
+            </div>
+            <div class="news-list-body">
+              <div class="news-card-meta" style="margin-bottom:var(--space-xs)">
+                <span class="date"><i class="far fa-calendar"></i> January 10, 2026</span>
+                <span class="badge badge-primary">Programmes</span>
+              </div>
+              <h3>New IT Curriculum Launched with Cybersecurity Module</h3>
+              <p>BIT's Information Technology programme has been updated to include a dedicated cybersecurity fundamentals module, responding to growing demand for digital security skills across Guyana's public and private sectors.</p>
+              <a href="programme-detail.html?p=it" class="card-link" style="margin-top:var(--space-sm);display:inline-flex">About the IT programme <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="news-list-item" data-aos="fade-up" data-news-cat="announcements">
+            <div class="news-list-thumb" style="background:none">
+              <img src="../images/gallery/gallery-08-regional-outreach.jpg?v=1"
+                   alt="Large group of BIT trainees in hi-vis vests and hard hats — illustrating the scale of training funded by the national budget"
+                   loading="lazy" decoding="async"
+                   style="width:100%;height:100%;object-fit:cover;display:block">
+            </div>
+            <div class="news-list-body">
+              <div class="news-card-meta" style="margin-bottom:var(--space-xs)">
+                <span class="date"><i class="far fa-calendar"></i> December 15, 2025</span>
+                <span class="badge badge-primary">Budget</span>
+              </div>
+              <h3>BIT Receives GYD $677.5 Million in 2025 National Budget</h3>
+              <p>The national budget allocation of GYD $677.5 million for BIT reflects the government's commitment to expanding vocational training capacity. The funds cover operational costs, new equipment, facility upgrades, and expanded regional programme delivery.</p>
+              <a href="about.html" class="card-link" style="margin-top:var(--space-sm);display:inline-flex">BIT at a glance <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="news-list-item" data-aos="fade-up" data-news-cat="events">
+            <div class="news-list-thumb" style="background:none">
+              <img src="../images/gallery/gallery-06-open-day.jpg?v=1"
+                   alt="Open day at BIT — culinary trainees in hairnets serving plated meals to visitors, hi-vis safety crew nearby"
+                   loading="lazy" decoding="async"
+                   style="width:100%;height:100%;object-fit:cover;display:block">
+            </div>
+            <div class="news-list-body">
+              <div class="news-card-meta" style="margin-bottom:var(--space-xs)">
+                <span class="date"><i class="far fa-calendar"></i> November 22, 2025</span>
+                <span class="badge badge-secondary">Outreach</span>
+              </div>
+              <h3>BIT Hosts Open Day Attracting Over 500 Prospective Trainees</h3>
+              <p>BIT's Georgetown headquarters hosted a successful Open Day event featuring live demonstrations across all 12 programmes, facility tours, and one-on-one consultations with instructors and admissions staff.</p>
+              <a href="contact.html" class="card-link" style="margin-top:var(--space-sm);display:inline-flex">Ask about the next open day <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="news-sidebar">
+          <!-- Categories -->
+          <div class="info-box" style="background:var(--white);border-radius:var(--radius-lg);border:1px solid var(--gray-200);padding:var(--space-xl);margin-bottom:var(--space-lg)">
+            <h3 style="font-size:1.05rem;margin-bottom:var(--space-md)">Categories</h3>
+            <div style="display:flex;flex-direction:column;gap:var(--space-xs)">
+              <a href="#" style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--gray-200);color:var(--gray-700);font-size:0.9rem">Infrastructure <span class="badge badge-primary">2</span></a>
+              <a href="#" style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--gray-200);color:var(--gray-700);font-size:0.9rem">Graduation <span class="badge badge-primary">1</span></a>
+              <a href="#" style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--gray-200);color:var(--gray-700);font-size:0.9rem">Partnerships <span class="badge badge-primary">3</span></a>
+              <a href="#" style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--gray-200);color:var(--gray-700);font-size:0.9rem">Programmes <span class="badge badge-primary">4</span></a>
+              <a href="#" style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--gray-200);color:var(--gray-700);font-size:0.9rem">Achievement <span class="badge badge-primary">2</span></a>
+              <a href="#" style="display:flex;justify-content:space-between;padding:8px 0;color:var(--gray-700);font-size:0.9rem">Budget <span class="badge badge-primary">1</span></a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div style="background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:var(--radius-lg);padding:var(--space-xl);color:var(--white);margin-bottom:var(--space-lg)">
+            <h3 style="font-size:1.05rem;margin-bottom:var(--space-md);color:var(--white)"><i class="fas fa-bullhorn" style="margin-right:6px"></i> Stay Updated</h3>
+            <p style="font-size:0.88rem;color:rgba(255,255,255,0.85);margin-bottom:var(--space-md)">Follow BIT on Facebook for the latest updates, success stories, and event announcements.</p>
+            <a href="https://www.facebook.com/p/Board-of-Industrial-Training-Guyana-100064261016522/" target="_blank" rel="noopener" aria-label="BIT on Facebook" style="display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:var(--radius-md);background:rgba(255,255,255,0.15);color:#fff;font-size:0.9rem;font-weight:600;text-decoration:none;transition:background .15s ease" class="hov-glass"><i class="fab fa-facebook-f"></i> Open Facebook page</a>
+          </div>
+
+          <!-- Apply CTA -->
+          <div style="background:var(--gray-100);border-radius:var(--radius-lg);padding:var(--space-xl);text-align:center">
+            <i class="fas fa-graduation-cap" style="font-size:2rem;color:var(--primary);margin-bottom:var(--space-md);display:block"></i>
+            <h3 style="font-size:1.05rem;margin-bottom:var(--space-sm)">Ready to Join?</h3>
+            <p style="font-size:0.88rem;color:var(--gray-600);margin-bottom:var(--space-md)">2026 intake applications are now open.</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Have a Media Enquiry?</h2>
+      <p>Contact our communications team for press releases, interview requests, or media accreditation.</p>
+      <div class="cta-buttons"><a href="contact.html" class="btn btn-secondary btn-lg"><i class="fas fa-envelope"></i> Contact Communications</a></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><a href="../index.html" class="logo"><img src="../images/bit-logo.png" alt="Board of Industrial Training Logo" class="logo-img"><div class="logo-text"><span class="name">Board of Industrial Training</span><span class="tagline">Est. 1910 &bull; Guyana</span></div></a><p>Industrial training and trades certification for Guyana, established 1910.</p></div>
+        <div><h4>Quick Links</h4><div class="footer-links"><a href="about.html">About BIT</a><a href="programmes.html">Programmes</a><a href="regional-centres.html">Regional Centres</a><a href="faq.html">FAQs</a></div></div>
+        <div><h4>Services</h4><div class="footer-links"><a href="verify.html">Verify Certificate</a><a href="downloads.html">Resources</a><a href="news.html">News</a></div></div>
+        <div><h4>Contact</h4><div class="footer-links"><a href="https://www.google.com/maps/search/?api=1&query=82+Brickdam,+Georgetown,+Guyana" target="_blank" rel="noopener"><i class="fas fa-map-marker-alt" style="width:16px"></i> 82 Brickdam, Georgetown</a><a href="tel:+5922251077"><i class="fas fa-phone" style="width:16px"></i> +592 225-1077</a><a href="mailto:info@bit.gov.gy"><i class="fas fa-envelope" style="width:16px"></i> info@bit.gov.gy</a></div></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 Board of Industrial Training.</span><div><a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a> | <a href="accessibility.html">Accessibility</a></div></div>
+    </div>
+  </footer>
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+  <script defer src="../js/main.js?v=2"></script>
+  <script defer src="../js/a11y-widget.js?v=1"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" integrity="sha384-n1AULnKdMJlK1oQCLNDL9qZsDgXtH6jRYFCpBtWFc+a9Yve0KSoMn575rk755NJZ" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script defer src="../js/enhancements.js?v=6"></script>
+  <script defer src="../js/inline/news-1.js?v=1"></script>
+  <script defer src="../js/inline-handlers.js?v=1"></script>
+  <script defer src="../js/aos-init.js?v=1"></script>
+</body>
+</html>

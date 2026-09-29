@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Security Headers (defense-in-depth) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com data:; img-src 'self' data: blob:; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="description" content="Apply online for BIT training programmes. Complete your application in minutes — select a programme, provide your details, and submit.">
+  <title>Apply Now — Board of Industrial Training, Guyana</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,500..800,0..100;1,9..144,400..700,0..100&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="../css/styles.css?v=6">
+  <link rel="stylesheet" href="../css/enhancements.css?v=6">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='15' fill='%231B4D8E'/%3E%3Ctext x='50' y='65' font-family='Arial' font-size='50' font-weight='bold' fill='white' text-anchor='middle'%3EBIT%3C/text%3E%3C/svg%3E">
+  <style>
+    .apply-container { max-width:800px; margin:0 auto; }
+    .step-progress { display:flex; justify-content:space-between; position:relative; margin-bottom:var(--space-3xl); }
+    .step-progress::before { content:''; position:absolute; top:20px; left:10%; right:10%; height:3px; background:var(--gray-300); z-index:0; }
+    .step-progress .progress-fill { position:absolute; top:20px; left:10%; height:3px; background:var(--primary); z-index:1; transition:width 0.4s ease; }
+    .step-item { text-align:center; position:relative; z-index:2; flex:1; }
+    .step-num { width:42px; height:42px; border-radius:50%; background:var(--gray-300); color:var(--gray-600); display:flex; align-items:center; justify-content:center; font-weight:700; margin:0 auto var(--space-xs); transition:all 0.3s ease; font-size:0.95rem; }
+    .step-item.active .step-num { background:var(--primary); color:var(--white); box-shadow:0 4px 12px rgba(27,77,142,0.3); }
+    .step-item.completed .step-num { background:var(--success); color:var(--white); }
+    .step-item .step-text { font-size:0.78rem; font-weight:500; color:var(--gray-500); }
+    .step-item.active .step-text { color:var(--primary); font-weight:600; }
+    .step-item.completed .step-text { color:var(--success); }
+    .form-section { display:none; animation:fadeIn 0.3s ease; }
+    .form-section.active { display:block; }
+    .form-section h2 { font-size:1.5rem; margin-bottom:var(--space-xs); }
+    .form-section .section-desc { color:var(--gray-600); margin-bottom:var(--space-2xl); }
+    .form-nav { display:flex; justify-content:space-between; margin-top:var(--space-2xl); padding-top:var(--space-xl); border-top:1px solid var(--gray-200); }
+    .programme-select-card { padding:var(--space-lg); border:2px solid var(--gray-200); border-radius:var(--radius-md); cursor:pointer; transition:all 0.2s ease; display:flex; align-items:center; gap:var(--space-md); }
+    .programme-select-card:hover { border-color:var(--primary); background:rgba(27,77,142,0.02); }
+    .programme-select-card.selected { border-color:var(--primary); background:rgba(27,77,142,0.05); }
+    .programme-select-card .radio { width:20px; height:20px; border-radius:50%; border:2px solid var(--gray-400); display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:all 0.2s; }
+    .programme-select-card.selected .radio { border-color:var(--primary); background:var(--primary); }
+    .programme-select-card.selected .radio::after { content:''; width:8px; height:8px; border-radius:50%; background:var(--white); }
+    .success-container { text-align:center; padding:var(--space-3xl) var(--space-xl); }
+    .success-icon { width:100px; height:100px; margin:0 auto var(--space-xl); background:linear-gradient(135deg,var(--success),#1B8A3E); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:2.5rem; color:var(--white); box-shadow:0 12px 30px rgba(40,167,69,0.3); }
+    .ref-code { display:inline-block; background:var(--gray-100); border:2px dashed var(--primary); border-radius:var(--radius-md); padding:var(--space-md) var(--space-2xl); font-family:var(--font-mono); font-size:1.4rem; font-weight:700; color:var(--primary); letter-spacing:3px; margin:var(--space-lg) 0; }
+  </style>
+</head>
+<body>
+  <div class="top-bar"><div class="container"><div class="top-bar-left"><span><i class="fas fa-landmark"></i> Ministry of Labour & Manpower Planning</span></div><div class="top-bar-right"><a href="tel:+5922251077"><i class="fas fa-phone"></i> +592 225-1077</a><a href="mailto:info@bit.gov.gy"><i class="fas fa-envelope"></i> info@bit.gov.gy</a></div></div></div>
+
+  <header class="header" id="header">
+    <div class="container">
+      <a href="../index.html" class="logo"><img src="../images/bit-logo.png" alt="Board of Industrial Training Logo" class="logo-img"><div class="logo-text"><span class="name">Board of Industrial Training</span><span class="tagline">Est. 1910 &bull; Guyana</span></div></a>
+      <nav class="main-nav" id="mainNav"><a href="../index.html">Home</a><a href="about.html">About</a><div class="nav-dropdown"><a href="programmes.html">Programmes <i class="fas fa-chevron-down nav-chevron"></i></a><div class="dropdown-menu"><a href="programme-detail.html?p=electrical">Electrical</a><a href="programme-detail.html?p=welding">Welding</a><a href="programmes.html">View All &rarr;</a></div></div><a href="regional-centres.html">Regions</a><a href="news.html">News</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></nav>
+      <div class="header-cta">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button><a href="verify.html" class="btn btn-outline btn-sm">Verify Certificate</a><a href="apply.html" class="btn btn-primary btn-sm">Apply Now</a></div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <!-- Page Hero — Apply: Bold CTA with Steps -->
+  <section class="page-hero hero-apply">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="sep"><i class="fas fa-chevron-right"></i></span>
+        <span>Apply Now</span>
+      </div>
+      <div class="apply-eyebrow"><i class="fas fa-graduation-cap"></i> 2026 Intake — Applications Now Open</div>
+      <h1>Start Your<br><span class="accent-text">Journey Today</span></h1>
+      <p>Complete your application in just a few minutes. Select a programme, provide your details, and take the first step toward a certified career.</p>
+      <div class="apply-steps-preview">
+        <div class="step-pill"><span>1</span> Choose Programme</div>
+        <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+        <div class="step-pill"><span>2</span> Fill Details</div>
+        <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+        <div class="step-pill"><span>3</span> Submit Application</div>
+        <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+        <div class="step-pill"><span>4</span> Get Confirmed</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="apply-container">
+
+        <!-- Step Progress -->
+        <div class="step-progress" id="stepProgress">
+          <div class="progress-fill" id="progressFill" style="width:0%"></div>
+          <div class="step-item active" data-step="1">
+            <div class="step-num">1</div>
+            <div class="step-text">Programme</div>
+          </div>
+          <div class="step-item" data-step="2">
+            <div class="step-num">2</div>
+            <div class="step-text">Personal Info</div>
+          </div>
+          <div class="step-item" data-step="3">
+            <div class="step-num">3</div>
+            <div class="step-text">Education</div>
+          </div>
+          <div class="step-item" data-step="4">
+            <div class="step-num">4</div>
+            <div class="step-text">Review</div>
+          </div>
+        </div>
+
+        <!-- Step 1: Programme Selection -->
+        <div class="form-section active" id="step1">
+          <h2><i class="fas fa-graduation-cap" style="color:var(--primary);margin-right:8px"></i> Select Your Programme</h2>
+          <p class="section-desc">Choose the training programme you would like to apply for. Each programme includes hands-on practical training and BIT certification.</p>
+
+          <div class="form-group">
+            <label class="form-label">Preferred Intake Period <span class="required">*</span></label>
+            <select class="form-control" id="intakePeriod" required>
+              <option value="">Select intake...</option>
+              <option value="jan2026">January 2026</option>
+              <option value="jul2026">July 2026</option>
+              <option value="jan2027">January 2027</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Preferred Region <span class="required">*</span></label>
+            <select class="form-control" id="prefRegion" required>
+              <option value="">Select region...</option>
+              <option>Region 1 — Barima-Waini</option>
+              <option>Region 2 — Pomeroon-Supenaam</option>
+              <option>Region 3 — Essequibo Islands-West Demerara</option>
+              <option>Region 4 — Demerara-Mahaica (Georgetown HQ)</option>
+              <option>Region 5 — Mahaica-Berbice</option>
+              <option>Region 6 — East Berbice-Corentyne</option>
+              <option>Region 7 — Cuyuni-Mazaruni</option>
+              <option>Region 8 — Potaro-Siparuni</option>
+              <option>Region 9 — Upper Takutu-Upper Essequibo</option>
+              <option>Region 10 — Upper Demerara-Berbice</option>
+            </select>
+          </div>
+
+          <label class="form-label" style="margin-bottom:var(--space-md)">Select Programme <span class="required">*</span></label>
+          <div style="display:flex;flex-direction:column;gap:var(--space-sm)" id="programmeList">
+            <div class="programme-select-card" data-programme="Electrical Installation & Maintenance"><div class="radio"></div><div><strong>Electrical Installation & Maintenance</strong><br><small style="color:var(--gray-600)">12 months &bull; Residential & commercial wiring</small></div></div>
+            <div class="programme-select-card" data-programme="Plumbing & Pipefitting"><div class="radio"></div><div><strong>Plumbing & Pipefitting</strong><br><small style="color:var(--gray-600)">12 months &bull; Water supply & drainage systems</small></div></div>
+            <div class="programme-select-card" data-programme="Welding & Fabrication"><div class="radio"></div><div><strong>Welding & Fabrication</strong><br><small style="color:var(--gray-600)">12 months &bull; Arc, MIG, TIG welding techniques</small></div></div>
+            <div class="programme-select-card" data-programme="Motor Vehicle Mechanics"><div class="radio"></div><div><strong>Motor Vehicle Mechanics</strong><br><small style="color:var(--gray-600)">12 months &bull; Light & heavy-duty diagnostics</small></div></div>
+            <div class="programme-select-card" data-programme="Carpentry & Joinery"><div class="radio"></div><div><strong>Carpentry & Joinery</strong><br><small style="color:var(--gray-600)">12 months &bull; Woodworking & construction</small></div></div>
+            <div class="programme-select-card" data-programme="Masonry & Construction"><div class="radio"></div><div><strong>Masonry & Construction</strong><br><small style="color:var(--gray-600)">12 months &bull; Bricklaying & concrete work</small></div></div>
+            <div class="programme-select-card" data-programme="Information Technology"><div class="radio"></div><div><strong>Information Technology & Computer Servicing</strong><br><small style="color:var(--gray-600)">9 months &bull; Hardware, networking, digital skills</small></div></div>
+            <div class="programme-select-card" data-programme="Cosmetology & Beauty Culture"><div class="radio"></div><div><strong>Cosmetology & Beauty Culture</strong><br><small style="color:var(--gray-600)">9 months &bull; Hair, skincare, nail artistry</small></div></div>
+            <div class="programme-select-card" data-programme="Garment Construction & Fashion Design"><div class="radio"></div><div><strong>Garment Construction & Fashion Design</strong><br><small style="color:var(--gray-600)">9 months &bull; Pattern making & sewing</small></div></div>
+            <div class="programme-select-card" data-programme="Food Preparation & Culinary Arts"><div class="radio"></div><div><strong>Food Preparation & Culinary Arts</strong><br><small style="color:var(--gray-600)">9 months &bull; Professional cooking & food safety</small></div></div>
+            <div class="programme-select-card" data-programme="Air Conditioning & Refrigeration"><div class="radio"></div><div><strong>Air Conditioning & Refrigeration</strong><br><small style="color:var(--gray-600)">12 months &bull; HVAC systems & maintenance</small></div></div>
+            <div class="programme-select-card" data-programme="Agriculture & Agro-Processing"><div class="radio"></div><div><strong>Agriculture & Agro-Processing</strong><br><small style="color:var(--gray-600)">12 months &bull; Farming & food processing</small></div></div>
+          </div>
+
+          <div class="form-nav">
+            <div></div>
+            <button class="btn btn-primary" data-step-next="2">Continue <i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- Step 2: Personal Information -->
+        <div class="form-section" id="step2">
+          <h2><i class="fas fa-user" style="color:var(--primary);margin-right:8px"></i> Personal Information</h2>
+          <p class="section-desc">Provide your personal details. All information is kept confidential in accordance with our privacy policy.</p>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">First Name <span class="required">*</span></label>
+              <input type="text" class="form-control" id="firstName" placeholder="Enter first name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Last Name <span class="required">*</span></label>
+              <input type="text" class="form-control" id="lastName" placeholder="Enter last name" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Date of Birth <span class="required">*</span></label>
+              <input type="date" class="form-control" id="dob" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Gender <span class="required">*</span></label>
+              <select class="form-control" id="gender" required>
+                <option value="">Select...</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Prefer not to say</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">National ID Number <span class="required">*</span></label>
+              <input type="text" class="form-control" id="nationalId" placeholder="Enter national ID">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Phone Number <span class="required">*</span></label>
+              <input type="tel" class="form-control" id="phone" placeholder="+592 000-0000">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Email Address <span class="required">*</span></label>
+            <input type="email" class="form-control" id="email" placeholder="you@example.com">
+            <p class="form-help">Your confirmation and reference number will be sent to this email address.</p>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Home Address <span class="required">*</span></label>
+            <textarea class="form-control" id="address" rows="2" placeholder="Street address, village/town, region"></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Region of Residence <span class="required">*</span></label>
+              <select class="form-control" id="homeRegion">
+                <option value="">Select region...</option>
+                <option>Region 1</option><option>Region 2</option><option>Region 3</option><option>Region 4</option><option>Region 5</option><option>Region 6</option><option>Region 7</option><option>Region 8</option><option>Region 9</option><option>Region 10</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Ethnicity (Optional)</label>
+              <select class="form-control" id="ethnicity">
+                <option value="">Prefer not to say</option>
+                <option>African/Black</option><option>East Indian</option><option>Mixed</option><option>Amerindian</option><option>Chinese</option><option>Portuguese</option><option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-nav">
+            <button class="btn btn-outline" data-step-prev="1"><i class="fas fa-arrow-left"></i> Back</button>
+            <button class="btn btn-primary" data-step-next="3">Continue <i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- Step 3: Education & Documents -->
+        <div class="form-section" id="step3">
+          <h2><i class="fas fa-file-alt" style="color:var(--primary);margin-right:8px"></i> Education & Documents</h2>
+          <p class="section-desc">Provide your educational background and upload supporting documents.</p>
+
+          <div class="form-group">
+            <label class="form-label">Highest Level of Education Completed <span class="required">*</span></label>
+            <select class="form-control" id="education">
+              <option value="">Select...</option>
+              <option>Primary School</option>
+              <option>Secondary School (some)</option>
+              <option>Secondary School (completed)</option>
+              <option>CXC / CSEC</option>
+              <option>CAPE / A-Levels</option>
+              <option>Diploma / Certificate</option>
+              <option>University Degree</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Last School Attended</label>
+            <input type="text" class="form-control" id="lastSchool" placeholder="Name of school or institution">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Do you have any prior work experience in a related trade?</label>
+            <select class="form-control" id="experience">
+              <option value="">Select...</option>
+              <option>No prior experience</option>
+              <option>Less than 1 year</option>
+              <option>1-3 years</option>
+              <option>3-5 years</option>
+              <option>More than 5 years</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Upload Supporting Documents</label>
+            <div style="border:2px dashed var(--gray-300);border-radius:var(--radius-md);padding:var(--space-2xl);text-align:center;background:var(--gray-100);cursor:pointer;transition:all 0.2s" class="hov-border">
+              <i class="fas fa-cloud-upload-alt" style="font-size:2rem;color:var(--gray-500);margin-bottom:var(--space-sm);display:block"></i>
+              <p style="font-weight:600;color:var(--gray-700);margin-bottom:4px">Click to upload or drag files here</p>
+              <p style="font-size:0.82rem;color:var(--gray-500);margin:0">ID card, school certificates, photos (PDF, JPG, PNG — Max 5MB each)</p>
+            </div>
+            <p class="form-help">Documents can also be submitted in person at your nearest BIT centre after applying online.</p>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Additional Information / Special Requirements</label>
+            <textarea class="form-control" id="additionalInfo" rows="3" placeholder="Any disabilities, special needs, or additional information you'd like BIT to know about (optional)"></textarea>
+          </div>
+
+          <div class="form-nav">
+            <button class="btn btn-outline" data-step-prev="2"><i class="fas fa-arrow-left"></i> Back</button>
+            <button class="btn btn-primary" data-step-next="4">Review Application <i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- Step 4: Review & Submit -->
+        <div class="form-section" id="step4">
+          <h2><i class="fas fa-clipboard-check" style="color:var(--primary);margin-right:8px"></i> Review Your Application</h2>
+          <p class="section-desc">Please review all information before submitting. You can go back to make changes.</p>
+
+          <div id="reviewContent" style="background:var(--gray-100);border-radius:var(--radius-lg);padding:var(--space-xl)">
+            <!-- Populated by JS -->
+          </div>
+
+          <div style="margin-top:var(--space-xl)">
+            <div class="form-check" style="margin-bottom:var(--space-md)">
+              <input type="checkbox" id="truthful" required>
+              <label for="truthful" style="font-size:0.88rem;color:var(--gray-700)">I declare that all information provided is true and accurate to the best of my knowledge. I understand that providing false information may result in disqualification.</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" id="privacy" required>
+              <label for="privacy" style="font-size:0.88rem;color:var(--gray-700)">I consent to BIT collecting and processing my personal data for the purpose of this application. See <a href="privacy.html">Privacy Policy</a>.</label>
+            </div>
+          </div>
+
+          <div class="form-nav">
+            <button class="btn btn-outline" data-step-prev="3"><i class="fas fa-arrow-left"></i> Back</button>
+            <button class="btn btn-primary btn-lg" data-submit-application><i class="fas fa-paper-plane"></i> Submit Application</button>
+          </div>
+        </div>
+
+        <!-- Success Screen -->
+        <div class="form-section" id="stepSuccess">
+          <div class="success-container">
+            <div class="success-icon"><i class="fas fa-check"></i></div>
+            <h2 style="margin-bottom:var(--space-sm)">Application Submitted Successfully!</h2>
+            <p style="color:var(--gray-600);font-size:1.05rem;margin-bottom:var(--space-lg)">Your application has been received by the Board of Industrial Training. Please save your reference number below.</p>
+
+            <div>
+              <p style="font-weight:600;color:var(--gray-700);margin-bottom:var(--space-xs)">Your Application Reference Number:</p>
+              <div class="ref-code" id="refCode">BIT-2026-XXXX</div>
+            </div>
+
+            <div class="alert alert-info" style="text-align:left;margin-top:var(--space-xl);max-width:550px;margin-left:auto;margin-right:auto">
+              <i class="fas fa-info-circle" style="font-size:1.2rem;margin-top:2px"></i>
+              <div>
+                <strong>What Happens Next?</strong>
+                <ul style="list-style:disc;padding-left:var(--space-lg);margin-top:var(--space-sm);margin-bottom:0">
+                  <li>A confirmation email has been sent to your email address</li>
+                  <li>BIT admissions will review your application within 5-10 business days</li>
+                  <li>You may be contacted for an interview or additional documents</li>
+                  <li>Use your reference number for any follow-up enquiries</li>
+                </ul>
+              </div>
+            </div>
+
+            <div style="margin-top:var(--space-2xl);display:flex;gap:var(--space-md);justify-content:center;flex-wrap:wrap">
+              <a href="../index.html" class="btn btn-outline"><i class="fas fa-home"></i> Back to Home</a>
+              <a href="programmes.html" class="btn btn-primary"><i class="fas fa-th-list"></i> Explore Programmes</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><a href="../index.html" class="logo"><img src="../images/bit-logo.png" alt="Board of Industrial Training Logo" class="logo-img"><div class="logo-text"><span class="name">Board of Industrial Training</span><span class="tagline">Est. 1910 &bull; Guyana</span></div></a><p>Industrial training and trades certification for Guyana, established 1910.</p></div>
+        <div><h4>Quick Links</h4><div class="footer-links"><a href="about.html">About BIT</a><a href="programmes.html">Programmes</a><a href="regional-centres.html">Regional Centres</a><a href="faq.html">FAQs</a></div></div>
+        <div><h4>Services</h4><div class="footer-links"><a href="apply.html">Apply Online</a><a href="verify.html">Verify Certificate</a><a href="downloads.html">Resources</a><a href="news.html">News</a></div></div>
+        <div><h4>Contact</h4><div class="footer-links"><a href="https://www.google.com/maps/search/?api=1&query=82+Brickdam,+Georgetown,+Guyana" target="_blank" rel="noopener"><i class="fas fa-map-marker-alt" style="width:16px"></i> 82 Brickdam, Georgetown</a><a href="tel:+5922251077"><i class="fas fa-phone" style="width:16px"></i> +592 225-1077</a><a href="mailto:info@bit.gov.gy"><i class="fas fa-envelope" style="width:16px"></i> info@bit.gov.gy</a></div></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 Board of Industrial Training.</span><div><a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a> | <a href="accessibility.html">Accessibility</a></div></div>
+    </div>
+  </footer>
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+  <script defer src="../js/main.js?v=2"></script>
+  <script defer src="../js/a11y-widget.js?v=1"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" integrity="sha384-n1AULnKdMJlK1oQCLNDL9qZsDgXtH6jRYFCpBtWFc+a9Yve0KSoMn575rk755NJZ" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script defer src="../js/enhancements.js?v=6"></script>
+
+  <script defer src="../js/inline/apply-1.js?v=1"></script>
+  <script defer src="../js/inline-handlers.js?v=1"></script>
+  <script defer src="../js/aos-init.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Security Headers (defense-in-depth) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com data:; img-src 'self' data: blob:; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="description" content="Explore BIT's 12 certified vocational training programmes — from Electrical Installation to IT, Welding, Culinary Arts and more.">
+  <title>Our Programmes — Board of Industrial Training, Guyana</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,500..800,0..100;1,9..144,400..700,0..100&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="../css/styles.css?v=6">
+  <link rel="stylesheet" href="../css/enhancements.css?v=6">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='15' fill='%231B4D8E'/%3E%3Ctext x='50' y='65' font-family='Arial' font-size='50' font-weight='bold' fill='white' text-anchor='middle'%3EBIT%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-left">
+        <span><i class="fas fa-landmark"></i> Ministry of Labour & Manpower Planning</span>
+      </div>
+      <div class="top-bar-right">
+        <a href="tel:+5922251077"><i class="fas fa-phone"></i> +592 225-1077</a>
+        <a href="mailto:info@bit.gov.gy"><i class="fas fa-envelope"></i> info@bit.gov.gy</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container">
+      <a href="../index.html" class="logo">
+        <img src="../images/bit-logo.png" alt="Board of Industrial Training Logo" class="logo-img">
+        <div class="logo-text">
+          <span class="name">Board of Industrial Training</span>
+          <span class="tagline">Est. 1910 &bull; Guyana</span>
+        </div>
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <a href="../index.html">Home</a>
+        <a href="about.html">About</a>
+        <div class="nav-dropdown">
+          <a href="programmes.html" class="active">Programmes <i class="fas fa-chevron-down nav-chevron"></i></a>
+          <div class="dropdown-menu">
+            <a href="programme-detail.html?p=electrical">Electrical Installation</a>
+            <a href="programme-detail.html?p=welding">Welding & Fabrication</a>
+            <a href="programme-detail.html?p=it">Information Technology</a>
+            <a href="programmes.html">View All &rarr;</a>
+          </div>
+        </div>
+        <a href="regional-centres.html">Regions</a>
+        <a href="news.html">News</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-cta">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+        <a href="verify.html" class="btn btn-outline btn-sm">Verify Certificate</a>
+        
+      </div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <!-- Page Hero — Programmes: Bold Trade Showcase -->
+  <section class="page-hero hero-programmes">
+    <div class="floating-icons">
+      <span><i class="fas fa-bolt"></i></span>
+      <span><i class="fas fa-fire"></i></span>
+      <span><i class="fas fa-laptop-code"></i></span>
+      <span><i class="fas fa-car"></i></span>
+      <span><i class="fas fa-hammer"></i></span>
+      <span><i class="fas fa-utensils"></i></span>
+    </div>
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="sep"><i class="fas fa-chevron-right"></i></span>
+        <span>Programmes</span>
+      </div>
+      <div class="programmes-hero-label"><i class="fas fa-certificate" style="margin-right:6px"></i>12 Disciplines · Nationally Certified · Industry-Ready</div>
+      <h1>Training<br><span class="accent-text">Programmes</span></h1>
+      <p>12 certified vocational training disciplines designed to equip you with industry-ready skills and nationally recognised certifications.</p>
+      <div class="category-pills">
+        <span><i class="fas fa-wrench" style="margin-right:5px"></i>Trades</span>
+        <span><i class="fas fa-laptop" style="margin-right:5px"></i>Technology</span>
+        <span><i class="fas fa-scissors" style="margin-right:5px"></i>Creative</span>
+        <span><i class="fas fa-utensils" style="margin-right:5px"></i>Hospitality</span>
+        <span><i class="fas fa-seedling" style="margin-right:5px"></i>Agriculture</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- All Programmes Grid -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="overline">12 Disciplines</span>
+        <h2>Choose Your Path</h2>
+        <div class="section-divider"></div>
+        <p>Each programme combines theoretical instruction with intensive hands-on practical training, culminating in a BIT-certified credential recognised across Guyana and the Caribbean.</p>
+      </div>
+
+      <div class="grid grid-3" data-aos="fade-up">
+
+        <!-- 1. Electrical -->
+        <div class="programme-card" data-aos="fade-up" data-aos-delay="0" data-href="programme-detail.html?p=electrical" style="cursor:pointer">
+          <div class="icon" style="background:linear-gradient(135deg, #FF8C42 0%, #FF6B35 100%)">
+            <i class="fas fa-bolt" style="color:#fff"></i>
+          </div>
+          <span class="badge badge-primary">Trades</span>
+          <h3>Electrical Installation & Maintenance</h3>
+          <p>Residential and commercial electrical wiring, circuit design, maintenance protocols, and safety compliance. Covers NEC standards and local regulations.</p>
+          <div style="display:flex;gap:var(--space-md);flex-wrap:wrap;margin-bottom:var(--space-md)">
+            <span style="font-size:0.8rem;color:var(--gray-600)"><i class="far fa-clock" style="margin-right:4px"></i> 4-4 to 6 Months</span>
+            <span style="font-size:0.8rem;color:var(--gray-600)"><i class="fas fa-map-pin" style="margin-right:4px"></i> Multiple Regions</span>
+          </div>
+          <a href="programme-detail.html?p=electrical" class="card-link">View Details <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <!-- 2. Plumbing -->
+        <div class="programme-card" data-aos="fade-up" data-aos-delay="100" data-href="programme-detail.html?p=plumbing" style="cursor:pointer">
+          <div class="icon" style="background:linear-gradient(135deg, #4ECDC4 0%, #2C8C99 100%)">
+            <i class="fas fa-faucet" style="color:#fff"></i>
+          </div>
+          <span class="badge badge-primary">Trades</span>
+          <h3>Plumbing & Pipefitting</h3>
+          <p>Water supply systems, drainage, pipe installation, soldering techniques, and building code compliance for residential and commercial structures.</p>
+          <div style="display:flex;gap:var(--space-md);flex-wrap:wrap;margin-bottom:var(--space-md)">
+            <span style="font-size:0.8rem;color:var(--gray-600)"><i class="far fa-clock" style="margin-right:4px"></i> 4-4 to 6 Months</span>
+            <span style="font-size:0.8rem;color:var(--gray-600)"><i class="fas fa-map-pin" style="margin-right:4px"></i> Multiple Regions</span>
+          </div>
+          <a href="programme-detail.html?p=plumbing" class="card-link">View Details <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <!-- 3. Welding -->
+        <div class="programme-card" data-aos="fade-up" data-aos-delay="200" data-href="programme-detail.html?p=welding" style="cursor:pointer">
+          <div class="icon" style="background:linear-gradient(135deg, #EF5350 0%, #C62828 100%)">
+            <i class="fas fa-fire" style="color:#fff"></i>
+          </div>
+          <span class="badge badge-primary">Trades</span>
+          <h3>Welding & Fabrication</h3>
+          <p>Arc welding, MIG, TIG techniques, metal fabrication, blueprint reading, and structural welding for industrial and construction applications.</p>
+          <div style="display:flex;gap:var(--space-md);flex-wrap:wrap;margin-bottom:var(--space-md)">
+            <span style="font-size:0.8rem;color:var(--gray-600)"><i class="far fa-clock" style="margin-right:4px"></i> 4-4 to 6 Months</span>
+            <span style="font-size:0.8rem;color:var(--gray-600)"><i class="fas fa-map-pin" style="margin-right:4px"></i> Multiple Regions</span>
+          </div>
+          <a href="programme-detail.html?p=welding" class="card-link">View Details <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <!-- 4. Motor Vehicle -->
+        <div class="programme-card" data-aos="fade-up" data-aos-delay="0" data-href="programme-detail.html?p=motor" style="cursor:pointer">
+          <div class="icon" style="background:linear-gradient(135deg, #7C3AED 0%, #4338CA 100%)">
+            <i class="fas fa-car" style="color:#fff"></i>
+          </div>
+          <span class="badge badge-primary">Trades</span>
+          <h3>Motor Vehicle Mechanics</h3>
+          <p>Light and heavy-duty vehicle diagnostics, engine repair, transmission systems, brake servicing, and automotive electrical systems.</p>
+          <div style="display:flex;gap:var(--space-md);flex-wrap:wrap;margin-bottom:var(--space-md)">
+            <span style="font-size:0.8rem;color:var(--gray-600)"><i class="far fa-clock" style="margin-right:4px"></i> 4-4 to 6 Months</span>
+            <span style="font-size:0.8rem;color:var(--gray-600)"><i class="fas fa-map-pin" style="margin-right:4px"></i> Multiple Regions</span>
+          </div>
+          <a href="programme-detail.html?p=motor" class="card-link">View Details <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <!-- 5. Carpentry -->
+        <div class="programme-card" data-aos="fade-up" data-aos-delay="100" data-href="programme-detail.html?p=carpentry" style="cursor:pointer">
+          <div class="icon" style="background:linear-gradient(135deg, #A0774A 0%, #6D4C2E 100%)">
+            <i class="fas fa-hammer" style="color:#fff"></i>
+          </div>
+          <span class="badge badge-primary">Trades</span>
+          <h3>Carpentry & Joinery</h3>
+          <p>Woodworking, furniture construction, building framework, architectural joinery, finishing techniques, and workshop safety.</p>
+          <div style="display:flex;gap:var(--space-md);flex-wrap:wrap;margin-bottom:var(--space-md)">
+            <span style="font-size:0.8rem;color:var(--gray-600)"><i class="far fa-clock" style="margin-right:4px"></i> 4-4 to 6 Months</span>
+            <span style="font-size:0.8rem;color:var(--gray-600)"><i class="fas fa-map-pin" style="margin-right:4px"></i> Multiple Regions</span>
+          </div>
+          <a href="programme-detail.html?p=carpentry" class="card-link">View Details <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <!-- 6. Masonry -->
+        <div class="programme-card" data-aos="fade-up" data-aos-delay="200" data-href="programme-detail.html?p=masonry" style="cursor:pointer">
+          <div class="icon" style="background:linear-gradient(135deg, #78909C 0%, #546E7A 100%)">
+            <i class="fas fa-cubes" style="color:#fff"></i>
+          </div>
+          <span class="badge badge-primary">Trades</span>
+          <h3>Masonry & Construction</h3>
+          <p>Bricklaying, block work, concrete mixing, plastering, tiling, and construction site safety for residential and commercial buildings.</p>
+          <div style="display:flex;gap:var(--space-md);flex-wrap:wrap;margin-bottom:var(--space-md)">
+            <span style="font-size:0.8rem;color:var(--gray-600)"><i class="far fa-clock" style="margin-right:4px"></i> 4-4 to 6 Months</span>
+            <span style="font-size:0.8rem;color:var(--gray-600)"><i class="fas fa-map-pin" style="margin-right:4px"></i> Multiple Regions</span>
+          </div>
+          <a href="programme-detail.html?p=masonry" class="card-link">View Details <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <!-- 7. IT -->
+        <div class="programme-card" data-aos="fade-up" data-aos-delay="0" data-href="programme-detail.html?p=it" style="cursor:pointer">
+          <div class="icon" style="background:linear-gradient(135deg, #06D6A0 0%, #028A6D 100%)">
+            <i class="fas fa-laptop-code" style="color:#fff"></i>
+          </div>
+          <span class="badge badge-secondary">Technology</span>
+          <h3>Information Technology & Computer Servicing</h3>
+          <p>Computer hardware repair, networking fundamentals, operating systems, software applications, and digital literacy for the modern workplace.</p>
+          <div style="display:flex;gap:var(--space-md);flex-wrap:wrap;margin-bottom:var(--space-md)">
+            <span style="font-size:0.8rem;color:var(--gray-600)"><i class="far fa-clock" style="margin-right:4px"></i> 6-9 Months</span>
+            <span style="font-size:0.8rem;color:var(--gray-600)"><i class="fas fa-map-pin" style="margin-right:4px"></i> Georgetown & Regions</span>
+          </div>
+          <a href="programme-detail.html?p=it" class="card-link">View Details <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <!-- 8. Cosmetology -->
+        <div class="programme-card" data-aos="fade-up" data-aos-delay="100" data-href="programme-detail.html?p=cosmetology" style="cursor:pointer">
+          <div class="icon" style="background:linear-gradient(135deg, #F06292 0%, #C2185B 100%)">
+            <i class="fas fa-spa" style="color:#fff"></i>
+          </div>
+          <span class="badge badge-accent">Creative</span>
+          <h3>Cosmetology & Beauty Culture</h3>
+          <p>Hair styling, skincare, nail artistry, makeup application, salon management, and hygiene standards for the beauty industry.</p>
+          <div style="display:flex;gap:var(--space-md);flex-wrap:wrap;margin-bottom:var(--space-md)">
+            <span style="font-size:0.8rem;color:var(--gray-600)"><i class="far fa-clock" style="margin-right:4px"></i> 6-9 Months</span>
+            <span style="font-size:0.8rem;color:var(--gray-600)"><i class="fas fa-map-pin" style="margin-right:4px"></i> Georgetown & Regions</span>
+          </div>
+          <a href="programme-detail.html?p=cosmetology" class="card-link">View Details <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <!-- 9. Garment -->
+        <div class="programme-card" data-aos="fade-up" data-aos-delay="200" data-href="programme-detail.html?p=garment" style="cursor:pointer">
+          <div class="icon" style="background:linear-gradient(135deg, #AB47BC 0%, #7B1FA2 100%)">
+            <i class="fas fa-scissors" style="color:#fff"></i>
+          </div>
+          <span class="badge badge-accent">Creative</span>
+          <h3>Garment Construction & Fashion Design</h3>
+          <p>Pattern making, fabric cutting, machine and hand sewing, fashion illustration, garment finishing, and small business management.</p>
+          <div style="display:flex;gap:var(--space-md);flex-wrap:wrap;margin-bottom:var(--space-md)">
+            <span style="font-size:0.8rem;color:var(--gray-600)"><i class="far fa-clock" style="margin-right:4px"></i> 6-9 Months</span>
+            <span style="font-size:0.8rem;color:var(--gray-600)"><i class="fas fa-map-pin" style="margin-right:4px"></i> Georgetown & Regions</span>
+          </div>
+          <a href="programme-detail.html?p=garment" class="card-link">View Details <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <!-- 10. Culinary -->
+        <div class="programme-card" data-aos="fade-up" data-aos-delay="0" data-href="programme-detail.html?p=culinary" style="cursor:pointer">
+          <div class="icon" style="background:linear-gradient(135deg, #FF7043 0%, #D84315 100%)">
+            <i class="fas fa-utensils" style="color:#fff"></i>
+          </div>
+          <span class="badge badge-secondary">Hospitality</span>
+          <h3>Food Preparation & Culinary Arts</h3>
+          <p>Professional cooking techniques, food safety and hygiene, nutrition fundamentals, kitchen management, and menu planning.</p>
+          <div style="display:flex;gap:var(--space-md);flex-wrap:wrap;margin-bottom:var(--space-md)">
+            <span style="font-size:0.8rem;color:var(--gray-600)"><i class="far fa-clock" style="margin-right:4px"></i> 6-9 Months</span>
+            <span style="font-size:0.8rem;color:var(--gray-600)"><i class="fas fa-map-pin" style="margin-right:4px"></i> Georgetown & Regions</span>
+          </div>
+          <a href="programme-detail.html?p=culinary" class="card-link">View Details <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <!-- 11. AC -->
+        <div class="programme-card" data-aos="fade-up" data-aos-delay="100" data-href="programme-detail.html?p=ac" style="cursor:pointer">
+          <div class="icon" style="background:linear-gradient(135deg, #42A5F5 0%, #1565C0 100%)">
+            <i class="fas fa-snowflake" style="color:#fff"></i>
+          </div>
+          <span class="badge badge-primary">Trades</span>
+          <h3>Air Conditioning & Refrigeration</h3>
+          <p>HVAC systems installation, refrigeration mechanics, troubleshooting, preventive maintenance, and environmental compliance (refrigerant handling).</p>
+          <div style="display:flex;gap:var(--space-md);flex-wrap:wrap;margin-bottom:var(--space-md)">
+            <span style="font-size:0.8rem;color:var(--gray-600)"><i class="far fa-clock" style="margin-right:4px"></i> 4-4 to 6 Months</span>
+            <span style="font-size:0.8rem;color:var(--gray-600)"><i class="fas fa-map-pin" style="margin-right:4px"></i> Georgetown & Regions</span>
+          </div>
+          <a href="programme-detail.html?p=ac" class="card-link">View Details <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <!-- 12. Agriculture -->
+        <div class="programme-card" data-aos="fade-up" data-aos-delay="200" data-href="programme-detail.html?p=agriculture" style="cursor:pointer">
+          <div class="icon" style="background:linear-gradient(135deg, #66BB6A 0%, #2E7D32 100%)">
+            <i class="fas fa-seedling" style="color:#fff"></i>
+          </div>
+          <span class="badge badge-secondary">Agriculture</span>
+          <h3>Agriculture & Agro-Processing</h3>
+          <p>Crop cultivation, livestock management, food processing techniques, value-added production, and sustainable farming practices.</p>
+          <div style="display:flex;gap:var(--space-md);flex-wrap:wrap;margin-bottom:var(--space-md)">
+            <span style="font-size:0.8rem;color:var(--gray-600)"><i class="far fa-clock" style="margin-right:4px"></i> 4-4 to 6 Months</span>
+            <span style="font-size:0.8rem;color:var(--gray-600)"><i class="fas fa-map-pin" style="margin-right:4px"></i> Regional Centres</span>
+          </div>
+          <a href="programme-detail.html?p=agriculture" class="card-link">View Details <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Sectors & Occupational Areas -->
+  <section class="section" style="background:#f8fafc;border-top:3px solid #1B4D8E;" id="sectors-occupational-areas" aria-label="Sectors and Occupational Areas">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="overline" style="color:#F26522;">Training Catalogue</span>
+        <h2>Sectors &amp; Occupational Areas</h2>
+        <div class="section-divider"></div>
+        <p>BIT training spans <strong>9 industry sectors</strong> — each encompassing multiple occupational areas to match every learner's career goals.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:22px;" data-aos="fade-up">
+
+        <!-- Agriculture -->
+        <div style="background:#fff;border-radius:14px;box-shadow:0 2px 18px rgba(0,0,0,0.08);overflow:hidden;display:flex;flex-direction:column;">
+          <div style="background:#2e7d32;padding:20px 22px;display:flex;align-items:center;gap:12px;">
+            <div style="width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fas fa-seedling" style="color:#fff;font-size:18px;"></i></div>
+            <h3 style="color:#fff;font-size:0.95rem;font-weight:700;margin:0;line-height:1.3;">Agriculture</h3>
+          </div>
+          <ul style="list-style:none;margin:0;padding:12px 18px 16px;flex:1;">
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#2e7d32;font-size:11px;flex-shrink:0;"></i><span>Sustainable Farming</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#2e7d32;font-size:11px;flex-shrink:0;"></i><span>Agro-processing</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#2e7d32;font-size:11px;flex-shrink:0;"></i><span>Tractor Operator</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#2e7d32;font-size:11px;flex-shrink:0;"></i><span>Small Engine Repair</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#2e7d32;font-size:11px;flex-shrink:0;"></i><span>Boat Building</span></li>
+          </ul>
+          <div style="padding:8px 18px;background:#f8fafc;border-top:1px solid #e2e8f0;"><span style="font-size:0.78rem;color:#6b7280;font-weight:600;">5 occupational areas</span></div>
+        </div>
+
+        <!-- Construction -->
+        <div style="background:#fff;border-radius:14px;box-shadow:0 2px 18px rgba(0,0,0,0.08);overflow:hidden;display:flex;flex-direction:column;">
+          <div style="background:#bf360c;padding:20px 22px;display:flex;align-items:center;gap:12px;">
+            <div style="width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fas fa-hard-hat" style="color:#fff;font-size:18px;"></i></div>
+            <h3 style="color:#fff;font-size:0.95rem;font-weight:700;margin:0;line-height:1.3;">Construction</h3>
+          </div>
+          <ul style="list-style:none;margin:0;padding:12px 18px 16px;flex:1;">
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#bf360c;font-size:11px;flex-shrink:0;"></i><span>Building Construction</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#bf360c;font-size:11px;flex-shrink:0;"></i><span>Masonry</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#bf360c;font-size:11px;flex-shrink:0;"></i><span>Electrical Installation</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#bf360c;font-size:11px;flex-shrink:0;"></i><span>Plumbing</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#bf360c;font-size:11px;flex-shrink:0;"></i><span>Carpentry / Furniture / Joinery</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#bf360c;font-size:11px;flex-shrink:0;"></i><span>Welding &amp; Fabrication</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#bf360c;font-size:11px;flex-shrink:0;"></i><span>Metal Work Engineering</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#bf360c;font-size:11px;flex-shrink:0;"></i><span>AutoCAD</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#bf360c;font-size:11px;flex-shrink:0;"></i><span>OSH</span></li>
+          </ul>
+          <div style="padding:8px 18px;background:#f8fafc;border-top:1px solid #e2e8f0;"><span style="font-size:0.78rem;color:#6b7280;font-weight:600;">9 occupational areas</span></div>
+        </div>
+
+        <!-- Oil & Gas -->
+        <div style="background:#fff;border-radius:14px;box-shadow:0 2px 18px rgba(0,0,0,0.08);overflow:hidden;display:flex;flex-direction:column;">
+          <div style="background:#37474f;padding:20px 22px;display:flex;align-items:center;gap:12px;">
+            <div style="width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fas fa-oil-well" style="color:#fff;font-size:18px;"></i></div>
+            <h3 style="color:#fff;font-size:0.95rem;font-weight:700;margin:0;line-height:1.3;">Oil &amp; Gas</h3>
+          </div>
+          <ul style="list-style:none;margin:0;padding:12px 18px 16px;flex:1;">
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#37474f;font-size:11px;flex-shrink:0;"></i><span>Welding</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#37474f;font-size:11px;flex-shrink:0;"></i><span>Electrical</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#37474f;font-size:11px;flex-shrink:0;"></i><span>Heavy Duty Equipment Operation</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#37474f;font-size:11px;flex-shrink:0;"></i><span>Heavy Duty Mechanic</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#37474f;font-size:11px;flex-shrink:0;"></i><span>Automotive Trades</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#37474f;font-size:11px;flex-shrink:0;"></i><span>AC &amp; Refrigeration</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#37474f;font-size:11px;flex-shrink:0;"></i><span>Fibre Optics</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#37474f;font-size:11px;flex-shrink:0;"></i><span>Solar PV</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#37474f;font-size:11px;flex-shrink:0;"></i><span>IT / Data</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#37474f;font-size:11px;flex-shrink:0;"></i><span>OSH</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#37474f;font-size:11px;flex-shrink:0;"></i><span>Boat Building</span></li>
+          </ul>
+          <div style="padding:8px 18px;background:#f8fafc;border-top:1px solid #e2e8f0;"><span style="font-size:0.78rem;color:#6b7280;font-weight:600;">11 occupational areas</span></div>
+        </div>
+
+        <!-- Manufacturing / Industrial Trades -->
+        <div style="background:#fff;border-radius:14px;box-shadow:0 2px 18px rgba(0,0,0,0.08);overflow:hidden;display:flex;flex-direction:column;">
+          <div style="background:#0277bd;padding:20px 22px;display:flex;align-items:center;gap:12px;">
+            <div style="width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fas fa-industry" style="color:#fff;font-size:18px;"></i></div>
+            <h3 style="color:#fff;font-size:0.95rem;font-weight:700;margin:0;line-height:1.3;">Manufacturing / Industrial Trades</h3>
+          </div>
+          <ul style="list-style:none;margin:0;padding:12px 18px 16px;flex:1;">
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#0277bd;font-size:11px;flex-shrink:0;"></i><span>Fitting &amp; Machining</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#0277bd;font-size:11px;flex-shrink:0;"></i><span>Metal Work Engineering</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#0277bd;font-size:11px;flex-shrink:0;"></i><span>Welding</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#0277bd;font-size:11px;flex-shrink:0;"></i><span>PV Systems</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#0277bd;font-size:11px;flex-shrink:0;"></i><span>Furniture Making</span></li>
+          </ul>
+          <div style="padding:8px 18px;background:#f8fafc;border-top:1px solid #e2e8f0;"><span style="font-size:0.78rem;color:#6b7280;font-weight:600;">5 occupational areas</span></div>
+        </div>
+
+        <!-- ICT & Digital Services -->
+        <div style="background:#fff;border-radius:14px;box-shadow:0 2px 18px rgba(0,0,0,0.08);overflow:hidden;display:flex;flex-direction:column;">
+          <div style="background:#6a1b9a;padding:20px 22px;display:flex;align-items:center;gap:12px;">
+            <div style="width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fas fa-laptop-code" style="color:#fff;font-size:18px;"></i></div>
+            <h3 style="color:#fff;font-size:0.95rem;font-weight:700;margin:0;line-height:1.3;">ICT &amp; Digital Services</h3>
+          </div>
+          <ul style="list-style:none;margin:0;padding:12px 18px 16px;flex:1;">
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#6a1b9a;font-size:11px;flex-shrink:0;"></i><span>Information Technology</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#6a1b9a;font-size:11px;flex-shrink:0;"></i><span>Data Operations</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#6a1b9a;font-size:11px;flex-shrink:0;"></i><span>Computer Maintenance &amp; Repair</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#6a1b9a;font-size:11px;flex-shrink:0;"></i><span>JAWS / ICT</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#6a1b9a;font-size:11px;flex-shrink:0;"></i><span>Customer Service</span></li>
+          </ul>
+          <div style="padding:8px 18px;background:#f8fafc;border-top:1px solid #e2e8f0;"><span style="font-size:0.78rem;color:#6b7280;font-weight:600;">5 occupational areas</span></div>
+        </div>
+
+        <!-- Hospitality & Tourism -->
+        <div style="background:#fff;border-radius:14px;box-shadow:0 2px 18px rgba(0,0,0,0.08);overflow:hidden;display:flex;flex-direction:column;">
+          <div style="background:#c62828;padding:20px 22px;display:flex;align-items:center;gap:12px;">
+            <div style="width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fas fa-utensils" style="color:#fff;font-size:18px;"></i></div>
+            <h3 style="color:#fff;font-size:0.95rem;font-weight:700;margin:0;line-height:1.3;">Hospitality &amp; Tourism</h3>
+          </div>
+          <ul style="list-style:none;margin:0;padding:12px 18px 16px;flex:1;">
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#c62828;font-size:11px;flex-shrink:0;"></i><span>Commercial Food Preparation</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#c62828;font-size:11px;flex-shrink:0;"></i><span>Hospitality</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#c62828;font-size:11px;flex-shrink:0;"></i><span>Cosmetology</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#c62828;font-size:11px;flex-shrink:0;"></i><span>Aesthetics</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#c62828;font-size:11px;flex-shrink:0;"></i><span>Interior Decoration</span></li>
+          </ul>
+          <div style="padding:8px 18px;background:#f8fafc;border-top:1px solid #e2e8f0;"><span style="font-size:0.78rem;color:#6b7280;font-weight:600;">5 occupational areas</span></div>
+        </div>
+
+        <!-- Automotive & Transportation -->
+        <div style="background:#fff;border-radius:14px;box-shadow:0 2px 18px rgba(0,0,0,0.08);overflow:hidden;display:flex;flex-direction:column;">
+          <div style="background:#1565c0;padding:20px 22px;display:flex;align-items:center;gap:12px;">
+            <div style="width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fas fa-car" style="color:#fff;font-size:18px;"></i></div>
+            <h3 style="color:#fff;font-size:0.95rem;font-weight:700;margin:0;line-height:1.3;">Automotive &amp; Transportation</h3>
+          </div>
+          <ul style="list-style:none;margin:0;padding:12px 18px 16px;flex:1;">
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#1565c0;font-size:11px;flex-shrink:0;"></i><span>Motor Vehicle Servicing &amp; Repairs</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#1565c0;font-size:11px;flex-shrink:0;"></i><span>Automotive Electrician</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#1565c0;font-size:11px;flex-shrink:0;"></i><span>Auto Body Repair</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#1565c0;font-size:11px;flex-shrink:0;"></i><span>HD Mechanic</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#1565c0;font-size:11px;flex-shrink:0;"></i><span>HD Equipment Operator</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#1565c0;font-size:11px;flex-shrink:0;"></i><span>Tractor Operation</span></li>
+          </ul>
+          <div style="padding:8px 18px;background:#f8fafc;border-top:1px solid #e2e8f0;"><span style="font-size:0.78rem;color:#6b7280;font-weight:600;">6 occupational areas</span></div>
+        </div>
+
+        <!-- Social Services / Office Administration -->
+        <div style="background:#fff;border-radius:14px;box-shadow:0 2px 18px rgba(0,0,0,0.08);overflow:hidden;display:flex;flex-direction:column;">
+          <div style="background:#4527a0;padding:20px 22px;display:flex;align-items:center;gap:12px;">
+            <div style="width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fas fa-briefcase" style="color:#fff;font-size:18px;"></i></div>
+            <h3 style="color:#fff;font-size:0.95rem;font-weight:700;margin:0;line-height:1.3;">Social Services / Office Administration</h3>
+          </div>
+          <ul style="list-style:none;margin:0;padding:12px 18px 16px;flex:1;">
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#4527a0;font-size:11px;flex-shrink:0;"></i><span>Psychology</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#4527a0;font-size:11px;flex-shrink:0;"></i><span>Social Work</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#4527a0;font-size:11px;flex-shrink:0;"></i><span>Organizational Management</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#4527a0;font-size:11px;flex-shrink:0;"></i><span>Supervisory Management</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#4527a0;font-size:11px;flex-shrink:0;"></i><span>General Office Administration</span></li>
+          </ul>
+          <div style="padding:8px 18px;background:#f8fafc;border-top:1px solid #e2e8f0;"><span style="font-size:0.78rem;color:#6b7280;font-weight:600;">5 occupational areas</span></div>
+        </div>
+
+        <!-- Creative / Craft Industries -->
+        <div style="background:#fff;border-radius:14px;box-shadow:0 2px 18px rgba(0,0,0,0.08);overflow:hidden;display:flex;flex-direction:column;">
+          <div style="background:#ad1457;padding:20px 22px;display:flex;align-items:center;gap:12px;">
+            <div style="width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fas fa-palette" style="color:#fff;font-size:18px;"></i></div>
+            <h3 style="color:#fff;font-size:0.95rem;font-weight:700;margin:0;line-height:1.3;">Creative / Craft Industries</h3>
+          </div>
+          <ul style="list-style:none;margin:0;padding:12px 18px 16px;flex:1;">
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#ad1457;font-size:11px;flex-shrink:0;"></i><span>Craft Production</span></li>
+            <li style="display:flex;align-items:baseline;gap:8px;padding:5px 0;font-size:0.875rem;color:#374151;"><i class="fas fa-check-circle" style="color:#ad1457;font-size:11px;flex-shrink:0;"></i><span>Interior Decoration</span></li>
+          </ul>
+          <div style="padding:8px 18px;background:#f8fafc;border-top:1px solid #e2e8f0;"><span style="font-size:0.78rem;color:#6b7280;font-weight:600;">2 occupational areas</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Why BIT Programmes -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="overline">Programme Benefits</span>
+        <h2>What You Get With BIT Certification</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="grid grid-4" data-aos="fade-up">
+        <div class="feature-card" data-aos="zoom-in">
+          <div class="icon-circle"><i class="fas fa-hands-helping"></i></div>
+          <h4>Hands-On Training</h4>
+          <p>80%+ practical instruction in real workshop environments with industry-standard tools and equipment.</p>
+        </div>
+        <div class="feature-card" data-aos="zoom-in">
+          <div class="icon-circle"><i class="fas fa-award"></i></div>
+          <h4>Certified Credentials</h4>
+          <p>Nationally recognised BIT certificate aligned with Caribbean TVET standards and frameworks.</p>
+        </div>
+        <div class="feature-card" data-aos="zoom-in">
+          <div class="icon-circle"><i class="fas fa-users-cog"></i></div>
+          <h4>Industry Connections</h4>
+          <p>Direct pathways to employment through partnerships with GNIC, GuySuCo, BOSAI, and more.</p>
+        </div>
+        <div class="feature-card" data-aos="zoom-in">
+          <div class="icon-circle"><i class="fas fa-wallet"></i></div>
+          <h4>Affordable Access</h4>
+          <p>Government-subsidised fees ensure quality vocational training is accessible to all Guyanese citizens.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Enrol?</h2>
+      <p>BIT enrolments are handled in person at any of our centres. Visit your nearest centre, call us, or send an email and our team will help you start an application.</p>
+      <div class="cta-buttons">
+        <a href="regional-centres.html" class="btn btn-secondary btn-lg"><i class="fas fa-map-marker-alt"></i> Find a Centre</a>
+        <a href="contact.html" class="btn btn-outline-white btn-lg"><i class="fas fa-envelope"></i> Contact Admissions</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="logo"><img src="../images/bit-logo.png" alt="Board of Industrial Training Logo" class="logo-img"><div class="logo-text"><span class="name">Board of Industrial Training</span><span class="tagline">Est. 1910 &bull; Guyana</span></div></a>
+          <p>Industrial training and trades certification for Guyana, established 1910.</p>
+        </div>
+        <div><h4>Quick Links</h4><div class="footer-links"><a href="about.html">About BIT</a><a href="programmes.html">Programmes</a><a href="regional-centres.html">Regional Centres</a><a href="faq.html">FAQs</a></div></div>
+        <div><h4>Services</h4><div class="footer-links"><a href="verify.html">Verify Certificate</a><a href="downloads.html">Resources</a><a href="news.html">News</a></div></div>
+        <div><h4>Contact</h4><div class="footer-links"><a href="https://www.google.com/maps/search/?api=1&query=82+Brickdam,+Georgetown,+Guyana" target="_blank" rel="noopener"><i class="fas fa-map-marker-alt" style="width:16px"></i> 82 Brickdam, Georgetown</a><a href="tel:+5922251077"><i class="fas fa-phone" style="width:16px"></i> +592 225-1077</a><a href="mailto:info@bit.gov.gy"><i class="fas fa-envelope" style="width:16px"></i> info@bit.gov.gy</a></div></div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Board of Industrial Training. All rights reserved.</span>
+        <div><a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a> | <a href="accessibility.html">Accessibility</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+  <script defer src="../js/main.js?v=2"></script>
+  <script defer src="../js/a11y-widget.js?v=1"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" integrity="sha384-n1AULnKdMJlK1oQCLNDL9qZsDgXtH6jRYFCpBtWFc+a9Yve0KSoMn575rk755NJZ" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script defer src="../js/enhancements.js?v=6"></script>
+  <script defer src="../js/inline-handlers.js?v=1"></script>
+  <script defer src="../js/aos-init.js?v=1"></script>
+</body>
+</html>

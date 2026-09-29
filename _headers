@@ -1,0 +1,93 @@
+# ════════════════════════════════════════════════════════════════
+# Server-side security headers (Netlify reads this file at deploy)
+# ════════════════════════════════════════════════════════════════
+# These supplement the meta-tag headers in index.html. Real HTTP
+# headers are stronger — meta tags can't deliver Strict-Transport-
+# Security or the cross-origin isolation triplet.
+
+/*
+  # Force HTTPS for two years across this domain + every subdomain.
+  # Pre-loaded HSTS is acceptable for gov.gy infrastructure.
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+
+  # Same as the <meta> CSP but delivered as a real HTTP header
+  # (meta-tag CSP is processed slightly later in some browsers, so
+  # this gives belt-and-suspenders coverage on early subresources).
+  #
+  # script-src no longer permits 'unsafe-inline'. Every inline <script>
+  # and inline on*= handler was migrated to an external file under /js/
+  # in response to the NDMA security assessment of 10 July 2026
+  # (Finding 4). Inline script execution is now blocked outright, so a
+  # future HTML-injection bug cannot escalate to script execution.
+  #
+  # style-src still allows 'unsafe-inline': the compiled React bundle and
+  # a number of pages emit inline style attributes. Style injection cannot
+  # execute script, so this is a materially lower risk and is tracked
+  # separately for a future release.
+  #
+  # connect-src includes the Netlify Forms endpoint so the contact form
+  # can POST; form-action is scoped to the same.
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://unpkg.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net data:; img-src 'self' data: blob: https:; media-src 'self' blob:; connect-src 'self'; frame-src 'none'; manifest-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://labour.gov.gy; object-src 'none'; worker-src 'self' blob:; upgrade-insecure-requests
+
+  # MIME-type sniffing off — protects against polyglot upload exploits.
+  X-Content-Type-Options: nosniff
+
+  # Belt-and-suspenders against clickjacking; CSP frame-ancestors 'none'
+  # already covers modern browsers, X-Frame-Options handles legacy ones.
+  X-Frame-Options: DENY
+
+  # Referrer leak prevention — strip path/query when navigating off-site.
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # Disable any sensors/APIs the site doesn't use. Each = "()" denies
+  # the feature for self AND any embedded frames.
+  Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=(), interest-cohort=(), browsing-topics=()
+
+  # Cross-origin isolation — opt out of being grouped with attacker
+  # documents in the same browsing context group. Required for SAB
+  # if we ever add it; harmless otherwise.
+  Cross-Origin-Opener-Policy: same-origin
+
+  # Resources can only be fetched by same-origin pages by default.
+  Cross-Origin-Resource-Policy: same-origin
+
+  # Block legacy XSS auditor abuse; modern browsers ignore this header
+  # (CSP supersedes it) but it costs nothing to keep for older Edges.
+  X-XSS-Protection: 0
+
+  # No browser fingerprinting via the Server header.
+  # (We can't unset X-Powered-By from a Netlify _headers file — empty
+  #  values are rejected by Netlify's parser. Netlify doesn't add an
+  #  X-Powered-By header to static sites by default, so leaving it
+  #  out here is the correct outcome.)
+  Server: BIT
+
+# ════════════════════════════════════════════════════════════════
+# Per-asset overrides
+# ════════════════════════════════════════════════════════════════
+
+# Long-lived cache for hashed/versioned assets (the ?v= cache busters
+# we sprinkle through index.html make this safe).
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/images/*
+  Cache-Control: public, max-age=2592000
+
+/media/*
+  Cache-Control: public, max-age=2592000
+
+# security.txt is a long-lived disclosure record.
+/.well-known/security.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=86400
+
+# robots.txt + sitemap.xml — short cache so we can flip robots if needed.
+/robots.txt
+  Cache-Control: public, max-age=3600
+
+/sitemap.xml
+  Cache-Control: public, max-age=3600

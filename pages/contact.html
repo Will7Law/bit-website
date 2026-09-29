@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Security Headers (defense-in-depth) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com data:; img-src 'self' data: blob:; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="description" content="Contact the Board of Industrial Training — phone, email, address, and contact form. Georgetown headquarters and regional offices.">
+  <title>Contact Us — Board of Industrial Training, Guyana</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,500..800,0..100;1,9..144,400..700,0..100&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="../css/styles.css?v=6">
+  <link rel="stylesheet" href="../css/enhancements.css?v=6">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='15' fill='%231B4D8E'/%3E%3Ctext x='50' y='65' font-family='Arial' font-size='50' font-weight='bold' fill='white' text-anchor='middle'%3EBIT%3C/text%3E%3C/svg%3E">
+  <style>
+    .contact-grid { display:grid; grid-template-columns:1fr 1.2fr; gap:var(--space-3xl); }
+    .contact-info-card { background:var(--white); border-radius:var(--radius-lg); padding:var(--space-xl); border:1px solid var(--gray-200); display:flex; gap:var(--space-lg); align-items:flex-start; transition:all var(--transition); }
+    .contact-info-card:hover { border-color:var(--primary); box-shadow:var(--shadow-sm); }
+    .contact-info-icon { width:50px; height:50px; min-width:50px; background:linear-gradient(135deg,rgba(27,77,142,0.1),rgba(27,77,142,0.04)); border-radius:var(--radius-md); display:flex; align-items:center; justify-content:center; color:var(--primary); font-size:1.2rem; }
+    .contact-info-card h4 { font-size:0.95rem; margin-bottom:2px; }
+    .contact-info-card p { font-size:0.9rem; color:var(--gray-600); margin:0; }
+    .contact-info-card a { color:var(--primary); font-weight:500; }
+    @media(max-width:768px) { .contact-grid { grid-template-columns:1fr; } }
+
+    /* Live character counter for the message field (NDMA Finding 1 —
+       input length restrictions must be visible to the user, not just
+       enforced silently). */
+    .char-count { font-size:0.78rem; color:var(--gray-500); text-align:right; margin-top:4px; }
+    .char-count.is-near  { color:#b45309; font-weight:600; }
+    .char-count.is-limit { color:#dc2626; font-weight:700; }
+
+    /* Field-level validation message */
+    .field-error {
+      font-size:0.8rem; color:#dc2626; margin-top:4px; display:none;
+    }
+    .field-error.is-shown { display:block; }
+    .form-control[aria-invalid="true"] { border-color:#dc2626; }
+
+    /* Throttle notice */
+    .throttle-note {
+      display:none; margin-top:var(--space-md); padding:var(--space-md);
+      background:rgba(180,83,9,0.08); border:1px solid rgba(180,83,9,0.28);
+      border-radius:var(--radius-md); font-size:0.85rem; color:#7a3d09;
+    }
+    .throttle-note.is-shown { display:block; }
+  </style>
+</head>
+<body>
+  <div class="top-bar"><div class="container"><div class="top-bar-left"><span><i class="fas fa-landmark"></i> Ministry of Labour & Manpower Planning</span></div><div class="top-bar-right"><a href="tel:+5922251077"><i class="fas fa-phone"></i> +592 225-1077</a><a href="mailto:info@bit.gov.gy"><i class="fas fa-envelope"></i> info@bit.gov.gy</a></div></div></div>
+
+  <header class="header" id="header">
+    <div class="container">
+      <a href="../index.html" class="logo"><img src="../images/bit-logo.png" alt="Board of Industrial Training Logo" class="logo-img"><div class="logo-text"><span class="name">Board of Industrial Training</span><span class="tagline">Est. 1910 &bull; Guyana</span></div></a>
+      <nav class="main-nav" id="mainNav"><a href="../index.html">Home</a><a href="about.html">About</a><div class="nav-dropdown"><a href="programmes.html">Programmes <i class="fas fa-chevron-down nav-chevron"></i></a><div class="dropdown-menu"><a href="programme-detail.html?p=electrical">Electrical</a><a href="programme-detail.html?p=welding">Welding</a><a href="programmes.html">View All &rarr;</a></div></div><a href="regional-centres.html">Regions</a><a href="news.html">News</a><a href="gallery.html">Gallery</a><a href="contact.html" class="active">Contact</a></nav>
+      <div class="header-cta">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button><a href="verify.html" class="btn btn-outline btn-sm">Verify Certificate</a></div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <!-- Page Hero — Contact: Warm Dark Split -->
+  <section class="page-hero hero-contact">
+    <div class="container">
+      <div class="hero-contact-grid">
+        <div class="hero-contact-left">
+          <div class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="sep"><i class="fas fa-chevron-right"></i></span>
+            <span>Contact Us</span>
+          </div>
+          <h1>Let's<br><span class="accent-text">Connect</span></h1>
+          <p>Get in touch with the Board of Industrial Training. We're here to help with enquiries about programmes, admissions, and partnerships.</p>
+        </div>
+        <div class="hero-contact-right">
+          <div class="quick-card">
+            <i class="fas fa-phone"></i>
+            <span>+592 225-1077</span>
+          </div>
+          <div class="quick-card">
+            <i class="fas fa-envelope"></i>
+            <span>info@bit.gov.gy</span>
+          </div>
+          <div class="quick-card">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Georgetown, Guyana</span>
+          </div>
+          <div class="quick-card">
+            <i class="fas fa-clock"></i>
+            <span>Mon–Thur 8:00 AM – 4:30 PM · Fri 8:00 AM – 3:30 PM</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <!-- Contact Info Cards -->
+      <div class="grid grid-4" data-aos="fade-up" style="margin-bottom:var(--space-3xl)">
+        <div class="contact-info-card" style="flex-direction:column;text-align:center;align-items:center">
+          <div class="contact-info-icon" style="margin:0 auto"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <h4>Headquarters</h4>
+            <p>82 Brickdam<br>Georgetown, Guyana</p>
+          </div>
+        </div>
+        <div class="contact-info-card" style="flex-direction:column;text-align:center;align-items:center">
+          <div class="contact-info-icon" style="margin:0 auto"><i class="fas fa-phone"></i></div>
+          <div>
+            <h4>Phone</h4>
+            <p><a href="tel:+5922251077">+592 225-1077</a><br><a href="tel:+5922251077">+592 225-1077</a></p>
+          </div>
+        </div>
+        <div class="contact-info-card" style="flex-direction:column;text-align:center;align-items:center">
+          <div class="contact-info-icon" style="margin:0 auto"><i class="fas fa-envelope"></i></div>
+          <div>
+            <h4>Email</h4>
+            <p><a href="mailto:info@bit.gov.gy">info@bit.gov.gy</a><br><a href="mailto:admissions@bit.gov.gy">admissions@bit.gov.gy</a></p>
+          </div>
+        </div>
+        <div class="contact-info-card" style="flex-direction:column;text-align:center;align-items:center">
+          <div class="contact-info-icon" style="margin:0 auto"><i class="fas fa-clock"></i></div>
+          <div>
+            <h4>Office Hours</h4>
+            <p>Monday – Thursday<br>8:00 AM – 4:30 PM<br><br>Friday<br>8:00 AM – 3:30 PM</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form + Map -->
+      <div class="contact-grid">
+        <!-- Form -->
+        <div data-aos="fade-right">
+          <h2 style="margin-bottom:var(--space-sm)">Send Us a Message</h2>
+          <p style="color:var(--gray-600);margin-bottom:var(--space-xl)">Fill out the form below and we will get back to you within 1-2 business days.</p>
+
+          <!-- Wired to Netlify Forms.
+               At deploy time Netlify scans this static HTML, finds the form
+               with name="bit-contact", and creates a real submission endpoint
+               at the same URL. Submissions appear in the Netlify dashboard
+               under Forms; an email notification can be enabled there.
+               The form posts via fetch (AJAX) so the user stays on-page. -->
+          <!-- Netlify Forms wiring:
+               • action="/" is the endpoint Netlify Forms intercepts.
+                 Without it, a POST to /pages/contact.html returns 405.
+               • data-netlify="true" tells Netlify's build-time HTML scanner
+                 to register this form.
+               • The hidden form-name input tells Netlify which registered
+                 form to route the submission to.
+               • The honeypot bot-field is hidden from real users; if a bot
+                 fills it, Netlify silently drops the submission. -->
+          <form id="contactForm"
+                name="bit-contact"
+                method="POST"
+                action="/"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                enctype="application/x-www-form-urlencoded">
+            <!-- Hidden field required by Netlify so it knows which form -->
+            <input type="hidden" name="form-name" value="bit-contact">
+            <!-- Honeypot: real visitors leave this empty; bots fill it.
+                 Hidden from view & from screen readers. -->
+            <p hidden aria-hidden="true">
+              <label>Don&rsquo;t fill this out if you&rsquo;re human:
+                <input name="bot-field" tabindex="-1" autocomplete="off">
+              </label>
+            </p>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="cf-first">First Name <span class="required">*</span></label>
+                <input id="cf-first" type="text" name="firstName" class="form-control" placeholder="Enter your first name" autocomplete="given-name" required
+                       minlength="1" maxlength="50" pattern="[^&lt;&gt;]{1,50}" title="Up to 50 characters. Angle brackets are not permitted.">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="cf-last">Last Name <span class="required">*</span></label>
+                <input id="cf-last" type="text" name="lastName" class="form-control" placeholder="Enter your last name" autocomplete="family-name" required
+                       minlength="1" maxlength="50" pattern="[^&lt;&gt;]{1,50}" title="Up to 50 characters. Angle brackets are not permitted.">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="cf-email">Email Address <span class="required">*</span></label>
+                <input id="cf-email" type="email" name="email" class="form-control" placeholder="you@example.com" autocomplete="email" required
+                       maxlength="254" title="A valid email address, up to 254 characters.">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="cf-phone">Phone Number</label>
+                <input id="cf-phone" type="tel" name="phone" class="form-control" placeholder="+592 000-0000" autocomplete="tel"
+                       maxlength="25" pattern="[0-9+()\- ]{0,25}" title="Digits, spaces and + ( ) - only, up to 25 characters.">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="cf-subject">Subject <span class="required">*</span></label>
+              <select id="cf-subject" name="subject" class="form-control" required>
+                <option value="">Select a topic...</option>
+                <option value="Programme Admissions">Programme Admissions</option>
+                <option value="Certificate Verification">Certificate Verification</option>
+                <option value="Partnerships & Collaborations">Partnerships &amp; Collaborations</option>
+                <option value="Media & Press Enquiries">Media &amp; Press Enquiries</option>
+                <option value="Feedback & Complaints">Feedback &amp; Complaints</option>
+                <option value="General Enquiry">General Enquiry</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="cf-region">Region</label>
+              <select id="cf-region" name="region" class="form-control">
+                <option value="">Select your region...</option>
+                <option>Region 1 — Barima-Waini</option>
+                <option>Region 2 — Pomeroon-Supenaam</option>
+                <option>Region 3 — Essequibo Islands-West Demerara</option>
+                <option>Region 4 — Demerara-Mahaica</option>
+                <option>Region 5 — Mahaica-Berbice</option>
+                <option>Region 6 — East Berbice-Corentyne</option>
+                <option>Region 7 — Cuyuni-Mazaruni</option>
+                <option>Region 8 — Potaro-Siparuni</option>
+                <option>Region 9 — Upper Takutu-Upper Essequibo</option>
+                <option>Region 10 — Upper Demerara-Berbice</option>
+                <option>Overseas / Diaspora</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="cf-message">Message <span class="required">*</span></label>
+              <textarea id="cf-message" name="message" class="form-control" rows="5" placeholder="How can we help you?" required
+                        minlength="10" maxlength="2000" aria-describedby="cf-message-count"></textarea>
+              <div id="cf-message-count" class="char-count" aria-live="polite">0 / 2000 characters</div>
+            </div>
+
+            <div class="form-group">
+              <div class="form-check">
+                <input type="checkbox" id="consent" name="consent" required>
+                <label for="consent" style="font-size:0.88rem;color:var(--gray-600)">I consent to BIT storing my information for the purpose of responding to this enquiry. See our <a href="privacy.html">Privacy Policy</a>.</label>
+              </div>
+            </div>
+
+            <button type="submit" id="contactSubmitBtn" class="btn btn-primary btn-lg" style="width:100%">
+              <i class="fas fa-paper-plane"></i> <span id="contactSubmitLabel">Send Message</span>
+            </button>
+
+            <!-- Shown when the client-side submission throttle is active. -->
+            <div id="contactThrottle" class="throttle-note" role="status">
+              <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+              You have just sent a message. Please wait <strong><span id="throttleSecs">60</span> seconds</strong> before sending another. If your enquiry is urgent, call <a href="tel:+5922251077">+592&nbsp;225-1077</a>.
+            </div>
+          </form>
+
+          <!-- Success message (hidden by default) -->
+          <div id="contactSuccess" style="display:none;margin-top:var(--space-xl)">
+            <div class="alert alert-success">
+              <i class="fas fa-check-circle" style="font-size:1.3rem"></i>
+              <div>
+                <strong>Message sent successfully.</strong><br>
+                Thank you for contacting the Board of Industrial Training. We will respond within 1&ndash;2 business days. For urgent matters, please call us directly at <a href="tel:+5922251077">+592&nbsp;225-1077</a>.
+              </div>
+            </div>
+          </div>
+
+          <!-- Error message (hidden by default) -->
+          <div id="contactError" style="display:none;margin-top:var(--space-xl)">
+            <div class="alert alert-danger" style="background:rgba(220,38,38,0.08);border:1px solid rgba(220,38,38,0.30);color:var(--dark);padding:var(--space-lg);border-radius:var(--radius-md);display:flex;gap:12px;align-items:flex-start">
+              <i class="fas fa-triangle-exclamation" style="font-size:1.3rem;color:#dc2626;margin-top:2px"></i>
+              <div>
+                <strong>We couldn&rsquo;t send your message.</strong><br>
+                Please try again, or contact us directly &mdash; email <a href="mailto:info@bit.gov.gy">info@bit.gov.gy</a> or call <a href="tel:+5922251077">+592&nbsp;225-1077</a>.
+                <div id="contactErrorMsg" style="margin-top:8px;font-family:'Consolas',monospace;font-size:0.78rem;color:#7a1f1f;opacity:0.8;word-break:break-all"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ═══════════════════════════════════════════════════════════
+               Static form declaration for Netlify's build-time HTML
+               scanner. Hidden from users but present in the HTML so the
+               scanner registers the form even before the first live
+               submission arrives. Fields must match the real form above.
+               ═══════════════════════════════════════════════════════════ -->
+          <form name="bit-contact" data-netlify="true" netlify-honeypot="bot-field" hidden aria-hidden="true">
+            <input type="hidden" name="form-name" value="bit-contact">
+            <input name="bot-field">
+            <input name="firstName"><input name="lastName">
+            <input name="email" type="email"><input name="phone" type="tel">
+            <input name="subject"><input name="region">
+            <textarea name="message"></textarea>
+            <input name="consent" type="checkbox">
+          </form>
+        </div>
+
+        <!-- Map & Additional Info -->
+        <div data-aos="fade-left">
+          <h2 style="margin-bottom:var(--space-lg)">Find Us</h2>
+
+          <!-- Map Embed Placeholder -->
+          <div class="map-container" style="height:350px;margin-bottom:var(--space-xl);display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#e8f5e9,#c8e6c9)">
+            <div style="text-align:center">
+              <i class="fas fa-map-marked-alt" style="font-size:3rem;color:var(--primary);margin-bottom:var(--space-md);display:block"></i>
+              <p style="font-weight:600;margin-bottom:var(--space-xs)">BIT Headquarters</p>
+              <p style="color:var(--gray-600);font-size:0.9rem">82 Brickdam, Georgetown, Guyana</p>
+              <a href="https://maps.google.com/?q=Board+of+Industrial+Training+Georgetown+Guyana" target="_blank" rel="noopener" class="btn btn-primary btn-sm" style="margin-top:var(--space-md)"><i class="fas fa-external-link-alt"></i> Open in Google Maps</a>
+            </div>
+          </div>
+
+          <!-- Department Contacts -->
+          <h3 style="font-size:1.1rem;margin-bottom:var(--space-md)">Department Contacts</h3>
+
+          <div style="display:flex;flex-direction:column;gap:var(--space-md)">
+            <div class="contact-info-card">
+              <div class="contact-info-icon"><i class="fas fa-user-graduate"></i></div>
+              <div>
+                <h4>Admissions & Enrolment</h4>
+                <p>Programme information, application status, intake dates</p>
+                <p><a href="mailto:admissions@bit.gov.gy">admissions@bit.gov.gy</a></p>
+              </div>
+            </div>
+
+            <div class="contact-info-card">
+              <div class="contact-info-icon"><i class="fas fa-certificate"></i></div>
+              <div>
+                <h4>Certification & Verification</h4>
+                <p>Certificate collection, verification requests, transcript enquiries</p>
+                <p><a href="mailto:certification@bit.gov.gy">certification@bit.gov.gy</a></p>
+              </div>
+            </div>
+
+            <div class="contact-info-card">
+              <div class="contact-info-icon"><i class="fas fa-handshake"></i></div>
+              <div>
+                <h4>Partnerships & Corporate</h4>
+                <p>Industry partnerships, MOU enquiries, sponsorship opportunities</p>
+                <p><a href="mailto:partnerships@bit.gov.gy">partnerships@bit.gov.gy</a></p>
+              </div>
+            </div>
+
+            <div class="contact-info-card">
+              <div class="contact-info-icon"><i class="fas fa-bullhorn"></i></div>
+              <div>
+                <h4>Communications & Media</h4>
+                <p>Press releases, media accreditation, interview requests</p>
+                <p><a href="mailto:media@bit.gov.gy">media@bit.gov.gy</a></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social -->
+          <div style="margin-top:var(--space-xl);padding:var(--space-xl);background:var(--gray-100);border-radius:var(--radius-lg);text-align:center">
+            <h4 style="margin-bottom:var(--space-md)">Follow BIT on Facebook</h4>
+            <p style="font-size:0.9rem;color:var(--gray-600);margin-bottom:var(--space-md)">Updates, events, and graduation news direct from our team.</p>
+            <a href="https://www.facebook.com/p/Board-of-Industrial-Training-Guyana-100064261016522/" target="_blank" rel="noopener" aria-label="BIT on Facebook" style="display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:var(--radius-md);background:#1877F2;color:#fff;font-size:0.95rem;font-weight:600;text-decoration:none;transition:transform .15s ease, box-shadow .15s ease" class="hov-lift"><i class="fab fa-facebook-f"></i> Open Facebook page</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><a href="../index.html" class="logo"><img src="../images/bit-logo.png" alt="Board of Industrial Training Logo" class="logo-img"><div class="logo-text"><span class="name">Board of Industrial Training</span><span class="tagline">Est. 1910 &bull; Guyana</span></div></a><p>Industrial training and trades certification for Guyana, established 1910.</p></div>
+        <div><h4>Quick Links</h4><div class="footer-links"><a href="about.html">About BIT</a><a href="programmes.html">Programmes</a><a href="regional-centres.html">Regional Centres</a><a href="faq.html">FAQs</a></div></div>
+        <div><h4>Services</h4><div class="footer-links"><a href="verify.html">Verify Certificate</a><a href="downloads.html">Resources</a><a href="news.html">News</a></div></div>
+        <div><h4>Contact</h4><div class="footer-links"><a href="https://www.google.com/maps/search/?api=1&query=82+Brickdam,+Georgetown,+Guyana" target="_blank" rel="noopener"><i class="fas fa-map-marker-alt" style="width:16px"></i> 82 Brickdam, Georgetown</a><a href="tel:+5922251077"><i class="fas fa-phone" style="width:16px"></i> +592 225-1077</a><a href="mailto:info@bit.gov.gy"><i class="fas fa-envelope" style="width:16px"></i> info@bit.gov.gy</a></div></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 Board of Industrial Training.</span><div><a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a> | <a href="accessibility.html">Accessibility</a></div></div>
+    </div>
+  </footer>
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+  <script defer src="../js/main.js?v=2"></script>
+  <script defer src="../js/a11y-widget.js?v=1"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" integrity="sha384-n1AULnKdMJlK1oQCLNDL9qZsDgXtH6jRYFCpBtWFc+a9Yve0KSoMn575rk755NJZ" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script defer src="../js/enhancements.js?v=6"></script>
+  <script defer src="../js/contact-form.js?v=1"></script>
+  <script defer src="../js/inline-handlers.js?v=1"></script>
+  <script defer src="../js/aos-init.js?v=1"></script>
+</body>
+</html>

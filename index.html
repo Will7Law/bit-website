@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- ════════════════════════════════════════════════════════════════
+     Security headers (defense-in-depth, hardened for NDMA assessment)
+     ════════════════════════════════════════════════════════════════
+     The CSP below has been tightened from its previous draft:
+       • removed unused 'unsafe-eval' (Tailwind CDN runtime is gone;
+         we serve a static CSS bundle now)
+       • removed cdn.tailwindcss.com from script-src + connect-src
+         (no longer reached at runtime)
+       • removed www.facebook.com from connect-src (not used)
+       • added explicit media-src, frame-src, manifest-src directives
+       • upgrade-insecure-requests so any stray http://… is blocked
+       • all CDN scripts below now carry SRI integrity hashes -->
+<!-- CSP delivered via <meta> for defence-in-depth. Note: frame-ancestors and X-Frame-Options can only be enforced via HTTP response headers (see /_headers), not via <meta> — the browser ignores them here, so we omit them to keep the console clean. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; media-src 'self' blob:; connect-src 'self'; frame-src 'none'; manifest-src 'self'; base-uri 'self'; form-action 'self' https://labour.gov.gy; object-src 'none'; worker-src 'self' blob:; upgrade-insecure-requests">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Permissions-Policy" content="accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=(), interest-cohort=(), browsing-topics=()">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="format-detection" content="telephone=no">
+<meta name="color-scheme" content="dark">
+<!-- PWA: lets visitors install the BIT site as a standalone app on
+     mobile / desktop home screens for fast offline-friendly return visits. -->
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#F26522">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="/images/bit-logo.png">
+<link rel="icon" type="image/png" sizes="any" href="/images/bit-logo.png">
+<link rel="mask-icon" href="/images/bit-logo.png" color="#F26522">
+
+<!-- ── SEO ── -->
+<title>BIT · Guyana — Building Guyana's Skilled Workforce since 1910</title>
+<meta name="description" content="The Board of Industrial Training is Guyana's national institution for technical and vocational education. Sixteen trades. Ten regional centres. 116 years of certifying tradespeople. $0 tuition. Apply for the 2026 intake.">
+<meta name="keywords" content="BIT Guyana, Board of Industrial Training, vocational training Guyana, TVET Guyana, technical training, welding training Guyana, electrical training, photovoltaic training, oil and gas pre-employment, FacTor, Guyana apprenticeship">
+<meta name="author" content="Board of Industrial Training, Guyana">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="/">
+
+<!-- ── Open Graph / Facebook / WhatsApp ── -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="BIT · Guyana — Building Guyana's Skilled Workforce">
+<meta property="og:description" content="Sixteen trades. Ten regional centres. 116 years of certifying tradespeople. $0 tuition. Apply for the 2026 intake.">
+<meta property="og:image" content="/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="BIT Guyana — Building Guyana's Skilled Workforce. 16 trades, 10 regions, 116 years.">
+<meta property="og:site_name" content="Board of Industrial Training, Guyana">
+<meta property="og:locale" content="en_GY">
+
+<!-- ── Twitter card ── -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BIT · Guyana — Building Guyana's Skilled Workforce">
+<meta name="twitter:description" content="Sixteen trades. Ten regional centres. 116 years. Apply for 2026 intake.">
+<meta name="twitter:image" content="/images/og-image.png">
+
+<!-- ── JSON-LD: structured data for Google rich snippets ── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "Board of Industrial Training",
+  "alternateName": "BIT Guyana",
+  "url": "/",
+  "logo": "/images/bit-logo.png",
+  "image": "/images/og-image.png",
+  "description": "Guyana's national institution for technical and vocational education and training (TVET). Established 1910. Sixteen programmes across ten administrative regions. Government-subsidised tuition.",
+  "foundingDate": "1910",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "82 Brickdam",
+    "addressLocality": "Georgetown",
+    "addressCountry": "GY"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+592-225-1077",
+    "email": "info@bit.gov.gy",
+    "contactType": "Admissions",
+    "availableLanguage": "English"
+  },
+  "sameAs": [
+    "https://www.facebook.com/p/Board-of-Industrial-Training-Guyana-100064261016522/"
+  ],
+  "parentOrganization": {
+    "@type": "GovernmentOrganization",
+    "name": "Ministry of Labour & Manpower Planning of Guyana"
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "Government of British Guiana"
+  },
+  "employee": {
+    "@type": "Person",
+    "name": "Richard Maughn",
+    "jobTitle": "Chief Executive Officer"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Guyana"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "GYD",
+    "category": "Government-subsidised vocational training"
+  }
+}
+</script>
+<!-- DNS prefetch: resolve CDN hostnames in parallel with HTML parse so the
+     subsequent SRI-protected script fetches don't pay round-trip latency. -->
+<link rel="dns-prefetch" href="https://unpkg.com">
+<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Hint the browser to start fetching the hero forge loop AT HTML
+     parse time, well before forge-scene.js mounts. With this, the
+     file is in cache by the time forge-scene attaches its <video>. -->
+<!-- The poster image is the very first paint, so it gets HIGHEST priority. -->
+<link rel="preload" as="image" href="/media/posters/forge-loop.jpg" fetchpriority="high">
+<!-- Note: as="video" is not a supported <link rel=preload> value in Chrome
+     (valid: audio, document, embed, fetch, font, image, object, script, style,
+     track, worker). Use as="fetch" with the correct MIME so the browser can
+     warm the cache without a console warning. -->
+<link rel="preload" as="fetch" type="video/mp4" href="/media/forge-loop.mp4" crossorigin="anonymous" fetchpriority="high">
+<link rel="preload" as="image" href="/images/bit-logo.png">
+<!-- Trimmed font weight axis: was loading 300-900 (a 600-unit variable axis
+     range covering 6 weights) plus a separate italic axis. We actually use
+     four weights (300, 400, 500, 600) plus a single italic at 400. This cuts
+     the WOFF2 file by ~40% while preserving every visible glyph. -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,520..560;1,9..144,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- Static Tailwind (20KB) — replaces the CDN runtime which had a MutationObserver
+     scanning the DOM on every change, causing scroll-time jitter. -->
+<link rel="stylesheet" href="css/v2.tailwind.css?v=7">
+<!-- React: production builds (smaller, faster, hardened against debug-leak)
+     plus SRI integrity hashes so any tampering at the CDN level is rejected. -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" integrity="sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" integrity="sha384-gTGxhz21lVGYNMcdJOyq01Edg0jhn/c22nsx0kyqP0TxaV5WVdsSH1fSDUf5YJj1" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- GSAP, ScrollTrigger, Lenis, Three.js — all now SRI-protected. -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js" integrity="sha384-li4UtcFCH6QeUqR4JyV58/VgTprMuz9aauj+oWtew7V4Y7ZVjnvz5px9Y3UCG0Ea" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- Three.js pinned to r0.149.0 (last release before the r150+ deprecation
+     notice about non-module loading). SRI-locked. When we migrate the
+     scenes to ES modules we will bump this again. -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.149.0/three.min.js" integrity="sha384-RRHfJ6w1mTlKUBMYT/hvnRiOzEB/vyRV3DrQOseb6oYfvaZSfdd0byS4bHps0k2R" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<style>
+  :root{
+    --navy:#0A1530;
+    --navy-2:#0E1A3D;
+    --navy-3:#06112A;
+    --orange:#F26522;
+    --orange-2:#FFA45A;
+    --blue:#1B4D8E;
+    --ink:#FFFFFF;
+    --ink-90:#FFFFFFE6;
+    --ink-60:#FFFFFF99;
+    --ink-40:#FFFFFF66;
+    --ink-20:#FFFFFF33;
+    --glass:rgba(255,255,255,.04);
+    --glass-bd:rgba(255,255,255,.08);
+  }
+  *{ box-sizing:border-box; }
+  html,body{ background:var(--navy); color:var(--ink); }
+  /* Native cursor (custom cursor removed — it caused per-frame compositor jank) */
+  body{ font-family:'Inter',ui-sans-serif,system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  .font-display{ font-family:'Fraunces',serif; font-variation-settings:"opsz" 144; }
+  .font-mono{ font-family:'JetBrains Mono',ui-monospace,monospace; }
+  ::selection{ background:var(--orange); color:#0a0a0a; }
+
+  /* STATIC ambient gradient — no animation, no blur, no fixed-position overlay.
+     The previous fixed+blur+animated version forced full-viewport repaint
+     on every scroll frame, which was the main cause of scroll-jank. */
+  .mesh-bg{
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background:
+      radial-gradient(60% 50% at 18% 12%, rgba(242,101,34,.12), transparent 70%),
+      radial-gradient(70% 50% at 82% 18%, rgba(27,77,142,.22), transparent 70%),
+      radial-gradient(70% 50% at 60% 100%, rgba(27,77,142,.12), transparent 70%);
+    /* No filter, no animation — pure GPU-cheap gradient */
+  }
+
+  /* Film grain removed entirely — fixed-position mix-blend-mode overlay
+     forced compositor recalc on every paint. */
+
+  /* Custom cursor removed — was the single biggest scroll-jank source. */
+
+  /* Performance: skip rendering offscreen sections entirely.
+     DISABLED — content-visibility caused intermittent layout jumps and
+     "empty space" reports during scroll. The performance gains weren't
+     worth the visual instability. We keep the .cv-auto class so existing
+     markup still works, but it's now a no-op. */
+  .cv-auto{ /* content-visibility: auto; contain-intrinsic-size: 1000px 800px; */ }
+
+  /* ════ Z-INDEX HIERARCHY (locked) ════
+     Prevents elements appearing in wrong places during scroll. */
+  header{ z-index: 50 !important; }                    /* nav always on top */
+  .mesh-bg{ z-index: 0 !important; }                   /* ambient bg always behind */
+  section{ z-index: 1; }                                /* sections above bg */
+  section .sticky.top-0,
+  section .network-stage{ z-index: 2; }                /* pinned stages above section content */
+  /* Modals/overlays (search, apply, mobile menu) handled in their own scripts at z 90-110 */
+
+  /* Glass — backdrop-filter:blur removed (research-confirmed scroll-jank source on
+     mobile + modest hardware). Replaced with solid translucent navy that visually
+     reads "dark glass" without forcing per-frame compositor recalc. */
+  .glass{
+    background: rgba(14, 26, 61, 0.62);
+    border: 1px solid rgba(255,255,255,.08);
+  }
+  /* Kill ALL inline backdrop-filter style overrides (programme spotlight cards,
+     regional pins). React inline styles can't be removed without recompiling the
+     bundle, so we nuke them with !important here. */
+  *[style*="backdrop-filter"], *[style*="backdropFilter"]{
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  /* Nav glass — single element, can keep a tiny blur for premium feel without scroll cost */
+  header .glass, nav.glass{
+    background: rgba(10, 21, 48, 0.78);
+  }
+
+  /* ── AI-eyebrow tone-down ─────────────────────────────────────
+     The React bundle uses Tailwind utilities like
+       font-mono text-[10.5px] uppercase tracking-[0.32em] text-white/55
+     for its section eyebrow labels ("§ 02 · SCALE OF PRACTICE",
+     stat sublabels, etc.). The combination of monospace + uppercase +
+     ~0.32em tracking is a key visual giveaway of AI/designer-tool work.
+     We dial the tracking back to a normal editorial value while keeping
+     the institutional mono+uppercase character. Inline so the override
+     is in effect before any deferred script runs. */
+  [class*="tracking-[0.40em]"],
+  [class*="tracking-[0.4em]"]  { letter-spacing: 0.12em !important; }
+  [class*="tracking-[0.32em]"] { letter-spacing: 0.10em !important; }
+  [class*="tracking-[0.30em]"],
+  [class*="tracking-[0.3em]"]  { letter-spacing: 0.10em !important; }
+  [class*="tracking-[0.28em]"] { letter-spacing: 0.08em !important; }
+  [class*="tracking-[0.24em]"] { letter-spacing: 0.06em !important; }
+  [class*="tracking-[0.22em]"] { letter-spacing: 0.06em !important; }
+  [class*="tracking-[0.20em]"] { letter-spacing: 0.06em !important; }
+  /* Lighten the dim white/50 colour so eyebrows read as labels, not
+     "AI design accents" that fade into the background. */
+  [class*="text-white/50"][class*="font-mono"][class*="uppercase"],
+  [class*="text-white/55"][class*="font-mono"][class*="uppercase"]{
+    color: rgba(255,255,255,0.72) !important;
+  }
+
+  /* ── Hide "EST · MCMX" Roman-numeral tagline next to the BIT logo.
+     React renders two siblings inside the nav logo link:
+       1. a thin vertical divider span (.hidden.sm:block.w-px.h-5)
+       2. the "EST · MCMX" mono uppercase span
+     Both read as designer/AI flourish — kept inline here (rather than
+     in a deferred wedge) so the rule is in effect on FIRST paint. */
+  header a[href="#top"] span.hidden.sm\:block{ display: none !important; }
+
+  /* ── Hide the #stories testimonial section + its nav link.
+     The section used AI-generated graduate portraits / quotes which
+     isn't appropriate for a government institution. Removed entirely
+     so visitors never encounter it. */
+  #stories{ display: none !important; }
+  header nav a[href="#stories"]{ display: none !important; }
+
+  /* ── Hero subtitle hidden until the JS rewrite runs.
+     The bundle renders a literary "A statutory body... tradespeople who
+     build Guyana's roads, kitchens, clinics, and code." paragraph that
+     reads as AI prose. We hide it via CSS at parse time, then the inline
+     script in <head> rewrites the text and reveals it. The brief
+     fade-in keeps the layout stable while preventing the old text from
+     flashing in the user's eye. */
+  section#top p[class*="max-w-[52ch]"]:not([data-copy-cleaned]){
+    visibility: hidden !important;
+  }
+  section#top p[data-copy-cleaned]{
+    visibility: visible !important;
+    animation: copyCleanFadeIn .22s ease-out both;
+  }
+  @keyframes copyCleanFadeIn{ from{ opacity: 0 } to{ opacity: 1 } }
+
+  /* Word-swap mask — vertical wipe per spec.
+     The wiped <span> needs padding so italic descenders and rightward
+     slant (e.g. the "d" in "Skilled", "y" in "Ready") sit inside the
+     clip region instead of being cut by it. We compensate with matching
+     negative margin so the surrounding inline layout doesn't shift. */
+  .word-swap{
+    position:relative;
+    display:inline-block;
+    vertical-align:baseline;
+    color:var(--orange);
+    font-style:italic;
+    font-family:'Fraunces',serif;
+    /* prevent ancestor `leading-[1.0]` from cropping italic glyphs */
+    line-height: 1.18;
+  }
+  .word-swap > span{
+    display: inline-block;
+    /* extra space around the glyph for italic slant + descenders */
+    padding: 0.04em 0.14em 0.20em 0.04em;
+    margin:  -0.04em -0.14em -0.20em -0.04em;
+  }
+  .wipe-in{ clip-path:inset(100% 0 0 0); animation:wipeIn .85s cubic-bezier(.2,0,0,1) forwards; }
+  .wipe-out{ clip-path:inset(0 0 0 0); animation:wipeOut .55s cubic-bezier(.2,0,0,1) forwards; }
+  @keyframes wipeIn{ from{clip-path:inset(100% 0 0 0);} to{clip-path:inset(0 0 0 0);} }
+  @keyframes wipeOut{ from{clip-path:inset(0 0 0 0);} to{clip-path:inset(0 0 100% 0);} }
+
+  /* Conic glow border */
+  .conic-glow{ position:relative; isolation:isolate; }
+  .conic-glow::before{
+    content:""; position:absolute; inset:-2px; border-radius:inherit; padding:2px; z-index:-1;
+    background: conic-gradient(from 0deg, #F26522, #FFA45A, #F26522, #1B4D8E, #F26522);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    animation: spin 6s linear infinite;
+  }
+  @keyframes spin{ to{ transform:rotate(1turn); } }
+
+  /* Reveal */
+  .reveal{ opacity:0; transform:translateY(28px); transition: opacity .9s cubic-bezier(.2,0,0,1), transform .9s cubic-bezier(.2,0,0,1); }
+  .reveal.in{ opacity:1; transform:none; }
+
+  /* Pulse */
+  @keyframes mp{ 0%{r:3;opacity:.7;} 70%{r:14;opacity:0;} 100%{r:14;opacity:0;} }
+  .map-pulse{ animation:mp 2.4s ease-out infinite; transform-origin:center; }
+
+  /* Marquee */
+  @keyframes marquee{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+  .marquee{ animation: marquee 60s linear infinite; }
+
+  /* Focus rings — bumped from rgba(.45) to a stronger orange so keyboard
+     users can clearly see where they are (a11y improvement). */
+  :focus-visible{
+    outline: 3px solid #FFA45A;
+    outline-offset: 3px;
+    border-radius: 6px;
+    box-shadow: 0 0 0 6px rgba(242,101,34,0.18);
+  }
+  /* Hide outline on mouse-only interactions; keep for keyboard / screen-reader */
+  :focus:not(:focus-visible){ outline: none; }
+
+  /* Skip-to-content link — first interactive element on the page so
+     keyboard / screen-reader users can bypass the navigation. Visible
+     only when focused, then sits as a pill at the top-left. */
+  .skip-link{
+    position: absolute; left: 14px; top: 14px; z-index: 100;
+    padding: 10px 18px; border-radius: 999px;
+    background: #F26522; color: #0a0a0a;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 12.5px; letter-spacing: 0.16em; text-transform: uppercase;
+    text-decoration: none; font-weight: 600;
+    transform: translateY(-200%);
+    transition: transform 180ms ease-out;
+  }
+  .skip-link:focus{ transform: translateY(0); outline: none; }
+
+  /* Section spacing */
+  section{ position:relative; z-index:1; isolation:isolate; }
+
+  /* ════ Seamless section transitions ════
+     Each section gets a 120px navy gradient at top + bottom, so cuts between
+     scenes feel like fades instead of hard edges. Pointer-events:none means
+     they don't block scrolling or hover. */
+  main > section::before,
+  main > section::after{
+    content:""; position:absolute; left:0; right:0; height:140px;
+    pointer-events:none; z-index:5;
+  }
+  main > section::before{
+    top:0;
+    background: linear-gradient(180deg, var(--navy) 0%, rgba(10,21,48,0.7) 50%, transparent 100%);
+  }
+  main > section::after{
+    bottom:0;
+    background: linear-gradient(0deg, var(--navy) 0%, rgba(10,21,48,0.7) 50%, transparent 100%);
+  }
+  /* The pinned scrub stages need their canvas above the section's own gradients */
+  section .sticky{ z-index: 6; }
+
+  /* The landing hero is now a full-bleed Forge backdrop; the navy fade
+     pseudo-elements at top/bottom of every section would dim the
+     orange ember at the edges. Drop them here. */
+  main > section#top::before,
+  main > section#top::after{ display: none; }
+
+  /* ════ Hero forge panel: instant first paint ════
+     Paint a CSS-only Forge gradient on the wrapper itself so the
+     right-hand hero panel never appears blank — even before any JS
+     has run, before the video has loaded, and before forge-scene.js
+     has mounted its particle canvas. Once forge-scene mounts it
+     adds its own wrap <div> with the same gradient on top, so the
+     transition is seamless.
+  */
+  [aria-label*="3D composition"]{
+    /* review-2: paint the poster image FIRST so the hero is never
+       blank. The radial gradient still sits on top for atmosphere,
+       but the forge-loop poster shows the moment HTML parses. */
+    background:
+      radial-gradient(60% 60% at 50% 60%, rgba(242,101,34,0.22), transparent 70%),
+      radial-gradient(80% 80% at 50% 50%, rgba(255,164,90,0.10), transparent 70%),
+      radial-gradient(60% 80% at 80% 20%, rgba(27,77,142,0.18), transparent 70%),
+      url('/media/posters/forge-loop.jpg') center/cover no-repeat,
+      #06112A;
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+  }
+  /* review-2: mask hex/timecode burn-ins on the corners of the AI-
+     generated forge video. We overlay matching radial gradient patches
+     that blend any small text into the surrounding navy. */
+  [aria-label*="3D composition"]::after{
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(60px 25px at 95% 5%,  rgba(6,17,42,0.96), transparent 70%),
+      radial-gradient(70px 25px at 5%  5%,  rgba(6,17,42,0.96), transparent 70%),
+      radial-gradient(70px 25px at 5%  95%, rgba(6,17,42,0.96), transparent 70%),
+      radial-gradient(70px 25px at 95% 95%, rgba(6,17,42,0.96), transparent 70%);
+    z-index: 2;
+  }
+  /* Hide the original React-rendered Three.js orbital canvas immediately
+     so it never flashes before forge-scene mounts. */
+  [aria-label*="3D composition"] > canvas{ display: none !important; }
+
+  /* The hero panel had three corner labels left over from the old ember
+     scene (SCENE · 01 / THE EMBER / orbit · hammer · wrench · torch).
+     Forge BIT replaced the visual; these labels now describe nothing.
+     Hide them so the right-hand panel reads cleanly. */
+  .relative.aspect-square > .absolute.top-3.left-3,
+  .relative.aspect-square > .absolute.top-3.right-3,
+  .relative.aspect-square > .absolute.bottom-3.left-3,
+  .relative.aspect-square > .absolute.bottom-3.right-3{ display: none !important; }
+
+  /* ════ Heritage pin containment ════
+     The heritage section is wrapped in a GSAP pin-spacer that pins its
+     content while the user scrolls through the era videos. Without
+     containment, the pinned content can visually bleed over its
+     neighbours (regions / programmes / apply). The rules below:
+       1. give every section its own stacking context (isolation: isolate
+          above) so transforms inside one section can't paint over another
+       2. clip the pin-spacer so any in-flight transform is masked
+       3. drop the gradient pseudo-elements on the heritage section since
+          the pin transition handles its own fade
+  */
+  .pin-spacer{ overflow: hidden; overflow: clip; isolation: isolate; }
+  /* heritage's parent is the GSAP pin-spacer (not <main>), so we use the
+     id selector directly here. */
+  section#heritage{ z-index: 2; background: var(--navy); }
+  section#heritage::before,
+  section#heritage::after{ display: none; }
+
+  /* ════ Overlay text legibility ════
+     Any text rendered over a video/canvas backdrop needs a soft shadow plus
+     bumped weight so it stays readable across light + dark frames. */
+  .overlay-text,
+  section h1,
+  section h2,
+  [data-overlay]{
+    text-shadow: 0 2px 14px rgba(0,0,0,0.6), 0 0 32px rgba(10,21,48,0.4);
+  }
+  /* Bump tiny mono labels site-wide */
+  .font-mono.text-\[10px\]{ font-size: 11.5px; }
+  .font-mono.text-\[11px\]{ font-size: 12.5px; }
+  .font-mono.text-\[9px\]{ font-size: 10.5px; }
+
+  /* Scrub-section overlay text: extra-strong shadow + bigger captions */
+  #flythrough h2,
+  #flythrough .font-mono,
+  section[style*="vh"] h2,
+  section[style*="vh"] .font-mono{
+    text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.5);
+  }
+  #flythrough .font-mono.text-\[10px\],
+  section[style*="vh"] .font-mono.text-\[10px\]{
+    font-size: 12.5px;
+    letter-spacing: 0.32em;
+  }
+  /* Make scroll-scrub captions bigger and bolder so they stand out */
+  #flythrough h2 span[data-caption]{
+    display: block;
+    font-weight: 540;
+    line-height: 1.1;
+  }
+  /* Apple-grade caption transitions:
+     1. Drive opacity from JS as before
+     2. Add subtle scale + Y-translate via CSS variable — the human eye reads
+        a tiny scale-up + drift as "alive". This is what Apple does on the
+        iPhone product pages (each callout fades in WITH a 6px upward shift). */
+  [data-caption]{
+    transition: none !important;
+    will-change: opacity, transform;
+    transform: translateY(calc((1 - var(--cap-o, 0)) * 12px)) scale(calc(0.985 + var(--cap-o, 0) * 0.015));
+  }
+
+  /* Promote scrub canvases to their own GPU compositor layer. Without this,
+     the browser treats the canvas as part of the section paint tree, causing
+     full-section repaint on every scroll tick. Adding will-change: transform
+     creates a separate layer that just gets composited — same trick Apple uses. */
+  section .sticky.top-0 canvas,
+  section .network-stage canvas{
+    will-change: transform;
+    transform: translateZ(0);   /* hardware-accelerated layer */
+  }
+
+  /* ════════════════════════════════════════════════════════════════
+     RESPONSIVE — works on any screen size (320px → 4K)
+     ════════════════════════════════════════════════════════════════ */
+
+  /* Tablet (≤900px) — collapse split layouts to single column */
+  @media (max-width: 900px){
+    /* Hero split layout becomes vertical stack */
+    section .grid.lg\:grid-cols-\[1\.1fr_1fr\],
+    section .grid.lg\:grid-cols-\[1fr_1\.15fr\],
+    section .grid.lg\:grid-cols-\[auto_1\.4fr_1fr\]{
+      grid-template-columns: 1fr !important;
+      gap: 2rem !important;
+    }
+    /* The hero ember video and other right-side scenes shrink */
+    section[id="top"] video,
+    section[id="top"] canvas{
+      max-height: 50vh;
+    }
+    /* Programme spotlight cards: smaller, less perspective */
+    #spotlight [style*="perspective"]{
+      perspective: 800px !important;
+    }
+    /* Heritage horizontal scroll cards */
+    #heritage article{
+      width: 78vw !important;
+    }
+    /* Apply 3-step grid stacks */
+    #apply .grid.lg\:grid-cols-3{
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+  /* Mobile (≤640px) — keep the cinematic scroll-scrub experience.
+     Touch scroll fires `scroll` events the same as wheel (during finger drag
+     AND during momentum), so the frame-sequence canvas tracks finger motion
+     1:1. Sticky pin works on iOS 16+ and Android Chrome. We use 100dvh
+     (dynamic viewport height) so the address bar showing/hiding doesn't
+     create a jump. */
+  @media (max-width: 640px){
+    /* Headlines scale down */
+    h1, h2{ font-size: clamp(1.75rem, 8vw, 2.6rem) !important; line-height: 1.05 !important; }
+    h3{ font-size: clamp(1.1rem, 5vw, 1.4rem) !important; }
+    p{ font-size: 0.95rem !important; }
+
+    /* Tighter padding */
+    section{ padding-left: 1rem !important; padding-right: 1rem !important; }
+    section.py-28, section.py-32, section.py-40, section.py-44{ padding-top: 4rem !important; padding-bottom: 4rem !important; }
+    .max-w-\[1400px\], .max-w-\[1280px\]{ max-width: 100% !important; padding-left: 0 !important; padding-right: 0 !important; }
+
+    /* SHORTER scrub sections on mobile — scroll-scrub still feels cinematic
+       but mobile users get roughly half the scrolling. Desktop heights were
+       bumped (forge 450→550vh, workshop 250→450vh) so the captions don't fly
+       past; mobile mirrors the bump at half-pace. */
+    section[style*="550vh"]{ height: 280vh !important; }   /* forge / hero-flythrough */
+    section[style*="450vh"]{ height: 230vh !important; }   /* workshop scrub  */
+    section[style*="190vh"]{ height: 110vh !important; }   /* network scrub   */
+
+    /* SCROLL-SCRUB pin sections — sticky stage uses 100dvh so iOS Safari
+       address bar showing/hiding doesn't move the pinned content. */
+    section[style*="550vh"] .sticky.top-0,
+    section[style*="450vh"] .sticky.top-0,
+    section[style*="380vh"] .network-stage,
+    section .sticky.top-0{
+      height: 100dvh !important;
+      height: 100vh;        /* fallback for browsers without dvh */
+    }
+    /* Canvas inside scrub stages must fill the stage exactly — object-fit: cover
+       crops the wide-format video into a portrait viewport without distortion */
+    section .sticky.top-0 canvas,
+    section .network-stage canvas{
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+    }
+
+    /* REGION MAP: scale the diagram down hard so pins + their pill labels
+       both fit in the viewport. 0.5 scale brings 720→360px, leaving room
+       for pill labels extending out from each pin position. */
+    #network .relative[style*="720px"]{
+      transform: scale(0.50);
+      transform-origin: center center;
+      margin: -200px auto !important;
+    }
+    /* Pin pill text smaller + abbreviated for mobile fit */
+    #network .font-display.text-\[14px\]{ font-size: 12px !important; }
+    #network .font-mono.text-\[9px\]{ font-size: 8.5px !important; }
+    /* Hide the secondary "X programmes" line on mobile to keep pills small */
+    #network .font-mono.tracking-\[0\.15em\]{ display: none !important; }
+
+    /* APPLY 3-step grid: stack the 3 cards vertically + tighten internal layout */
+    #apply .grid.lg\:grid-cols-3{
+      grid-template-columns: 1fr !important;
+      gap: 1rem !important;
+    }
+    #apply .glass{
+      padding: 1.25rem !important;
+    }
+    #apply .aspect-\[4\/3\]{
+      max-height: 200px;
+    }
+
+    /* ════════════════════════════════════════════════════════════
+       #regions section (Footprint / Map + Matrix) — mobile fix.
+       The polygon SVG of Guyana looks crude/distorted at <400px wide,
+       and the network section above already shows region info as
+       polished orbital pins. Hide the SVG map card on mobile.
+       The 12×10 matrix needs horizontal swipe to fit programmes vs
+       all 10 regions on a phone. */
+
+    /* Hide the polygon SVG map on mobile — selecting by the inner SVG
+       since Tailwind class escaping makes the parent grid selector fragile. */
+    #regions svg[viewBox="0 0 600 580"]{
+      display: none !important;
+    }
+    /* Hide the wrapping .glass card around the map */
+    #regions .grid > .glass:has(svg[viewBox="0 0 600 580"]){
+      display: none !important;
+    }
+    /* Force grid to stack to 1 column (lg: breakpoint already does this on
+       narrow screens, but be explicit for safety) */
+    #regions > div > .grid{
+      grid-template-columns: 1fr !important;
+      gap: 0 !important;
+    }
+    /* Make the matrix horizontally swipeable */
+    #regions .glass:has(.grid[style*="repeat(10"]){
+      padding: 1rem !important;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    #regions .glass .grid[style*="repeat(10"]{
+      grid-template-columns: minmax(140px, 140px) repeat(10, 24px) !important;
+      gap: 4px !important;
+      min-width: max-content;
+    }
+    #regions .glass .text-\[12\.5px\]{
+      font-size: 11.5px !important;
+      line-height: 1.2 !important;
+    }
+    /* Visual swipe hint at the bottom of the matrix card */
+    #regions .glass:last-child::after{
+      content: "← swipe to see all 10 regions →";
+      display: block;
+      margin-top: 12px;
+      padding: 6px 10px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      background: rgba(242,101,34,0.06);
+      border-radius: 6px;
+      border: 1px solid rgba(242,101,34,0.15);
+    }
+
+    /* Programme spotlight: cards smaller but maintain 3D feel */
+    #spotlight [class*="w-\\[300px\\]"],
+    #spotlight [class*="w-\\[360px\\]"]{
+      width: 240px !important;
+    }
+    #spotlight [class*="h-\\[440px\\]"],
+    #spotlight [class*="h-\\[500px\\]"]{
+      height: 360px !important;
+    }
+    /* Reduced perspective makes side cards still readable on small screens */
+    #spotlight [style*="perspective"]{ perspective: 800px !important; }
+
+    /* Heritage: keep HORIZONTAL scroll on mobile (swipe-friendly).
+       Override the `overflow-x: clip` set globally above. */
+    #heritage{
+      overflow-x: auto !important;
+      overflow-y: hidden !important;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    #heritage > div[style*="width:max-content"]{
+      gap: 1.25rem !important;
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+    }
+    #heritage article{
+      width: 80vw !important;
+      max-width: 380px;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+    }
+
+    /* Stories marquee — same speed proportionally */
+    .marquee{ animation-duration: 60s !important; }
+    .marquee > div{ width: 320px !important; max-width: 90vw; }
+
+    /* Footer: simple stack */
+    footer .grid{ grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+
+    /* Verify form: stack input + button */
+    #verify form{ flex-direction: column !important; }
+    #verify form input, #verify form button{ width: 100% !important; }
+
+    /* Custom cursor doesn't apply on touch — already handled in scripts */
+  }
+
+  /* Very small screens (≤380px) */
+  @media (max-width: 380px){
+    h1, h2{ font-size: 1.6rem !important; }
+    .font-mono{ font-size: 9.5px !important; letter-spacing: 0.18em !important; }
+    /* Hide some decorative bits to free up screen */
+    .pointer-events-none.absolute[style*="opacity"]{ display: none; }
+  }
+
+  /* Large desktop (≥1600px) — make use of extra space */
+  @media (min-width: 1600px){
+    .max-w-\[1400px\]{ max-width: 1500px; }
+    h1{ font-size: clamp(3rem, 6vw, 5.5rem); }
+  }
+
+  /* ════════════════════════════════════════════════════════════════
+     HORIZONTAL OVERFLOW PREVENTION (mobile-critical)
+     ════════════════════════════════════════════════════════════════
+     Several sections have content positioned beyond viewport bounds:
+       • The 3D programme spotlight cards translate to ±1100px to
+         create the perspective effect — invisible but they push
+         the body width and create horizontal scroll
+       • Decorative gradient blobs use w-[120%] and -right-1/3 which
+         hang off the right edge
+       • Heritage track is `width: max-content` (intentionally wide)
+
+     Fix: clip at multiple levels. `overflow: clip` is stricter than
+     `hidden` (no scroll container created) — the modern way to
+     prevent overflow without breaking sticky positioning. */
+  html, body{
+    overflow-x: clip;
+    max-width: 100vw;
+  }
+  img, video, canvas, svg{ max-width: 100%; }
+
+  /* All sections clip horizontally (preserves vertical scroll for the
+     scroll-scrub pin sections, but prevents bleed-out on the right) */
+  main > section,
+  section{
+    overflow-x: clip !important;
+  }
+  /* Heritage is the one exception — it NEEDS horizontal scroll on mobile.
+     We re-enable it explicitly in the mobile media query below. */
+  #heritage{ overflow-x: clip; }
+
+  /* Specific known offenders */
+  #spotlight,
+  #spotlight > *,
+  section[style*="450vh"],
+  section[style*="500vh"],
+  section[style*="380vh"]{
+    overflow-x: clip;
+  }
+
+  /* Decorative blobs at w-[120%] / w-[200%] etc. — confine to parent */
+  [class*="w-\\[120\\%\\]"],
+  [class*="w-\\[200\\%\\]"],
+  [class*="-right-"],
+  [class*="-left-"]{
+    contain: paint;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    *{ animation:none !important; transition:none !important; }
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar{ width:10px; height:10px; }
+  ::-webkit-scrollbar-thumb{ background:rgba(255,255,255,.12); border-radius:999px; }
+  ::-webkit-scrollbar-track{ background:transparent; }
+</style>
+
+<!-- ════════════════════════════════════════════════════════════════
+     Early copy-rewrite watchdog
+     ════════════════════════════════════════════════════════════════
+     Watches the DOM from the moment <head> is parsed and replaces
+     two pieces of bundle copy AS SOON AS React inserts them — before
+     the next paint. Eliminates the "old residue flash" the user saw
+     on first refresh:
+       • Hero subtitle  — literary "tradespeople who build Guyana's
+                          roads, kitchens, clinics, and code." line
+       • Word swap      — drops "Industry-Ready" / "Future-Ready"
+     The CSS above visually hides the subtitle paragraph until we've
+     marked it [data-copy-cleaned], so the user never sees the old
+     text — only the new copy fades in. -->
+  <script defer src="js/inline/index-1.js?v=1"></script>
+</head>
+<body>
+<!-- Skip-to-content (keyboard accessibility — first focusable element) -->
+<a class="skip-link" href="#programmes">Skip to programmes</a>
+<div class="mesh-bg" aria-hidden="true"></div>
+<div id="root"></div>
+
+<script src="js/v2.bundle.js?v=8" defer></script>
+<!-- Scroll engine: single rAF loop driving all scroll-scrub sections.
+     Loads BEFORE the dependents so they can register on boot. -->
+<script src="js/scroll-engine.js?v=1" defer></script>
+<!-- Performance wedges — run AFTER React mounts to swap Three.js scenes
+     for lighter-weight cinematic media:
+       • scrub-frames.js — replaces 2 scroll sections with canvas frame sequences
+       • forge-scene.js takes over the hero panel (was hero-ember.js) -->
+<script src="js/scrub-frames.js?v=27" defer></script>
+<!-- Step thumbnails: swap 3 Three.js canvases for cinematic step videos -->
+<script src="js/apply-steps.js?v=2" defer></script>
+<!-- Network section: pin + scroll-scrub the landscape video -->
+<script src="js/network-pin.js?v=4" defer></script>
+<!-- Lock all 10 regional pills to their expanded/visible state -->
+<script src="js/network-pills.js?v=4" defer></script>
+<!-- Click any region pill → modal with all BIT offices in that region -->
+<script src="js/region-pill-details.js?v=2" defer></script>
+<!-- BIT institutional logo injection (nav + footer) -->
+<script src="js/bit-logo.js?v=7" defer></script>
+<!-- Stories spotlight: 3 graduates side-by-side instead of just Rajesh -->
+<!-- stories-spotlight.js DISABLED: the #stories section used AI-generated
+     graduate portraits and quotes, which isn't appropriate for a
+     government institution. The whole section is hidden via CSS.
+<script src="js/stories-spotlight.js?v=3" defer></script>
+-->
+
+<!-- Tone down marketing/AI-flavoured copy in the React-rendered hero -->
+<script src="js/copy-cleanup.js?v=3" defer></script>
+<!-- Heritage timeline: swap 2025 Berbice chapter video for the real photo -->
+<script src="js/heritage-photo.js?v=1" defer></script>
+<!-- Nav extras: add News + Gallery links to the header nav -->
+<script src="js/nav-extras.js?v=2" defer></script>
+<!-- Search widget: floating "find a programme/region" search (Cmd+K to open) -->
+<script src="js/search-widget.js?v=2" defer></script>
+<!-- Leadership / mandate section: CEO Maughn + Minister Griffith + 6 priorities -->
+<script src="js/leadership.js?v=3" defer></script>
+<!-- Apply modal DISABLED: enrolment is offline-only.
+     <script src="js/apply-modal.js?v=1" defer></script> -->
+<!-- Strip Apply CTAs + correct address + add Ministry of Labour link -->
+<script src="js/strip-apply.js?v=7" defer></script>
+<!-- Programme-card carousel: swipe (mobile) + mouse drag + keyboard arrows -->
+<script src="js/spotlight-swipe.js?v=1" defer></script>
+<!-- Image lazy-load: adds loading="lazy" + decoding="async" to below-fold imgs -->
+<script src="js/image-lazy.js?v=1" defer></script>
+<!-- Mobile friendliness: tap targets, font-size floors, matrix scroll, etc. -->
+<script src="js/mobile-fixes.js?v=2" defer></script>
+<!-- Review-1 fixes: strip Oil & Gas, chapter ticker, hero eyebrow, USAID underline -->
+<script src="js/review-fixes.js?v=5" defer></script>
+<!-- Certificate verify: JSON-backed lookup with 16 sample codes -->
+<script src="js/verify-backend.js?v=3" defer></script>
+<!-- Real Guyana administrative map (replaces the rough polygons) -->
+<script src="js/guyana-map.js?v=10" defer></script>
+<!-- Sectors & Occupational Areas catalogue section -->
+<script src="js/sectors-section.js?v=1" defer></script>
+<!-- Two-way region ↔ matrix link (heatmap + region-click filter) -->
+<script src="js/region-matrix-link.js?v=1" defer></script>
+<!-- Wires footer + programme + matrix links to existing detail pages -->
+<script src="js/page-links.js?v=2" defer></script>
+<!-- Accessibility widget (text size, high contrast, reduce motion) -->
+<script src="js/a11y-widget.js?v=1" defer></script>
+<!-- Mobile hamburger menu (nav links were invisible on phones) -->
+<script src="js/mobile-menu.js?v=6" defer></script>
+<!-- Forge BIT — interactive particle hero (replaces ember frame sequence) -->
+<script src="js/forge-scene.js?v=14" defer></script>
+<!-- Tagline ladder DISABLED: the 5 phrases now live on the Forge scrub
+     section as scroll-tied captions, restored in scrub-frames.js. -->
+<!-- <script src="js/tagline-ladder.js?v=1" defer></script> -->
+
+<!-- Inline section-label rewrites — guaranteed to run regardless of
+     deferred-script ordering. Replaces the bundle's "§ NN · Label"
+     eyebrows with plain phrases a human would write. -->
+  <script defer src="js/inline/index-2.js?v=1"></script>
+</body>
+</html>

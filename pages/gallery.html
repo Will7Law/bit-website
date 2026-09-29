@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Security Headers (defense-in-depth) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com data:; img-src 'self' data: blob:; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="description" content="Photo and video gallery — Board of Industrial Training workshops, graduations, events, and facilities across Guyana.">
+  <title>Gallery — Board of Industrial Training, Guyana</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,500..800,0..100;1,9..144,400..700,0..100&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="../css/styles.css?v=6">
+  <link rel="stylesheet" href="../css/enhancements.css?v=6">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='15' fill='%231B4D8E'/%3E%3Ctext x='50' y='65' font-family='Arial' font-size='50' font-weight='bold' fill='white' text-anchor='middle'%3EBIT%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+  <div class="top-bar"><div class="container"><div class="top-bar-left"><span><i class="fas fa-landmark"></i> Ministry of Labour & Manpower Planning</span></div><div class="top-bar-right"><a href="tel:+5922251077"><i class="fas fa-phone"></i> +592 225-1077</a><a href="mailto:info@bit.gov.gy"><i class="fas fa-envelope"></i> info@bit.gov.gy</a></div></div></div>
+
+  <header class="header" id="header">
+    <div class="container">
+      <a href="../index.html" class="logo"><img src="../images/bit-logo.png" alt="Board of Industrial Training Logo" class="logo-img"><div class="logo-text"><span class="name">Board of Industrial Training</span><span class="tagline">Est. 1910 &bull; Guyana</span></div></a>
+      <nav class="main-nav" id="mainNav"><a href="../index.html">Home</a><a href="about.html">About</a><div class="nav-dropdown"><a href="programmes.html">Programmes <i class="fas fa-chevron-down nav-chevron"></i></a><div class="dropdown-menu"><a href="programme-detail.html?p=electrical">Electrical</a><a href="programme-detail.html?p=welding">Welding</a><a href="programmes.html">View All &rarr;</a></div></div><a href="regional-centres.html">Regions</a><a href="news.html">News</a><a href="gallery.html" class="active">Gallery</a><a href="contact.html">Contact</a></nav>
+      <div class="header-cta">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button><a href="verify.html" class="btn btn-outline btn-sm">Verify Certificate</a></div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <!-- Page Hero — Gallery: Mosaic Color Grid -->
+  <section class="page-hero hero-gallery">
+    <div class="gallery-hero-grid-bg">
+      <div class="gcell"></div>
+      <div class="gcell"></div>
+      <div class="gcell"></div>
+      <div class="gcell"></div>
+      <div class="gcell"></div>
+      <div class="gcell"></div>
+      <div class="gcell"></div>
+      <div class="gcell"></div>
+      <div class="gcell"></div>
+    </div>
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="sep"><i class="fas fa-chevron-right"></i></span>
+        <span>Gallery</span>
+      </div>
+      <h1>Photo<br><span class="accent-text">Gallery</span></h1>
+      <p>Explore photos from BIT workshops, graduations, events, and training facilities across all 10 regions of Guyana.</p>
+      <div class="gallery-hero-meta">
+        <span><i class="fas fa-images"></i> Workshops & Training</span>
+        <span><i class="fas fa-graduation-cap"></i> Graduations</span>
+        <span><i class="fas fa-map-marker-alt"></i> All 10 Regions</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <!-- Filters -->
+      <div class="gallery-filters" data-aos="fade-up">
+        <button class="gallery-filter active" data-filter="all">All</button>
+        <button class="gallery-filter" data-filter="workshops">Workshops</button>
+        <button class="gallery-filter" data-filter="graduation">Graduation</button>
+        <button class="gallery-filter" data-filter="events">Events</button>
+        <button class="gallery-filter" data-filter="facilities">Facilities</button>
+        <button class="gallery-filter" data-filter="regions">Regions</button>
+      </div>
+
+      <!-- Gallery Grid — 15 real BIT photographs supplied by the PR team
+           (May 2026). Layout preserved: tiles 2 and 8 still span 2 columns
+           to act as visual heroes. Each tile is now an <img> instead of a
+           gradient + icon. Captions match the actual scene in each photo. -->
+      <div class="gallery-grid" data-aos="fade-up" id="galleryGrid">
+
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="0" data-category="workshops">
+          <img src="../images/gallery/gallery-01-welding-simulator.jpg?v=1" alt="Trainee operating a Miller LiveArc welding simulator while a second trainee in a green hard hat looks on" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block">
+          <div class="gallery-item-caption"><strong>Welding Simulator</strong><br><small>Practice on the Miller LiveArc</small></div>
+        </div>
+
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="100" data-category="graduation" style="grid-column:span 2">
+          <img src="../images/gallery/gallery-02-graduation-2025.jpg?v=1" alt="Wide audience shot of BIT graduates in black and gold gowns at a graduation ceremony" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block">
+          <div class="gallery-item-caption"><strong>Graduation, 2025</strong><br><small>The class of 2025</small></div>
+        </div>
+
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="200" data-category="workshops">
+          <img src="../images/gallery/gallery-03-welding-workshop.jpg?v=1" alt="Trainee in welding mask mid-weld with bright blue arc and sparks flying, partner assisting" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block">
+          <div class="gallery-item-caption"><strong>In the Welding Shop</strong><br><small>Arc-welding practical</small></div>
+        </div>
+
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="0" data-category="facilities">
+          <img src="../images/gallery/gallery-04-modern-facility.jpg?v=2" alt="The BIT Berbice training centre — modern grey-and-orange building exterior with Board of Industrial Training signage" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block">
+          <div class="gallery-item-caption"><strong>Berbice Centre</strong><br><small>Outside the Region 6 facility</small></div>
+        </div>
+
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="100" data-category="workshops">
+          <img src="../images/gallery/gallery-05-it-class.jpg?v=1" alt="Young woman typing on a laptop in a BIT IT classroom, other students working in the background" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block">
+          <div class="gallery-item-caption"><strong>IT Class</strong><br><small>Lab session, Information Technology</small></div>
+        </div>
+
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="200" data-category="events">
+          <img src="../images/gallery/gallery-06-open-day.jpg?v=1" alt="Open day outreach — culinary trainees in hairnets serving plated meals to visitors with hi-vis safety crew nearby" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block">
+          <div class="gallery-item-caption"><strong>Open Day</strong><br><small>Visitors at an outreach event</small></div>
+        </div>
+
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="0" data-category="workshops">
+          <img src="../images/gallery/gallery-07-plumbing-practical.jpg?v=1" alt="Trainee assembling a porcelain sink fixture with orange work gloves at a plumbing workshop bench" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block">
+          <div class="gallery-item-caption"><strong>Plumbing Workshop</strong><br><small>Trainee fitting a sink</small></div>
+        </div>
+
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="100" data-category="regions" style="grid-column:span 2">
+          <img src="../images/gallery/gallery-08-regional-outreach.jpg?v=1" alt="Large group of BIT trainees in hi-vis vests and hard hats posing together at an outdoor training site" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block">
+          <div class="gallery-item-caption"><strong>Outreach Group</strong><br><small>Trainees at a regional skills session</small></div>
+        </div>
+
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="200" data-category="workshops">
+          <img src="../images/gallery/gallery-09-culinary-kitchen.jpg?v=1" alt="Three culinary trainees in chef whites and hairnets mixing ingredients in a metal bowl in a BIT kitchen" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block">
+          <div class="gallery-item-caption"><strong>Culinary Class</strong><br><small>Commercial Food Preparation</small></div>
+        </div>
+
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="0" data-category="graduation">
+          <img src="../images/gallery/gallery-10-graduation-cohort.jpg?v=1" alt="Rows of BIT graduates seated in an auditorium wearing black-and-gold graduation gowns" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block">
+          <div class="gallery-item-caption"><strong>At the Auditorium</strong><br><small>Graduates seated, 2025</small></div>
+        </div>
+
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="100" data-category="workshops">
+          <img src="../images/gallery/gallery-11-cosmetology-hair.jpg?v=1" alt="Cosmetology trainee in red apron sectioning a client's hair while other trainees work behind her" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block">
+          <div class="gallery-item-caption"><strong>Cosmetology</strong><br><small>Hair-care practical</small></div>
+        </div>
+
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="200" data-category="events">
+          <img src="../images/gallery/gallery-12-cosmetology-aesthetics.jpg?v=1" alt="Cosmetology trainee giving a client a facial treatment at an outdoor BIT outreach tent" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block">
+          <div class="gallery-item-caption"><strong>Aesthetics</strong><br><small>Facial treatment at an outreach event</small></div>
+        </div>
+
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="0" data-category="workshops">
+          <img src="../images/gallery/gallery-13-plumbing-class.jpg?v=1" alt="Instructor in safety glasses and trainee in a plumbing classroom, PVC pipe rack between them" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block">
+          <div class="gallery-item-caption"><strong>Plumbing Class</strong><br><small>Instructor and trainee at the bench</small></div>
+        </div>
+
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="100" data-category="workshops">
+          <img src="../images/gallery/gallery-14-food-presentation.jpg?v=1" alt="Male trainee in white apron and hairnet plating prepared food at a BIT culinary buffet table" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block">
+          <div class="gallery-item-caption"><strong>Plating Practical</strong><br><small>Trainee plating a dish</small></div>
+        </div>
+
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="200" data-category="workshops">
+          <img src="../images/gallery/gallery-15-culinary-practical.jpg?v=1" alt="Three BIT culinary trainees in chef whites preparing a dish together at a kitchen workstation" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block">
+          <div class="gallery-item-caption"><strong>In the Kitchen</strong><br><small>Culinary team session</small></div>
+        </div>
+
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="0" data-category="workshops">
+          <img src="../images/gallery/gallery-16-cosmetology-makeup.jpg?v=1" alt="Cosmetology trainee performing detailed brow shaping and makeup work on a client" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block">
+          <div class="gallery-item-caption"><strong>Makeup &amp; Brows</strong><br><small>Cosmetology practical</small></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Experience BIT First-Hand</h2>
+      <p>Visit our nearest training centre or attend our next Open Day to see our workshops and meet our instructors.</p>
+      <div class="cta-buttons">
+        <a href="regional-centres.html" class="btn btn-secondary btn-lg"><i class="fas fa-map-marker-alt"></i> Find a Centre</a>
+        <a href="contact.html" class="btn btn-outline-white btn-lg"><i class="fas fa-calendar"></i> Upcoming Events</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><a href="../index.html" class="logo"><img src="../images/bit-logo.png" alt="Board of Industrial Training Logo" class="logo-img"><div class="logo-text"><span class="name">Board of Industrial Training</span><span class="tagline">Est. 1910 &bull; Guyana</span></div></a><p>Industrial training and trades certification for Guyana, established 1910.</p></div>
+        <div><h4>Quick Links</h4><div class="footer-links"><a href="about.html">About BIT</a><a href="programmes.html">Programmes</a><a href="regional-centres.html">Regional Centres</a><a href="faq.html">FAQs</a></div></div>
+        <div><h4>Services</h4><div class="footer-links"><a href="verify.html">Verify Certificate</a><a href="downloads.html">Resources</a><a href="news.html">News</a></div></div>
+        <div><h4>Contact</h4><div class="footer-links"><a href="https://www.google.com/maps/search/?api=1&query=82+Brickdam,+Georgetown,+Guyana" target="_blank" rel="noopener"><i class="fas fa-map-marker-alt" style="width:16px"></i> 82 Brickdam, Georgetown</a><a href="tel:+5922251077"><i class="fas fa-phone" style="width:16px"></i> +592 225-1077</a><a href="mailto:info@bit.gov.gy"><i class="fas fa-envelope" style="width:16px"></i> info@bit.gov.gy</a></div></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 Board of Industrial Training.</span><div><a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a> | <a href="accessibility.html">Accessibility</a></div></div>
+    </div>
+  </footer>
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+  <script defer src="../js/main.js?v=2"></script>
+  <script defer src="../js/a11y-widget.js?v=1"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" integrity="sha384-n1AULnKdMJlK1oQCLNDL9qZsDgXtH6jRYFCpBtWFc+a9Yve0KSoMn575rk755NJZ" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script defer src="../js/enhancements.js?v=6"></script>
+  <!-- ── Gallery caption visibility fix ──────────────────────────
+       The shared CSS painted the caption beneath ::after/img so the
+       text was hidden by the gradient overlay. Bump the caption's
+       z-index, give it its OWN dark backdrop, and make it always
+       visible (no hover-only), so visitors can read what each photo
+       depicts even on touch devices that can't hover. -->
+  <style>
+    .gallery-item-caption{
+      position:absolute !important;
+      left:0; right:0; bottom:0 !important;
+      padding:18px 20px 16px !important;
+      color:#fff !important;
+      background:linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0) 100%) !important;
+      transform:none !important;
+      opacity:1 !important;
+      z-index:5 !important;
+      pointer-events:none;
+      line-height:1.35;
+    }
+    .gallery-item-caption strong{
+      font-size:0.98rem;
+      font-weight:700;
+      letter-spacing:-0.005em;
+      display:block;
+      margin-bottom:2px;
+      color:#fff;
+    }
+    .gallery-item-caption small{
+      font-size:0.83rem;
+      color:rgba(255,255,255,0.86);
+      display:block;
+    }
+    /* Kill the legacy ::after gradient that fights with the caption */
+    .gallery-item::after{ content:none !important; }
+    /* Cursor + lift cue */
+    .gallery-item{ cursor:zoom-in; }
+    .gallery-item:hover img{ transform:scale(1.03); }
+    .gallery-item img{ transition:transform .35s ease; }
+  </style>
+
+  <!-- ── Lightbox styling ──────────────────────────────────────── -->
+  <style>
+    .lb-backdrop{
+      position:fixed; inset:0; z-index:9999;
+      background:rgba(6,12,28,0.92);
+      display:none;
+      align-items:center; justify-content:center;
+      opacity:0;
+      transition:opacity .2s ease;
+      padding:0 14px;
+    }
+    .lb-backdrop.is-open{ display:flex; opacity:1; }
+    .lb-stage{
+      position:relative;
+      max-width:1100px;
+      width:100%;
+      display:flex; flex-direction:column;
+      align-items:center;
+    }
+    .lb-img{
+      max-width:100%;
+      max-height:78vh;
+      border-radius:14px;
+      box-shadow:0 30px 80px rgba(0,0,0,0.6);
+      background:#0a1530;
+    }
+    .lb-cap{
+      margin-top:18px;
+      color:#fff;
+      text-align:center;
+      max-width:60ch;
+      font-family:Inter,system-ui,sans-serif;
+    }
+    .lb-cap strong{
+      font-size:1.05rem;
+      display:block;
+      margin-bottom:2px;
+    }
+    .lb-cap small{
+      font-size:0.92rem;
+      color:rgba(255,255,255,0.7);
+    }
+    .lb-count{
+      margin-top:10px;
+      font-family:'JetBrains Mono',monospace;
+      font-size:11px;
+      letter-spacing:0.16em;
+      color:rgba(255,255,255,0.55);
+    }
+    .lb-btn{
+      position:absolute;
+      top:50%; transform:translateY(-50%);
+      width:54px; height:54px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.10);
+      color:#fff;
+      border:1px solid rgba(255,255,255,0.18);
+      display:inline-flex; align-items:center; justify-content:center;
+      cursor:pointer;
+      transition:background .15s, transform .15s;
+      font-size:0;
+    }
+    .lb-btn:hover{ background:rgba(242,101,34,0.30); transform:translateY(-50%) scale(1.04); }
+    .lb-btn:focus-visible{ outline:2px solid #FFA45A; outline-offset:3px; }
+    .lb-prev{ left:8px; }
+    .lb-next{ right:8px; }
+    .lb-close{
+      position:absolute;
+      top:14px; right:14px;
+      width:44px; height:44px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.10);
+      color:#fff;
+      border:1px solid rgba(255,255,255,0.18);
+      cursor:pointer;
+      display:inline-flex; align-items:center; justify-content:center;
+      font-size:0;
+      transition:background .15s, transform .15s;
+    }
+    .lb-close:hover{ background:rgba(242,101,34,0.30); transform:rotate(90deg); }
+    .lb-close:focus-visible{ outline:2px solid #FFA45A; outline-offset:3px; }
+    .lb-icon{ width:22px; height:22px; }
+    @media (max-width:720px){
+      .lb-btn{ width:44px; height:44px; }
+      .lb-prev{ left:4px; } .lb-next{ right:4px; }
+      .lb-img{ max-height:70vh; }
+    }
+    @media (prefers-reduced-motion: reduce){
+      .lb-backdrop, .lb-img, .lb-btn, .lb-close{ transition:none !important; }
+      .gallery-item img{ transition:none !important; }
+    }
+  </style>
+
+  <script defer src="../js/inline/gallery-1.js?v=1"></script>
+  <script defer src="../js/aos-init.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+# ════════════════════════════════════════════════════════════════
+# Netlify deployment config — supplements _headers
+# ════════════════════════════════════════════════════════════════
+
+[build]
+  # Static site — no build command needed; Netlify serves files as-is
+  publish = "."
+
+# Asset caching policy
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/media/*"
+  [headers.values]
+    # Long cache for posters; videos use range requests
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+# Range request support for video streaming (Netlify defaults are fine
+# but we set Accept-Ranges explicitly so partial-content works on every
+# CDN edge).
+[[headers]]
+  for = "/media/*.mp4"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+    Accept-Ranges = "bytes"
+
+# Don't expose Netlify build identity
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "index, follow"
+
+# ════════════════════════════════════════════════════════════════
+# Withdrawn resources — NDMA security assessment, Finding 2
+# ────────────────────────────────────────────────────────────────
+# Fabricated certificate-holder data and AI-generated portraits
+# captioned with individuals' names. Removed from the source tree and
+# from the deployment artefact. force = true makes the rule win even
+# if an orphaned copy persists in the deploy store from an earlier
+# drop deploy. 410 Gone states the resource is permanently withdrawn.
+# Declared here as well as in _redirects so the two cannot drift.
+# ════════════════════════════════════════════════════════════════
+
+[[redirects]]
+  from = "/data/certificates.json"
+  to = "/pages/404.html"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/js/stories-spotlight.js"
+  to = "/pages/404.html"
+  status = 410
+  force = true
+
+[[redirects]]
+  from = "/media/images/grad-*"
+  to = "/pages/404.html"
+  status = 410
+  force = true
+
+# ════════════════════════════════════════════════════════════════
+# Redirects — handle stale URLs from old structure
+# ════════════════════════════════════════════════════════════════
+
+# Old root /index-v2.html → main page
+[[redirects]]
+  from = "/index-v2.html"
+  to = "/"
+  status = 301
+
+# Old apply-related URLs → contact page (no online enrolment per BIT)
+[[redirects]]
+  from = "/pages/apply.html"
+  to = "/pages/contact.html"
+  status = 301
+
+[[redirects]]
+  from = "/apply"
+  to = "/pages/contact.html"
+  status = 301
+
+# Old programme-detail slugs that have been removed
+[[redirects]]
+  from = "/pages/programme-detail.html"
+  to = "/pages/programmes.html"
+  status = 301
+  conditions = {Query = {p = "oil-gas"}}

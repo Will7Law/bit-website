@@ -1,0 +1,36 @@
+# Netlify _redirects — paired with netlify.toml for fallback rules.
+# Order: most specific first.
+
+# ════════════════════════════════════════════════════════════════
+# Withdrawn resources — NDMA security assessment, Finding 2
+# ────────────────────────────────────────────────────────────────
+# These paths held fabricated certificate-holder data (names,
+# programmes, regions, grades, issue dates) and AI-generated portraits
+# captioned with individuals' names. The files have been removed from
+# the source tree and from the deployment artefact.
+#
+# These rules are belt-and-braces: a Netlify drop deploy was observed
+# to keep serving files that had been removed from the upload, leaving
+# them reachable as orphans. The trailing "!" forces the rule to apply
+# even when a file still exists at the path, so the resource is
+# unreachable regardless of what lingers in the deploy store.
+#
+# 410 Gone (not 404) is deliberate: it states the resource existed and
+# has been permanently withdrawn, which is the accurate signal to a
+# scanner and to any cached index.
+# ════════════════════════════════════════════════════════════════
+
+/data/certificates.json     /pages/404.html   410!
+/js/stories-spotlight.js    /pages/404.html   410!
+/media/images/grad-*        /pages/404.html   410!
+
+# ════════════════════════════════════════════════════════════════
+# Structural redirects
+# ════════════════════════════════════════════════════════════════
+
+/index-v2.html          /                              301
+/pages/apply.html       /pages/contact.html            301
+/apply                  /pages/contact.html            301
+
+# 404 fallback to the dedicated 404 page (keeps the chrome consistent)
+/*                      /pages/404.html                404

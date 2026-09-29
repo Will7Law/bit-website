@@ -1,0 +1,29 @@
+{
+  "name": "Board of Industrial Training — Guyana",
+  "short_name": "BIT Guyana",
+  "description": "Guyana's national institution for technical and vocational training. Established 1910. Sixteen programmes across ten administrative regions. Government-subsidised tuition.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "lang": "en-GY",
+  "dir": "ltr",
+  "background_color": "#0A1530",
+  "theme_color": "#F26522",
+  "categories": ["education", "government"],
+  "icons": [
+    {
+      "src": "/images/bit-logo.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/bit-logo.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }
+  ]
+}

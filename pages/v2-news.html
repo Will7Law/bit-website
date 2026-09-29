@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- CSP: fully self-contained page — no third-party frames or scripts (Facebook embed removed 14 July 2026) -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data:; frame-src 'none'; connect-src 'self'; base-uri 'self'; object-src 'none'">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>News & Press · Board of Industrial Training, Guyana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/v2.tailwind.css?v=7">
+<link rel="icon" type="image/png" href="../images/bit-logo.png">
+
+<style>
+  :root{
+    --navy:#0A1530; --navy-2:#0E1A3D; --navy-3:#06112A;
+    --orange:#F26522; --orange-2:#FFA45A; --blue:#1B4D8E;
+  }
+  *{ box-sizing:border-box; }
+  html,body{ background:var(--navy); color:#fff; margin:0; padding:0; }
+  body{ font-family:'Inter',ui-sans-serif,system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  .font-display{ font-family:'Fraunces',serif; font-variation-settings:"opsz" 144; }
+  .font-mono{ font-family:'JetBrains Mono',ui-monospace,monospace; }
+  ::selection{ background:var(--orange); color:#0a0a0a; }
+  body{ overflow-x:hidden; }
+
+  .mesh-bg{
+    position:fixed; inset:0; pointer-events:none; z-index:0;
+    background:
+      radial-gradient(60% 50% at 18% 12%, rgba(242,101,34,.10), transparent 70%),
+      radial-gradient(70% 50% at 82% 18%, rgba(27,77,142,.20), transparent 70%);
+  }
+  .glass{
+    background: rgba(14, 26, 61, 0.62);
+    border: 1px solid rgba(255,255,255,.08);
+  }
+
+  /* Top nav (lightweight, doesn't depend on the React bundle) */
+  .topnav{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    background: rgba(10,21,48,0.78);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .topnav-inner{
+    max-width: 1280px; margin: 0 auto;
+    padding: 14px 24px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .topnav-logo{ display:flex; align-items:center; gap:12px; text-decoration:none; color:#fff; }
+  .topnav-logo img{ height:36px; width:auto; }
+  .topnav-logo .word{ font-family:Fraunces,serif; font-weight:600; font-size:22px; letter-spacing:-0.02em; }
+  .topnav-logo .est{ font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.28em; color:rgba(255,255,255,.55); margin-top:1px; }
+  .topnav-links{ display:flex; gap:6px; align-items:center; }
+  .topnav-links a{
+    padding:7px 14px; border-radius:999px;
+    color:rgba(255,255,255,.75); text-decoration:none;
+    font-size:13.5px; font-weight:500; transition:all .25s;
+  }
+  .topnav-links a:hover{ background:rgba(255,255,255,.06); color:#fff; }
+  .topnav-links a.active{ background:rgba(242,101,34,.18); color:var(--orange-2); }
+  @media (max-width:740px){
+    .topnav-links a{ padding:6px 10px; font-size:12px; }
+    .topnav-logo .est{ display:none; }
+  }
+
+  /* Page hero */
+  .page-hero{
+    padding: 140px 24px 80px;
+    text-align:center; position:relative;
+  }
+  .eyebrow{
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 13px; font-weight: 600;
+    color: var(--orange-2); margin-bottom: 16px;
+  }
+  h1{
+    font-family:Fraunces,serif; font-weight:540;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    letter-spacing:-0.02em; line-height:1.02;
+    margin: 0 0 16px;
+    text-wrap: balance;
+  }
+  h1 em{ font-style:italic; color:var(--orange); font-weight:500; }
+  .lede{ max-width: 56ch; margin: 0 auto; color:rgba(255,255,255,.7); font-size:16px; }
+
+  /* Article grid */
+  .articles{
+    max-width: 1280px; margin: 40px auto 0; padding: 0 24px;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+  }
+  @media (max-width:900px){ .articles{ grid-template-columns: 1fr; } }
+  .article-card{
+    padding: 28px; border-radius: 18px;
+    transition: transform .35s cubic-bezier(.2,0,0,1), border-color .35s;
+    text-decoration:none; color:#fff; display:block;
+  }
+  .article-card:hover{ transform: translateY(-4px); border-color: rgba(242,101,34,.4); }
+  .article-meta{
+    font-family:'JetBrains Mono',monospace; font-size:10px;
+    letter-spacing:0.28em; text-transform:uppercase;
+    color:rgba(255,255,255,.5); margin-bottom: 14px;
+  }
+  .article-title{
+    font-family:Fraunces,serif; font-weight:540;
+    font-size: clamp(1.25rem, 1.6vw, 1.7rem);
+    letter-spacing:-0.01em; line-height:1.18;
+    margin: 0 0 12px;
+  }
+  .article-excerpt{ color:rgba(255,255,255,.7); font-size:14.5px; line-height:1.6; margin-bottom: 20px; }
+  .article-link{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:13px; color:var(--orange-2); font-weight:500;
+  }
+
+  /* Facebook embed */
+  .fb-section{
+    max-width: 1280px; margin: 100px auto 0; padding: 0 24px;
+  }
+  .fb-section-head{ text-align:center; margin-bottom: 32px; }
+  .fb-section-head h2{
+    font-family:Fraunces,serif; font-weight:540;
+    font-size: clamp(2rem, 4vw, 3rem); letter-spacing:-0.02em;
+    margin: 0 0 12px;
+  }
+  .fb-section-head em{ font-style:italic; color:var(--orange); font-weight:500; }
+  .fb-frame-wrap{
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px; padding: 20px;
+    overflow: hidden;
+    display: flex; justify-content: center;
+  }
+  .fb-frame-wrap iframe{
+    border: 0; max-width: 100%;
+    background: rgba(255,255,255,0.02);
+    border-radius: 10px;
+  }
+  .fb-fallback{
+    margin-top: 20px; padding: 20px;
+    background: rgba(242,101,34,0.08); border-radius: 12px;
+    font-size: 13.5px; color: rgba(255,255,255,0.75);
+    text-align: center;
+  }
+  .fb-fallback a{ color: var(--orange-2); text-decoration: underline; }
+
+  footer{
+    margin-top: 120px;
+    padding: 40px 24px;
+    border-top: 1px solid rgba(255,255,255,.06);
+    text-align: center;
+    color: rgba(255,255,255,.5);
+    font-size: 13px;
+  }
+  footer a{ color:var(--orange-2); text-decoration:none; }
+</style>
+</head>
+<body>
+
+<div class="mesh-bg"></div>
+
+<!-- Lightweight nav (independent of v2 React bundle) -->
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="../index.html" class="topnav-logo">
+      <img src="../images/bit-logo.png" alt="BIT logo"/>
+      <div>
+        <div class="word">BIT</div>
+        <div class="est">EST · MCMX</div>
+      </div>
+    </a>
+    <div class="topnav-links">
+      <a href="../index.html">Home</a>
+      <a href="v2-news.html" class="active">News</a>
+      <a href="v2-gallery.html">Gallery</a>
+      <a href="https://www.facebook.com/p/Board-of-Industrial-Training-Guyana-100064261016522/" target="_blank" rel="noopener">Facebook ↗</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="page-hero">
+  <div class="eyebrow">Latest news</div>
+  <h1>The Board, in <em>the news.</em></h1>
+  <p class="lede">Recent press, ministry releases, and announcements from the Board of Industrial Training.</p>
+</section>
+
+<!-- Curated press articles (real, sourced from public news sites) -->
+<section class="articles">
+
+  <a class="article-card glass" href="https://labour.gov.gy/%F0%9D%90%91%F0%9D%90%9E%F0%9D%90%A0%F0%9D%90%A2%F0%9D%90%A8%F0%9D%90%A7-%F0%9D%90%92%F0%9D%90%A2%F0%9D%90%B1-%F0%9D%90%92%F0%9D%90%A1%F0%9D%90%A2%F0%9D%90%A7%F0%9D%90%9E%F0%9D%90%AC-%F0%9D%90%81/" target="_blank" rel="noopener">
+    <div class="article-meta">19 Nov 2025 · Ministry of Labour</div>
+    <h3 class="article-title">Region Six Shines: BIT Certifies 231 Graduates Across Eight Programmes</h3>
+    <p class="article-excerpt">Graduates from Crabwood Creek, Upper Corentyne, New Amsterdam, East Berbice, and Black Bush Polder completed eight technical and vocational programmes including Cosmetology, Welding & Fabrication, Heavy-Duty Equipment Operation, Electrical Installation, Commercial Food Preparation, IT, and A/C Refrigeration.</p>
+    <span class="article-link">Read on labour.gov.gy →</span>
+  </a>
+
+  <a class="article-card glass" href="https://guyanachronicle.com/2025/12/09/bit-training-spurs-jobs-empowers-women-in-region-seven/" target="_blank" rel="noopener">
+    <div class="article-meta">9 Dec 2025 · Guyana Chronicle</div>
+    <h3 class="article-title">BIT Training Spurs Jobs, Empowers Women in Region Seven</h3>
+    <p class="article-excerpt">More than 600 residents of Region Seven (Cuyuni-Mazaruni) have participated in BIT programmes between 2020 and 2025. The 2025 ceremony at Bartica Community Centre certified 105 graduates across six occupational areas, delivered in partnership with G-Mining Ventures Guyana.</p>
+    <span class="article-link">Read on guyanachronicle.com →</span>
+  </a>
+
+  <a class="article-card glass" href="https://kaieteurnewsonline.com/2025/12/18/nine-welders-complete-bit-training-programme/" target="_blank" rel="noopener">
+    <div class="article-meta">18 Dec 2025 · Kaieteur News</div>
+    <h3 class="article-title">Nine Welders Complete BIT Training Programme</h3>
+    <p class="article-excerpt">BIT, in collaboration with the Demerara Harbour Bridge Corporation, hosted the Welding & Fabrication Apprenticeship graduation on Tuesday, December 16, 2025, recognising the successful completion of training by nine apprentices.</p>
+    <span class="article-link">Read on kaieteurnewsonline.com →</span>
+  </a>
+
+  <a class="article-card glass" href="https://guyanachronicle.com/2025/12/16/77-per-cent-of-bits-graduates-gainfully-employed-ceo-tells-annual-staff-confab/" target="_blank" rel="noopener">
+    <div class="article-meta">16 Dec 2025 · Guyana Chronicle</div>
+    <h3 class="article-title">77% of BIT's Graduates Gainfully Employed — CEO Tells Annual Staff Confab</h3>
+    <p class="article-excerpt">According to tracer studies conducted in 2025, 77 per cent of BIT's graduates are gainfully employed, many within their trained fields. CEO Richard Maughn shared the milestone at the institution's annual staff conference.</p>
+    <span class="article-link">Read on guyanachronicle.com →</span>
+  </a>
+
+  <a class="article-card glass" href="https://inewsguyana.com/govt-empowering-citizens-to-seize-opportunities-in-guyanas-growing-economy-labour-minister/" target="_blank" rel="noopener">
+    <div class="article-meta">2025 · INews Guyana</div>
+    <h3 class="article-title">Govt Empowering Citizens to Seize Opportunities in Guyana's Growing Economy</h3>
+    <p class="article-excerpt">Labour Minister Keoma Griffith highlighted the government's commitment to empowering Guyanese through technical and vocational training as the country's economy continues to expand on the back of oil & gas growth.</p>
+    <span class="article-link">Read on inewsguyana.com →</span>
+  </a>
+
+  <a class="article-card glass" href="https://www.facebook.com/gychronicle/videos/empowering-the-workforce-for-115-years-the-board-of-industrial-training-bit-ongo/562464273283237/" target="_blank" rel="noopener">
+    <div class="article-meta">Video · 115 Years</div>
+    <h3 class="article-title">Empowering the Workforce: 115 Years of the Board of Industrial Training</h3>
+    <p class="article-excerpt">A retrospective video feature on BIT's century-plus mission of equipping Guyana's workforce with industry-ready skills — produced by the Guyana Chronicle.</p>
+    <span class="article-link">Watch on Facebook →</span>
+  </a>
+
+</section>
+
+<!-- Live Facebook feed embed -->
+<!-- Facebook Page Plugin iframe removed (security review, 14 July 2026).
+     The plugin set Meta tracking cookies on every visitor, contradicting the
+     site's privacy policy ("No tracking cookies from third-party advertisers")
+     and the documentation supplied to NDMA. Replaced with a link-out card:
+     no third-party code executes and no visitor data leaves this origin. -->
+<section class="fb-section">
+  <div class="fb-section-head">
+    <div class="eyebrow" style="margin-bottom:12px">From our Facebook page</div>
+    <h2>Direct from <em>the page</em></h2>
+    <p class="lede">Latest posts, photos, and announcements are published on the official BIT Guyana Facebook page.</p>
+  </div>
+
+  <div class="fb-frame-wrap" style="flex-direction:column;align-items:center;text-align:center;gap:16px;padding:44px 24px">
+    <svg width="46" height="46" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 9h3V6h-3c-1.66 0-3 1.34-3 3v2H8v3h3v7h3v-7h3l1-3h-4V9z" fill="#78AAFF"/><circle cx="12" cy="12" r="11" stroke="#78AAFF" stroke-opacity="0.4" stroke-width="1.5"/></svg>
+    <p style="font-size:15px;line-height:1.65;color:rgba(255,255,255,0.75);max-width:520px;margin:0">
+      We link out rather than embed, so nothing on this page shares your visit
+      with third parties. See the latest updates directly on Facebook.
+    </p>
+    <a href="https://www.facebook.com/p/Board-of-Industrial-Training-Guyana-100064261016522/"
+       target="_blank" rel="noopener"
+       style="display:inline-flex;align-items:center;gap:10px;background:#78AAFF;color:#06112A;font-weight:600;text-decoration:none;padding:12px 24px;border-radius:10px;font-size:14.5px">
+      Open the BIT Guyana Facebook page &nearr;
+    </a>
+    <span style="font-size:12px;color:rgba(255,255,255,0.4)">facebook.com/Board-of-Industrial-Training-Guyana</span>
+  </div>
+</section>
+
+<footer>
+  © 1910–2026 Board of Industrial Training · 82 Brickdam, Georgetown, Guyana<br>
+  <a href="../index.html">Back to home</a>
+</footer>
+
+</body>
+</html>

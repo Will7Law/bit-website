@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Security Headers (defense-in-depth) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com data:; img-src 'self' data: blob:; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="description" content="Programme details — Board of Industrial Training, Guyana. Duration, eligibility, curriculum, outcomes.">
+  <title>Programme Details — Board of Industrial Training, Guyana</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,500..800,0..100;1,9..144,400..700,0..100&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="../css/styles.css?v=6">
+  <link rel="stylesheet" href="../css/enhancements.css?v=6">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='15' fill='%231B4D8E'/%3E%3Ctext x='50' y='65' font-family='Arial' font-size='50' font-weight='bold' fill='white' text-anchor='middle'%3EBIT%3C/text%3E%3C/svg%3E">
+  <style>
+    /* ──────────────────────────────────────────────────────────────
+       V2 dark-theme retheme of the legacy programme-detail page.
+       Restyles every existing class/id to match the home-page palette
+       (deep navy + Forge orange + Fraunces serif headings) without
+       touching the HTML structure.
+       ────────────────────────────────────────────────────────────── */
+    :root{
+      --navy:#0A1530; --navy-2:#0E1A3D; --navy-3:#06112A;
+      --orange:#F26522; --orange-2:#FFA45A;
+      --primary:#F26522; --primary-dark:#1B4D8E;
+      --white:rgba(255,255,255,0.95); --gray-200:rgba(255,255,255,0.10);
+      --gray-600:rgba(255,255,255,0.65); --gray-700:rgba(255,255,255,0.78);
+      --gray-800:rgba(255,255,255,0.92); --success:#3FB36F;
+    }
+    html, body{
+      background:
+        radial-gradient(70% 60% at 30% 0%, rgba(242,101,34,0.10), transparent 70%),
+        radial-gradient(60% 60% at 100% 30%, rgba(27,77,142,0.18), transparent 70%),
+        var(--navy);
+      color: var(--white);
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+    h1, h2, h3, h4{ color: #fff; font-family: 'Fraunces', serif; font-weight: 540; letter-spacing: -0.02em; }
+    h1{ font-size: clamp(2.4rem, 5vw, 4.2rem); line-height: 1.04; }
+    h2{ font-size: clamp(1.8rem, 3.5vw, 2.6rem); margin-bottom: 0.8rem; }
+    h3{ font-size: 1.35rem; }
+    p{ color: var(--gray-700); line-height: 1.7; }
+    a{ color: var(--orange-2); }
+    a:hover{ color: var(--orange); }
+
+    /* Topbar */
+    .top-bar{ background: rgba(6,17,42,0.95); border-bottom: 1px solid rgba(255,255,255,0.06); color: var(--gray-600); }
+    .top-bar a{ color: var(--gray-700); text-decoration: none; }
+    .top-bar a:hover{ color: var(--orange-2); }
+    .top-bar i.fa-landmark, .top-bar i.fa-phone, .top-bar i.fa-envelope{ color: var(--orange-2); }
+
+    /* Header / nav */
+    .header{ background: rgba(10,21,48,0.85); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .logo .name{ color: #fff; }
+    .logo .tagline{ color: var(--gray-600); }
+    .main-nav a{ color: var(--gray-700); transition: color .15s; }
+    .main-nav a:hover, .main-nav a.active{ color: var(--orange-2); }
+    .dropdown-menu{ background: var(--navy-2); border: 1px solid rgba(255,255,255,0.08); }
+    .dropdown-menu a{ color: var(--gray-700); }
+    .dropdown-menu a:hover{ background: rgba(242,101,34,0.10); color: var(--orange-2); }
+    .btn-outline{ background: transparent; border: 1px solid var(--orange); color: var(--orange-2); }
+    .btn-outline:hover{ background: var(--orange); color: #0a0a0a; }
+
+    /* Hero / breadcrumb */
+    .detail-hero { min-height: 360px; display: flex; align-items: flex-end; padding: 80px 0 60px; position: relative;
+      background:
+        radial-gradient(40% 50% at 20% 100%, rgba(242,101,34,0.18), transparent 70%),
+        linear-gradient(180deg, transparent, rgba(10,21,48,0.6));
+    }
+    .breadcrumb{ color: var(--gray-600); font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 18px; }
+    .breadcrumb a{ color: var(--gray-700); }
+
+    /* Content sections */
+    .section{ padding: 60px 0; }
+    .detail-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 48px; }
+    .detail-sidebar { position: sticky; top: 140px; }
+    .info-box {
+      background: rgba(14,26,61,0.62);
+      backdrop-filter: blur(12px);
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 26px;
+      margin-bottom: 20px;
+      color: var(--gray-800);
+    }
+    .info-box h3{ color: var(--orange-2); font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; margin-bottom: 18px; }
+    .info-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.08); font-size: 0.95rem; }
+    .info-row:last-child { border-bottom: none; }
+    .info-row .label { font-weight: 500; color: var(--gray-600); }
+    .info-row .value { color: var(--gray-800); text-align: right; max-width: 60%; }
+    .curriculum-item { display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .curriculum-item:last-child { border-bottom: none; }
+    .curriculum-num { width: 34px; height: 34px; min-width: 34px; background: linear-gradient(135deg, var(--orange), var(--orange-2)); color: #0a0a0a; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; font-family: 'JetBrains Mono', monospace; }
+    .curriculum-item span{ color: var(--gray-800); padding-top: 6px; }
+    .outcome-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; color: var(--gray-800); }
+    .outcome-item i { color: var(--orange); margin-top: 4px; }
+
+    /* Career cards */
+    .career-card, .grid > div{ background: rgba(14,26,61,0.55); border: 1px solid rgba(255,255,255,0.08); color: var(--gray-800); border-radius: 14px; padding: 18px; }
+    .career-card:hover{ border-color: rgba(242,101,34,0.40); }
+
+    /* Buttons */
+    .btn{ border-radius: 999px; font-weight: 600; transition: all .15s; }
+    .btn-primary{ background: linear-gradient(135deg, var(--orange), var(--orange-2)); color: #0a0a0a; border: none; }
+    .btn-primary:hover{ box-shadow: 0 8px 24px rgba(242,101,34,0.35); transform: translateY(-1px); }
+    .btn-secondary{ background: rgba(255,255,255,0.08); color: #fff; border: 1px solid rgba(255,255,255,0.14); }
+
+    /* Footer */
+    footer, .footer{ background: var(--navy-3); color: var(--gray-600); border-top: 1px solid rgba(255,255,255,0.06); }
+    .footer-links a{ color: var(--gray-700); }
+    .footer-links a:hover{ color: var(--orange-2); }
+
+    /* Programme icon tile in hero */
+    .programme-icon-box{ background: linear-gradient(135deg, var(--orange), var(--orange-2)); }
+
+    /* Hide v1 theme toggle (we're permanently dark now) */
+    .theme-toggle{ display: none !important; }
+
+    @media (max-width: 768px) { .detail-grid { grid-template-columns: 1fr; } .detail-sidebar { position: static; } }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar"><div class="container"><div class="top-bar-left"><span><i class="fas fa-landmark"></i> Ministry of Labour & Manpower Planning</span></div><div class="top-bar-right"><a href="tel:+5922251077"><i class="fas fa-phone"></i> +592 225-1077</a><a href="mailto:info@bit.gov.gy"><i class="fas fa-envelope"></i> info@bit.gov.gy</a></div></div></div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container">
+      <a href="../index.html" class="logo"><img src="../images/bit-logo.png" alt="Board of Industrial Training Logo" class="logo-img"><div class="logo-text"><span class="name">Board of Industrial Training</span><span class="tagline">Est. 1910 &bull; Guyana</span></div></a>
+      <nav class="main-nav" id="mainNav">
+        <a href="../index.html">Home</a><a href="about.html">About</a>
+        <div class="nav-dropdown"><a href="programmes.html" class="active">Programmes <i class="fas fa-chevron-down nav-chevron"></i></a><div class="dropdown-menu"><a href="programme-detail.html?p=electrical">Electrical</a><a href="programme-detail.html?p=welding">Welding</a><a href="programme-detail.html?p=it">IT</a><a href="programmes.html">View All &rarr;</a></div></div>
+        <a href="regional-centres.html">Regions</a><a href="news.html">News</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-cta">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button><a href="verify.html" class="btn btn-outline btn-sm">Verify Certificate</a></div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <!-- Dynamic Page Hero -->
+  <section class="page-hero detail-hero" id="programmeHero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="sep"><i class="fas fa-chevron-right"></i></span>
+        <a href="programmes.html">Programmes</a>
+        <span class="sep"><i class="fas fa-chevron-right"></i></span>
+        <span id="breadcrumbName">Programme</span>
+      </div>
+      <h1 id="programmeTitle">Programme Name</h1>
+      <p id="programmeTagline">Programme description tagline.</p>
+    </div>
+  </section>
+
+  <!-- Programme Content -->
+  <section class="section">
+    <div class="container">
+      <div class="detail-grid">
+
+        <!-- Main Content -->
+        <div>
+          <!-- Overview -->
+          <div class="reveal">
+            <h2 style="margin-bottom:var(--space-lg)">Programme Overview</h2>
+            <p id="programmeOverview" class="lead">Loading programme details...</p>
+          </div>
+
+          <!-- Curriculum -->
+          <div class="reveal" style="margin-top:var(--space-3xl)">
+            <h2 style="margin-bottom:var(--space-lg)">Curriculum Modules</h2>
+            <div id="curriculumList"></div>
+          </div>
+
+          <!-- Learning Outcomes -->
+          <div class="reveal" style="margin-top:var(--space-3xl)">
+            <h2 style="margin-bottom:var(--space-lg)">Learning Outcomes</h2>
+            <p>Upon successful completion of this programme, graduates will be able to:</p>
+            <div id="outcomesList" style="margin-top:var(--space-md)"></div>
+          </div>
+
+          <!-- Career Pathways -->
+          <div class="reveal" style="margin-top:var(--space-3xl)">
+            <h2 style="margin-bottom:var(--space-lg)">Career Pathways</h2>
+            <div id="careersList" class="grid grid-3" style="gap:var(--space-md)"></div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="detail-sidebar">
+          <div class="info-box">
+            <h3 style="margin-bottom:var(--space-md);font-size:1.1rem">Programme Information</h3>
+            <div id="infoRows"></div>
+            
+          </div>
+
+          <div class="info-box">
+            <h3 style="margin-bottom:var(--space-md);font-size:1.1rem">Have Questions?</h3>
+            <p style="font-size:0.9rem;color:var(--gray-600)">Contact our admissions team for more information about this programme.</p>
+            <a href="contact.html" class="btn btn-outline" style="width:100%;margin-top:var(--space-sm)"><i class="fas fa-phone"></i> Contact Us</a>
+          </div>
+
+          <div class="info-box" style="background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:var(--white);border:none">
+            <h3 style="margin-bottom:var(--space-sm);font-size:1rem;color:var(--white)"><i class="fas fa-envelope" style="margin-right:6px"></i> Request the Brochure</h3>
+            <p style="font-size:0.85rem;color:rgba(255,255,255,0.8);margin-bottom:var(--space-md)">Email us and we&rsquo;ll send you the full programme brochure with detailed curriculum and intake calendar.</p>
+            <a href="mailto:info@bit.gov.gy?subject=Brochure%20request%20%E2%80%94%20programme&body=Please%20send%20me%20the%20programme%20brochure.%20Thank%20you." class="btn btn-white btn-sm" style="width:100%">Email Admissions</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Other Programmes -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="overline">Explore More</span>
+        <h2>Other Programmes You Might Like</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="grid grid-3 reveal" id="relatedProgrammes"></div>
+      <div class="text-center" style="margin-top:var(--space-2xl)">
+        <a href="programmes.html" class="btn btn-outline">View All 12 Programmes <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Start Your Journey Today</h2>
+      <p>Applications are open for the 2026 intake. Secure your spot in this programme now.</p>
+      <div class="cta-buttons">
+        
+        <a href="verify.html" class="btn btn-outline-white btn-lg"><i class="fas fa-shield-halved"></i> Verify Certificate</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><a href="../index.html" class="logo"><img src="../images/bit-logo.png" alt="Board of Industrial Training Logo" class="logo-img"><div class="logo-text"><span class="name">Board of Industrial Training</span><span class="tagline">Est. 1910 &bull; Guyana</span></div></a><p>Industrial training and trades certification for Guyana, established 1910.</p></div>
+        <div><h4>Quick Links</h4><div class="footer-links"><a href="about.html">About BIT</a><a href="programmes.html">Programmes</a><a href="regional-centres.html">Regional Centres</a><a href="faq.html">FAQs</a></div></div>
+        <div><h4>Services</h4><div class="footer-links"><a href="verify.html">Verify Certificate</a><a href="downloads.html">Resources</a><a href="news.html">News</a></div></div>
+        <div><h4>Contact</h4><div class="footer-links"><a href="https://www.google.com/maps/search/?api=1&query=82+Brickdam,+Georgetown,+Guyana" target="_blank" rel="noopener"><i class="fas fa-map-marker-alt" style="width:16px"></i> 82 Brickdam, Georgetown</a><a href="tel:+5922251077"><i class="fas fa-phone" style="width:16px"></i> +592 225-1077</a><a href="mailto:info@bit.gov.gy"><i class="fas fa-envelope" style="width:16px"></i> info@bit.gov.gy</a></div></div>
+      </div>
+      <div class="footer-bottom"><span>&copy; 2026 Board of Industrial Training.</span><div><a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a> | <a href="accessibility.html">Accessibility</a></div></div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+  <script defer src="../js/main.js?v=2"></script>
+  <script defer src="../js/a11y-widget.js?v=1"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" integrity="sha384-n1AULnKdMJlK1oQCLNDL9qZsDgXtH6jRYFCpBtWFc+a9Yve0KSoMn575rk755NJZ" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script defer src="../js/enhancements.js?v=6"></script>
+
+  <script defer src="../js/inline/programme-detail-1.js?v=1"></script>
+  <script defer src="../js/aos-init.js?v=1"></script>
+</body>
+</html>

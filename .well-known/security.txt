@@ -1,0 +1,11 @@
+# Security disclosure record (RFC 9116)
+# Tells security researchers how to report vulnerabilities responsibly.
+
+Contact: mailto:info@bit.gov.gy
+Contact: tel:+5922251077
+Expires: 2027-05-06T00:00:00.000Z
+Encryption: https://bit.gov.gy/.well-known/pgp-key.asc
+Preferred-Languages: en
+Canonical: https://bit.gov.gy/.well-known/security.txt
+Policy: https://bit.gov.gy/pages/privacy.html
+Hiring: https://labour.gov.gy/
