@@ -269,6 +269,58 @@
     </div>
   </section>
 
+  <!-- Our Leadership -->
+  <section class="section">
+    <style>
+      .leader-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:var(--space-2xl); max-width:1040px; margin:0 auto; }
+      .leader-card{ background:var(--white); border:1px solid var(--gray-200); border-radius:var(--radius-lg); overflow:hidden; transition:transform .3s ease, box-shadow .3s ease; }
+      .leader-card:hover{ transform:translateY(-4px); box-shadow:0 14px 34px rgba(27,77,142,0.16); border-color:var(--primary); }
+      .leader-photo{ aspect-ratio:4/5; overflow:hidden; background:var(--gray-100); }
+      .leader-photo img{ width:100%; height:100%; object-fit:cover; object-position:center 20%; display:block; }
+      .leader-info{ padding:var(--space-lg); text-align:center; }
+      .leader-rank{ display:inline-block; font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase; font-weight:700; color:var(--secondary); margin-bottom:6px; }
+      .leader-info h4{ font-size:1.12rem; margin:0 0 4px; color:var(--dark); }
+      .leader-info p{ font-size:0.9rem; color:var(--gray-600); margin:0; }
+      [data-theme="dark"] .leader-card{ background:#1a2332; border-color:rgba(255,255,255,0.08); }
+      [data-theme="dark"] .leader-info h4{ color:#fff; }
+      @media(max-width:760px){ .leader-grid{ grid-template-columns:1fr; max-width:360px; } }
+    </style>
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="overline">Our Leadership</span>
+        <h2>The People Who Lead BIT</h2>
+        <div class="section-divider"></div>
+        <p>The Board of Industrial Training operates under the portfolio of the Ministry of Labour &amp; Manpower Planning, guided by its statutory Board and run by a full-time Secretariat.</p>
+      </div>
+      <div class="leader-grid" data-aos="fade-up">
+        <article class="leader-card">
+          <div class="leader-photo"><img src="../images/leadership/minister-griffith.jpg?v=oct31" alt="Hon. Keoma Griffith, Minister of Labour and Manpower Planning" loading="lazy" decoding="async"></div>
+          <div class="leader-info">
+            <span class="leader-rank">Portfolio Minister</span>
+            <h4>Hon. Keoma Griffith</h4>
+            <p>Minister of Labour &amp; Manpower Planning</p>
+          </div>
+        </article>
+        <article class="leader-card">
+          <div class="leader-photo"><img src="../images/leadership/chairman-smith.jpg?v=oct31" alt="Mrs. Kathy Smith, Chairman of the Board of Industrial Training" loading="lazy" decoding="async"></div>
+          <div class="leader-info">
+            <span class="leader-rank">Statutory Board</span>
+            <h4>Mrs. Kathy Smith</h4>
+            <p>Chairman, Board of Industrial Training</p>
+          </div>
+        </article>
+        <article class="leader-card">
+          <div class="leader-photo"><img src="../images/leadership/ceo-maughn.jpg?v=oct31" alt="Mr. Richard Maughn, Chief Executive Officer of the Board of Industrial Training" loading="lazy" decoding="async"></div>
+          <div class="leader-info">
+            <span class="leader-rank">Secretariat</span>
+            <h4>Mr. Richard Maughn</h4>
+            <p>Chief Executive Officer / Executive Secretary</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- Government Structure -->
   <section class="section bg-pattern">
     <div class="container">
