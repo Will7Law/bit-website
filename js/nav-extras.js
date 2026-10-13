@@ -1,16 +1,14 @@
 /* ═══════════════════════════════════════════════════════════════
    Nav Unify — one consistent main nav on the home page
    ───────────────────────────────────────────────────────────────
-   Oct-2026, per client: every page must show the SAME navigation.
-   The inner pages now carry the canonical header (Home · About ·
-   Programmes · Regions · News · Gallery · Contact). This wedge makes
-   the home page's React nav row match it — the same labels, pointing
-   at the same pages — instead of the old section-anchor pills
-   (Programmes/Regions/Heritage/Verify/Stories).
+   Oct-2026, per client: every page shows the SAME nav —
+   Home · About · Programmes · Regions · News · Gallery · Contact.
 
-   It removes the bundle's #-anchor pills and any prior injections and
-   lays down the canonical links in order. A MutationObserver re-applies
-   it if React rebuilds the row; a re-entrancy guard stops loops.
+   IMPORTANT: this wedge is APPEND-ONLY. It never removes the bundle's
+   own nav nodes — doing so makes React re-add them and loops forever
+   (that froze the home page). Instead it HIDES the bundle's
+   section-anchor pills with CSS and appends the canonical page links.
+   A debounced observer re-appends them if React wipes the row.
    ═══════════════════════════════════════════════════════════════ */
 (function(){
   'use strict';
@@ -25,56 +23,60 @@
     { href: 'pages/contact.html',          label: 'Contact'    },
   ];
 
-  let busy = false;
+  // Hide the bundle's section-anchor pills (Programmes/Regions/Heritage).
+  // CSS only — we never touch React's nodes, so there is no fight/loop.
+  var style = document.createElement('style');
+  style.id = 'nav-unify-style';
+  style.textContent =
+    'header nav a[href^="#"]{ display:none !important; }' +
+    'header nav a[data-nav-extra]{ display:inline-flex !important; }';
+  document.head.appendChild(style);
 
   function findNav(){
-    const pill = document.querySelector(
-      'header a[href="#programmes"], header a[href="#regions"], ' +
-      'header a[href="#heritage"], header a[data-nav-extra]');
+    var pill = document.querySelector(
+      'header nav a[href^="#"], header nav a[data-nav-extra]');
     return pill ? pill.parentElement : null;
   }
 
-  function rebuild(){
-    const nav = findNav();
-    if(!nav || busy) return;
-    busy = true;
-    const anchor = nav.querySelector('a');
-    const cls = (anchor && anchor.className) || '';
-    // strip the bundle's section-anchor pills + any previous injection
-    Array.from(nav.querySelectorAll('a')).forEach(a => {
-      const h = a.getAttribute('href') || '';
-      if(h.charAt(0) === '#' || a.hasAttribute('data-nav-extra')) a.remove();
-    });
-    // lay down the canonical links in order
-    LINKS.forEach(({ href, label }) => {
-      const present = Array.from(nav.querySelectorAll('a'))
-        .some(a => (a.getAttribute('href') || '') === href);
-      if(present) return;
-      const a = document.createElement('a');
-      a.href = href;
+  function injectAll(nav){
+    if(!nav) return;
+    var anchor = nav.querySelector('a');
+    var cls = (anchor && anchor.className) || '';
+    LINKS.forEach(function(link){
+      if(nav.querySelector('a[data-nav-extra="' + link.label.toLowerCase() + '"]')) return;
+      var a = document.createElement('a');
+      a.href = link.href;
       a.className = cls;
       a.setAttribute('data-hover', '');
-      a.setAttribute('data-nav-extra', label.toLowerCase());
-      a.textContent = label;
+      a.setAttribute('data-nav-extra', link.label.toLowerCase());
+      a.textContent = link.label;
       nav.appendChild(a);
     });
-    busy = false;
   }
 
   function waitFor(pred, cb, n){
     n = (n === undefined) ? 100 : n;
-    if(pred()) return cb();
+    var r = pred();
+    if(r) return cb(r);
     if(n <= 0) return;
-    setTimeout(() => waitFor(pred, cb, n - 1), 100);
+    setTimeout(function(){ waitFor(pred, cb, n - 1); }, 100);
   }
 
-  waitFor(findNav, () => {
-    rebuild();
-    const header = document.querySelector('header');
-    if(header){
-      const mo = new MutationObserver(() => { if(!busy) rebuild(); });
-      mo.observe(header, { childList: true, subtree: true });
-    }
+  waitFor(findNav, function(nav){
+    injectAll(nav);
+
+    // Debounced, append-only re-injection if React rebuilds the row.
+    var pending = null;
+    var mo = new MutationObserver(function(){
+      if(pending) return;
+      pending = setTimeout(function(){
+        pending = null;
+        injectAll(findNav());
+      }, 120);
+    });
+    var header = document.querySelector('header');
+    if(header) mo.observe(header, { childList: true, subtree: true });
+
     console.log('[nav-extras] home nav unified — Home, About, Programmes, Regions, News, Gallery, Contact');
   });
 })();
