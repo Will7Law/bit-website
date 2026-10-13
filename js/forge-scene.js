@@ -120,6 +120,47 @@
     });
   }
 
+  /* Oct-2026: spell out the full institution name with the embers.
+     Renders "BOARD / OF INDUSTRIAL / TRAINING" to an offscreen canvas,
+     samples the glyph pixels as particle targets, and keeps the same
+     canvas around to paint a faint crisp underlay so the wordmark is
+     legible even before the particles converge. */
+  const HERO_LINES = ['BOARD', 'OF INDUSTRIAL', 'TRAINING'];
+  async function sampleText(lines){
+    try { if(document.fonts && document.fonts.ready) await document.fonts.ready; } catch(e){}
+    const CW = 1280, CH = 680;
+    const c = document.createElement('canvas');
+    c.width = CW; c.height = CH;
+    const g = c.getContext('2d');
+    g.textAlign = 'center'; g.textBaseline = 'middle';
+    const fam = 'Fraunces, Georgia, serif';
+    let fs = 220;
+    const widest = (size) => { g.font = '600 ' + size + 'px ' + fam; return Math.max.apply(null, lines.map(l => g.measureText(l).width)); };
+    while(widest(fs) > CW * 0.92 && fs > 24) fs -= 4;
+    g.font = '600 ' + fs + 'px ' + fam;
+    g.fillStyle = '#fff';
+    const lh = fs * 1.06;
+    let y = CH/2 - (lh * (lines.length - 1)) / 2;
+    for(const line of lines){ g.fillText(line, CW/2, y); y += lh; }
+    const data = g.getImageData(0, 0, CW, CH).data;
+    let minx = CW, maxx = 0, miny = CH, maxy = 0; const raw = [];
+    for(let yy = 0; yy < CH; yy += 3){
+      for(let xx = 0; xx < CW; xx += 3){
+        if(data[(yy*CW + xx)*4 + 3] > 120){
+          raw.push([xx, yy]);
+          if(xx < minx) minx = xx; if(xx > maxx) maxx = xx;
+          if(yy < miny) miny = yy; if(yy > maxy) maxy = yy;
+        }
+      }
+    }
+    if(!raw.length) return null;
+    const cx = (minx + maxx)/2, cy = (miny + maxy)/2, halfW = (maxx - minx)/2 || 1;
+    const points = raw.map(([xx, yy]) => ({ x: (xx - cx)/halfW, y: (yy - cy)/halfW }));
+    const hy = ((maxy - miny)/2)/halfW;
+    return { points: points, aspect: halfW / (((maxy - miny)/2) || 1), tc: c,
+             bbox: { minx: minx, miny: miny, w: maxx - minx, h: maxy - miny, hy: hy } };
+  }
+
   /** Constellation of 10 points arranged in a ring (representing regions). */
   function constellationPoints(count = 10, radius = 0.85){
     const pts = [];
@@ -204,14 +245,18 @@
         bgVideo.preload = VIDEO_PRELOAD;
         // Faster reveal (250ms instead of 600ms) since the poster already
         // bridges the visual gap.
-        bgVideo.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.55;transition:opacity 250ms ease;mix-blend-mode:screen;pointer-events:none;';
+        /* Oct-2026: the forge-loop clip renders a large "BIT". Now that the
+           embers spell out the full name, we blur + scale the clip into an
+           ambient fire glow so the old "BIT" dissolves and does not compete
+           with the "Board of Industrial Training" wordmark. */
+        bgVideo.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.5;transition:opacity 250ms ease;mix-blend-mode:screen;pointer-events:none;filter:blur(17px) saturate(1.15);transform:scale(1.1);';
         bgVideo.setAttribute('aria-hidden', 'true');
         wrap.appendChild(bgVideo);
       }
 
       const canvas = document.createElement('canvas');
       canvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;display:block;background:transparent;';
-      canvas.setAttribute('aria-label', 'Forge BIT — interactive ember particles forming the BIT wordmark');
+      canvas.setAttribute('aria-label', 'Forge BIT — interactive ember particles forming the Board of Industrial Training wordmark');
       const ctx = canvas.getContext('2d', { alpha: true, desynchronized: true });
       wrap.appendChild(canvas);
 
@@ -247,7 +292,10 @@
       }
 
       // ─── 3. Init particle pool ──────────────────────────────────
+      // The name is now rendered as crisp HTML text by hero-wordmark.js;
+      // the embers stay as an ambient sparkle around the logo crest.
       const { points: logoPts, aspect: logoAspect } = await sampleLogo();
+      const textUnderlay = null;
       const ringPts = constellationPoints(10);
       const startPts = edgePoints(PARTICLE_COUNT);
 
@@ -397,6 +445,20 @@
           ctx.beginPath(); ctx.arc(x, y, 1.4, 0, Math.PI*2); ctx.fill();
         }
 
+        // Faint crisp wordmark underlay — keeps "Board of Industrial
+        // Training" legible at all times while the embers converge into
+        // and sparkle over it. Drawn from the same sampled canvas so it
+        // aligns pixel-for-pixel with the particle target points.
+        if(textUnderlay){
+          const b = textUnderlay.bbox;
+          const dw = 2 * scale, dh = 2 * b.hy * scale;
+          const dx = W/2 - scale, dy = H/2 - b.hy * scale;
+          ctx.save();
+          ctx.globalAlpha = 0.17;
+          ctx.drawImage(textUnderlay.tc, b.minx, b.miny, b.w, b.h, dx, dy, dw, dh);
+          ctx.restore();
+        }
+
         // Apply impulses
         const impulseAge = (imp) => (now - imp.t0) / 1000;
 
@@ -453,16 +515,19 @@
           if(px < -20 || px > W+20 || py < -20 || py > H+20) continue;
           const flick = 0.7 + 0.3 * Math.sin(p.flick);
           const r = p.size * flick;
-          const alpha = 0.85 * flick;
+          // Oct-2026: dialled the shininess down (0.85 -> 0.6 core) so the
+          // embers read as a soft ambient sparkle, not a glare, behind the
+          // crisp wordmark.
+          const alpha = 0.6 * flick;
           // Outer glow
           ctx.beginPath();
-          ctx.arc(px, py, r * 4, 0, Math.PI*2);
-          ctx.fillStyle = COLORS.ember + (alpha * 0.18).toFixed(3) + ')';
+          ctx.arc(px, py, r * 3.4, 0, Math.PI*2);
+          ctx.fillStyle = COLORS.ember + (alpha * 0.11).toFixed(3) + ')';
           ctx.fill();
           // Mid
           ctx.beginPath();
-          ctx.arc(px, py, r * 2, 0, Math.PI*2);
-          ctx.fillStyle = COLORS.glow + (alpha * 0.55).toFixed(3) + ')';
+          ctx.arc(px, py, r * 1.9, 0, Math.PI*2);
+          ctx.fillStyle = COLORS.glow + (alpha * 0.36).toFixed(3) + ')';
           ctx.fill();
           // Hot core
           ctx.beginPath();
