@@ -22,11 +22,11 @@
       id: 'hero-flythrough',
       framesDir: '/media/frames/hero/',
       frameCount: 145,
-      sectionHeight: '600vh',     /* May-2026: matched to workshop-interior
-                                     (also 600vh, 5 captions) so the two
-                                     sections advance text & video at the
-                                     same scroll rate — one wheel-tick per
-                                     caption beat. */
+      sectionHeight: '450vh',     /* Oct-2026: trimmed 600->450vh per client —
+                                     scroll feels faster and there is less total
+                                     scrolling, while the larger caption crossfade
+                                     (FADE below) keeps each line on screen
+                                     comfortably long. */
       findTarget: () => document.querySelector('video[src*="hero-flythrough"]'),
       ariaLabel: 'Workshop scene cinematic flythrough',
       captionMap: { selector: '[data-caption]' },
@@ -35,7 +35,7 @@
            (0.05 / 0.25 / 0.50 / 0.75 / 0.95) so both sections feel
            identical when scrolled. */
         { at: 0.05, text: 'Welcome.' },
-        { at: 0.25, text: 'Twelve trades.' },
+        { at: 0.25, text: 'Skilled trades.' },
         { at: 0.50, text: 'Across ten regions.' },
         { at: 0.75, text: 'Established 1910.' },
         { at: 0.95, text: 'This is BIT.' },
@@ -45,9 +45,11 @@
       id: 'workshop-interior',
       framesDir: '/media/frames/workshop/',
       frameCount: 193,
-      sectionHeight: '600vh',     /* review-2: slower text — was 450vh, bump to
-                                     600vh so dense workshop captions don't feel
-                                     rushed when scrolled normally */
+      sectionHeight: '420vh',     /* Oct-2026: trimmed 600->420vh per client — the
+                                     second cinematic was making the home page feel
+                                     like too much scrolling. Shortened more than the
+                                     hero so the two pins no longer drag back-to-back;
+                                     larger caption crossfade keeps text readable. */
       findTarget: () => {
         const sec = document.getElementById('flythrough');
         if (!sec) return null;
@@ -203,7 +205,10 @@
         boundaries.push((sortedCaptions[i].at + sortedCaptions[i + 1].at) / 2);
       }
       boundaries.push(1);
-      const FADE = 0.015;
+      /* Oct-2026: widened 0.015 -> 0.05 so captions ease in and out more
+         gently and read as lingering a beat longer, compensating for the
+         shorter (faster) scroll runway above. */
+      const FADE = 0.05;
 
       function updateCaptions(progress){
         if(!sortedCaptions.length) return;

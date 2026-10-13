@@ -21,7 +21,7 @@
 
   const FRAMES_DIR = '/media/frames/network/';
   const FRAME_COUNT = 145;
-  const SECTION_HEIGHT = '260vh';   // review-2: more scroll runway so all 10 region pins surface fully
+  const SECTION_HEIGHT = '220vh';   // Oct-2026: trimmed 260->220vh per client (less total scrolling); 10 pins still surface fully
   const FRAME_PAD = 5;
 
   function pad(n){ return String(n).padStart(FRAME_PAD, '0'); }
