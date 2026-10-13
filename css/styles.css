@@ -343,8 +343,8 @@ p {
 /* Round-badge BIT logo — matches the v2 nav circular badge so every
    page on the site shows the same identity mark in the same shape. */
 .logo-img {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   object-fit: contain;
   flex-shrink: 0;
   transition: transform 0.25s ease, box-shadow 0.25s ease;

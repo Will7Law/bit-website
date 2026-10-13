@@ -29,9 +29,9 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<link rel="apple-touch-icon" href="/images/bit-logo.png">
-<link rel="icon" type="image/png" sizes="any" href="/images/bit-logo.png">
-<link rel="mask-icon" href="/images/bit-logo.png" color="#F26522">
+<link rel="apple-touch-icon" href="/images/bit-logo.png?v=oct26">
+<link rel="icon" type="image/png" sizes="any" href="/images/bit-logo.png?v=oct26">
+<link rel="mask-icon" href="/images/bit-logo.png?v=oct26" color="#F26522">
 
 <!-- ── SEO ── -->
 <title>BIT · Guyana — Building Guyana's Skilled Workforce since 1910</title>
@@ -66,7 +66,7 @@
   "name": "Board of Industrial Training",
   "alternateName": "BIT Guyana",
   "url": "/",
-  "logo": "/images/bit-logo.png",
+  "logo": "/images/bit-logo.png?v=oct26",
   "image": "/images/og-image.png",
   "description": "Guyana's national institution for technical and vocational education and training (TVET). Established 1910. Eleven programmes across ten administrative regions. Government-subsidised tuition.",
   "foundingDate": "1910",
@@ -128,7 +128,7 @@
      track, worker). Use as="fetch" with the correct MIME so the browser can
      warm the cache without a console warning. -->
 <link rel="preload" as="fetch" type="video/mp4" href="/media/forge-loop.mp4" crossorigin="anonymous" fetchpriority="high">
-<link rel="preload" as="image" href="/images/bit-logo.png">
+<link rel="preload" as="image" href="/images/bit-logo.png?v=oct26">
 <!-- Trimmed font weight axis: was loading 300-900 (a 600-unit variable axis
      range covering 6 weights) plus a separate italic axis. We actually use
      four weights (300, 400, 500, 600) plus a single italic at 400. This cuts
@@ -136,7 +136,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,520..560;1,9..144,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <!-- Static Tailwind (20KB) — replaces the CDN runtime which had a MutationObserver
      scanning the DOM on every change, causing scroll-time jitter. -->
-<link rel="stylesheet" href="css/v2.tailwind.css?v=7">
+<link rel="stylesheet" href="css/v2.tailwind.css?v=oct26">
 <!-- React: production builds (smaller, faster, hardened against debug-leak)
      plus SRI integrity hashes so any tampering at the CDN level is rejected. -->
 <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" integrity="sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -794,7 +794,7 @@
      The CSS above visually hides the subtitle paragraph until we've
      marked it [data-copy-cleaned], so the user never sees the old
      text — only the new copy fades in. -->
-  <script defer src="js/inline/index-1.js?v=1"></script>
+  <script defer src="js/inline/index-1.js?v=oct26"></script>
 </head>
 <body>
 <!-- Skip-to-content (keyboard accessibility — first focusable element) -->
@@ -802,77 +802,77 @@
 <div class="mesh-bg" aria-hidden="true"></div>
 <div id="root"></div>
 
-<script src="js/v2.bundle.js?v=8" defer></script>
+<script src="js/v2.bundle.js?v=oct26" defer></script>
 <!-- Scroll engine: single rAF loop driving all scroll-scrub sections.
      Loads BEFORE the dependents so they can register on boot. -->
-<script src="js/scroll-engine.js?v=1" defer></script>
+<script src="js/scroll-engine.js?v=oct26" defer></script>
 <!-- Performance wedges — run AFTER React mounts to swap Three.js scenes
      for lighter-weight cinematic media:
        • scrub-frames.js — replaces 2 scroll sections with canvas frame sequences
        • forge-scene.js takes over the hero panel (was hero-ember.js) -->
-<script src="js/scrub-frames.js?v=27" defer></script>
+<script src="js/scrub-frames.js?v=oct26" defer></script>
 <!-- Step thumbnails: swap 3 Three.js canvases for cinematic step videos -->
-<script src="js/apply-steps.js?v=2" defer></script>
+<script src="js/apply-steps.js?v=oct26" defer></script>
 <!-- Network section: pin + scroll-scrub the landscape video -->
-<script src="js/network-pin.js?v=4" defer></script>
+<script src="js/network-pin.js?v=oct26" defer></script>
 <!-- Lock all 10 regional pills to their expanded/visible state -->
-<script src="js/network-pills.js?v=4" defer></script>
+<script src="js/network-pills.js?v=oct26" defer></script>
 <!-- Click any region pill → modal with all BIT offices in that region -->
-<script src="js/region-pill-details.js?v=2" defer></script>
+<script src="js/region-pill-details.js?v=oct26" defer></script>
 <!-- BIT institutional logo injection (nav + footer) -->
-<script src="js/bit-logo.js?v=7" defer></script>
+<script src="js/bit-logo.js?v=oct26" defer></script>
 <!-- Stories spotlight: 3 graduates side-by-side instead of just Rajesh -->
 <!-- stories-spotlight.js DISABLED: the #stories section used AI-generated
      graduate portraits and quotes, which isn't appropriate for a
      government institution. The whole section is hidden via CSS.
-<script src="js/stories-spotlight.js?v=3" defer></script>
+<script src="js/stories-spotlight.js?v=oct26" defer></script>
 -->
 
 <!-- Tone down marketing/AI-flavoured copy in the React-rendered hero -->
-<script src="js/copy-cleanup.js?v=3" defer></script>
+<script src="js/copy-cleanup.js?v=oct26" defer></script>
 <!-- Heritage timeline: swap 2025 Berbice chapter video for the real photo -->
-<script src="js/heritage-photo.js?v=1" defer></script>
+<script src="js/heritage-photo.js?v=oct26" defer></script>
 <!-- Nav extras: add News + Gallery links to the header nav -->
-<script src="js/nav-extras.js?v=2" defer></script>
+<script src="js/nav-extras.js?v=oct26" defer></script>
 <!-- Search widget: floating "find a programme/region" search (Cmd+K to open) -->
-<script src="js/search-widget.js?v=2" defer></script>
+<script src="js/search-widget.js?v=oct26" defer></script>
 <!-- Leadership / mandate section: CEO Maughn + Minister Griffith + 6 priorities -->
-<script src="js/leadership.js?v=3" defer></script>
+<script src="js/leadership.js?v=oct26" defer></script>
 <!-- Apply modal DISABLED: enrolment is offline-only.
-     <script src="js/apply-modal.js?v=1" defer></script> -->
+     <script src="js/apply-modal.js?v=oct26" defer></script> -->
 <!-- Strip Apply CTAs + correct address + add Ministry of Labour link -->
-<script src="js/strip-apply.js?v=7" defer></script>
+<script src="js/strip-apply.js?v=oct26" defer></script>
 <!-- Programme-card carousel: swipe (mobile) + mouse drag + keyboard arrows -->
-<script src="js/spotlight-swipe.js?v=1" defer></script>
+<script src="js/spotlight-swipe.js?v=oct26" defer></script>
 <!-- Image lazy-load: adds loading="lazy" + decoding="async" to below-fold imgs -->
-<script src="js/image-lazy.js?v=1" defer></script>
+<script src="js/image-lazy.js?v=oct26" defer></script>
 <!-- Mobile friendliness: tap targets, font-size floors, matrix scroll, etc. -->
-<script src="js/mobile-fixes.js?v=2" defer></script>
+<script src="js/mobile-fixes.js?v=oct26" defer></script>
 <!-- Review-1 fixes: strip Oil & Gas, chapter ticker, hero eyebrow, USAID underline -->
-<script src="js/review-fixes.js?v=5" defer></script>
+<script src="js/review-fixes.js?v=oct26" defer></script>
 <!-- Certificate verify: JSON-backed lookup with 16 sample codes -->
-<script src="js/verify-backend.js?v=3" defer></script>
+<script src="js/verify-backend.js?v=oct26" defer></script>
 <!-- Real Guyana administrative map (replaces the rough polygons) -->
-<script src="js/guyana-map.js?v=10" defer></script>
+<script src="js/guyana-map.js?v=oct26" defer></script>
 <!-- Sectors & Occupational Areas catalogue section -->
-<script src="js/sectors-section.js?v=1" defer></script>
+<script src="js/sectors-section.js?v=oct26" defer></script>
 <!-- Two-way region ↔ matrix link (heatmap + region-click filter) -->
-<script src="js/region-matrix-link.js?v=1" defer></script>
+<script src="js/region-matrix-link.js?v=oct26" defer></script>
 <!-- Wires footer + programme + matrix links to existing detail pages -->
-<script src="js/page-links.js?v=2" defer></script>
+<script src="js/page-links.js?v=oct26" defer></script>
 <!-- Accessibility widget (text size, high contrast, reduce motion) -->
-<script src="js/a11y-widget.js?v=1" defer></script>
+<script src="js/a11y-widget.js?v=oct26" defer></script>
 <!-- Mobile hamburger menu (nav links were invisible on phones) -->
-<script src="js/mobile-menu.js?v=6" defer></script>
+<script src="js/mobile-menu.js?v=oct26" defer></script>
 <!-- Forge BIT — interactive particle hero (replaces ember frame sequence) -->
-<script src="js/forge-scene.js?v=14" defer></script>
+<script src="js/forge-scene.js?v=oct26" defer></script>
 <!-- Tagline ladder DISABLED: the 5 phrases now live on the Forge scrub
      section as scroll-tied captions, restored in scrub-frames.js. -->
-<!-- <script src="js/tagline-ladder.js?v=1" defer></script> -->
+<!-- <script src="js/tagline-ladder.js?v=oct26" defer></script> -->
 
 <!-- Inline section-label rewrites — guaranteed to run regardless of
      deferred-script ordering. Replaces the bundle's "§ NN · Label"
      eyebrows with plain phrases a human would write. -->
-  <script defer src="js/inline/index-2.js?v=1"></script>
+  <script defer src="js/inline/index-2.js?v=oct26"></script>
 </body>
 </html>

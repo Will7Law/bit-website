@@ -10,7 +10,7 @@
 (function(){
   'use strict';
 
-  const LOGO_SRC = '/images/bit-logo.png';
+  const LOGO_SRC = '/images/bit-logo.png?v=oct26';
 
   function waitFor(predicate, cb, attempts = 80){
     const r = predicate();
@@ -55,14 +55,13 @@
         padding: 3px !important;
         box-shadow: 0 4px 14px rgba(0,0,0,0.20), 0 0 0 1px rgba(242,101,34,0.18) !important;
       }
-      /* May-2026: shrunk from 44px → 38px so the logo block stops crowding
-         the menu items inside the floating pill. The round logo is still
-         clearly the BIT shield, just visually balanced with the wordmark. */
-      img.bit-logo-mark{ height: 38px !important; width: 38px !important; padding: 2px !important; }
-      img.bit-logo-mark-footer{ height: 52px !important; width: 52px !important; }
+      /* Oct-2026: enlarged to 50px (nav) / 64px (footer) per BIT change
+         request — the orange crest must be clearly visible and prominent. */
+      img.bit-logo-mark{ height: 50px !important; width: 50px !important; padding: 2px !important; }
+      img.bit-logo-mark-footer{ height: 64px !important; width: 64px !important; }
       /* Catch-all: any <img> pointing at the BIT logo file gets the
          circular badge treatment, no matter where it lives. */
-      img[src$="bit-logo.png"]{ border-radius: 50% !important; background: #ffffff !important; padding: 3px; }
+      img[src*="bit-logo"]{ border-radius: 50% !important; background: #ffffff !important; padding: 3px; }
       header a[href="#top"]{
         display: flex !important;
         align-items: center !important;
