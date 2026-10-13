@@ -12,9 +12,35 @@ RewriteRule ^data/certificates\.json$ - [G,L]
 RewriteRule ^js/stories-spotlight\.js$ - [G,L]
 RewriteRule ^media/images/grad- - [G,L]
 
-# Structural redirects - only when no real file exists (same as Netlify non-forced rules)
+# ══════════════════════════════════════════════════════════════
+# Clean URLs (Oct-2026, per client) - professional extension-less
+# addresses. Internal links still use .html, so if this block is ever
+# removed the site keeps working; this only ADDS the clean form.
+#   /pages/about.html  ->  /about   (301, shown in the address bar)
+#   /about             ->  served from /pages/about.html
+# ══════════════════════════════════════════════════════════════
+
+# index.html -> /
+RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+RewriteRule ^ / [R=301,L]
+
+# /pages/foo.html  or  /foo.html  ->  /foo   (drop folder + extension)
+RewriteCond %{THE_REQUEST} \s/+(?:pages/)?([a-z0-9-]+)\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# /pages/foo (no extension) -> /foo
+RewriteCond %{THE_REQUEST} \s/+pages/([a-z0-9-]+)[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# Structural redirects - only when no real file exists
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^index-v2\.html$ / [R=301,L]
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^apply/?$ /pages/contact.html [R=301,L]
+RewriteRule ^apply/?$ /contact [R=301,L]
+
+# Serve a clean URL from /pages/<name>.html (internal rewrite, no redirect)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/pages/$1.html -f
+RewriteRule ^([a-z0-9-]+)/?$ /pages/$1.html [L]
 </IfModule>
