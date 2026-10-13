@@ -25,7 +25,6 @@
     { code: 'AC',  name: 'Air Conditioning & Refrigeration' },
     { code: 'IT',  name: 'Information Technology & Computer Servicing' },
     { code: 'CB',  name: 'Cosmetology & Beauty Culture' },
-    { code: 'GC',  name: 'Garment Construction & Fashion Design' },
     { code: 'FC',  name: 'Food Preparation & Culinary Arts' },
     { code: 'AG',  name: 'Agriculture & Agro-Processing' },
     { code: 'PV',  name: 'Photovoltaic Installation' },

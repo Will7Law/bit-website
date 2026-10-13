@@ -209,7 +209,6 @@
       { name: 'Masonry\n& Construction',                      icon: '\uf1b3' },
       { name: 'Information Technology\n& Computer Servicing', icon: '\uf5fc' },
       { name: 'Cosmetology\n& Beauty Culture',                icon: '\uf5bb' },
-      { name: 'Garment Construction\n& Fashion Design',       icon: '\uf0c4' },
       { name: 'Food Preparation\n& Culinary Arts',            icon: '\uf2e7' },
       { name: 'Air Conditioning\n& Refrigeration',            icon: '\uf2dc' },
       { name: 'Agriculture\n& Agro-Processing',               icon: '\uf4d8' }

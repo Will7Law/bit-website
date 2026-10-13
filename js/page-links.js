@@ -48,7 +48,6 @@
     [ /air conditioning|refrigeration/i,'ac'           ],
     [ /information technology|computer/i,'it'          ],
     [ /cosmetology|beauty/i,            'cosmetology'  ],
-    [ /garment|fashion/i,               'garment'      ],
     [ /culinary|food preparation/i,     'culinary'     ],
     [ /agriculture|agro/i,              'agriculture'  ],
     [ /photovolt|solar/i,               'photovoltaic' ],

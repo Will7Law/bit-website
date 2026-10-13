@@ -24,7 +24,6 @@
       masonry: 'Masonry & Construction',
       it: 'Information Technology & Computer Servicing',
       cosmetology: 'Cosmetology & Beauty Culture',
-      garment: 'Garment Construction & Fashion Design',
       culinary: 'Food Preparation & Culinary Arts',
       ac: 'Air Conditioning & Refrigeration',
       agriculture: 'Agriculture & Agro-Processing'

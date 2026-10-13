@@ -17,7 +17,6 @@
     { code: 'AC',  name: 'Air Conditioning & Refrigeration',      cat: 'trades',     months: 6, regions: [3,4,6] },
     { code: 'IT',  name: 'Information Technology & Computer Servicing', cat: 'tech', months: 6, regions: [3,4,6,10] },
     { code: 'CB',  name: 'Cosmetology & Beauty Culture',          cat: 'creative',   months: 4, regions: [3,4,6] },
-    { code: 'GC',  name: 'Garment Construction & Fashion Design', cat: 'creative',   months: 4, regions: [3,4,6] },
     { code: 'FC',  name: 'Food Preparation & Culinary Arts',      cat: 'hospitality',months: 4, regions: [3,4,6] },
     { code: 'AG',  name: 'Agriculture & Agro-Processing',         cat: 'agriculture',months: 6, regions: [1,2,3,4,5,6,8,9] },
     { code: 'PV',  name: 'Photovoltaic Installation',             cat: 'energy',     months: 4, regions: [3,4,6] },
@@ -319,7 +318,7 @@
       // Map programme code to programme-detail.html ?p= slug
       const map = { EL:'electrical', PL:'plumbing', WF:'welding', MV:'motor',
                     CJ:'carpentry', MC:'masonry', AC:'ac', IT:'it', CB:'cosmetology',
-                    GC:'garment', FC:'culinary', AG:'agriculture',
+                    FC:'culinary', AG:'agriculture',
                     PV:'photovoltaic', HD:'heavy-duty', WD:'web-dev' };
       return map[code] || code.toLowerCase();
     }
