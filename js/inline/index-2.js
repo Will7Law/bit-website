@@ -8,7 +8,6 @@
     '§ 02 · Scale of practice': 'By the numbers',
     '§ 04 · Footprint':         'Where we operate',
     '§ 05 · Heritage':          'Our history',
-    '§ 07 · Verification':      'Verify a certificate',
     '§ 08 · Graduates':         'Stories'
   };
   function sweep(){

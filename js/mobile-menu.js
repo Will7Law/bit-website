@@ -179,15 +179,13 @@
     overlay.className = 'mm-overlay';
     overlay.setAttribute('aria-label', 'Site navigation');
     const links = [
-      { href: 'pages/about.html',      label: 'About',      num: '01' },
-      { href: '#programmes',           label: 'Programmes', num: '02' },
-      { href: '#regions',              label: 'Regions',    num: '03' },
-      { href: '#heritage',             label: 'Heritage',   num: '04' },
-      { href: '#verify',               label: 'Verify',     num: '05' },
-      { href: '#stories',              label: 'Stories',    num: '06' },
-      { href: 'pages/v2-news.html',    label: 'News',       num: '07' },
-      { href: 'pages/v2-gallery.html', label: 'Gallery',    num: '08' },
-      { href: 'pages/contact.html',    label: 'Contact',    num: '09' },
+      { href: 'index.html',                  label: 'Home',       num: '01' },
+      { href: 'pages/about.html',            label: 'About',      num: '02' },
+      { href: 'pages/programmes.html',       label: 'Programmes', num: '03' },
+      { href: 'pages/regional-centres.html', label: 'Regions',    num: '04' },
+      { href: 'pages/news.html',             label: 'News',       num: '05' },
+      { href: 'pages/gallery.html',          label: 'Gallery',    num: '06' },
+      { href: 'pages/contact.html',          label: 'Contact',    num: '07' },
     ];
     overlay.innerHTML = `
       <ul class="mm-list">

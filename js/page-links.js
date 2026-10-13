@@ -24,7 +24,6 @@
     'News':               'pages/v2-news.html',
     'Gallery':            'pages/v2-gallery.html',
     // 'Apply Online' deliberately omitted — application is handled offline.
-    'Verify Certificate': 'pages/verify.html',
     'Apprenticeships':    'pages/programmes.html#apprenticeships',
     'Downloads':          'pages/downloads.html',
     'Ministry of Labour': 'https://labour.gov.gy/',

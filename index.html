@@ -264,6 +264,8 @@
      isn't appropriate for a government institution. Removed entirely
      so visitors never encounter it. */
   #stories{ display: none !important; }
+  #verify{ display: none !important; }
+  header nav a[href="#verify"]{ display:none !important; }
   header nav a[href="#stories"]{ display: none !important; }
 
   /* ── Hero subtitle hidden until the JS rewrite runs.
@@ -802,7 +804,7 @@
 <div class="mesh-bg" aria-hidden="true"></div>
 <div id="root"></div>
 
-<script src="js/v2.bundle.js?v=oct28" defer></script>
+<script src="js/v2.bundle.js?v=oct30" defer></script>
 <!-- Scroll engine: single rAF loop driving all scroll-scrub sections.
      Loads BEFORE the dependents so they can register on boot. -->
 <script src="js/scroll-engine.js?v=oct26" defer></script>
@@ -829,11 +831,11 @@
 -->
 
 <!-- Tone down marketing/AI-flavoured copy in the React-rendered hero -->
-<script src="js/copy-cleanup.js?v=oct26" defer></script>
+<script src="js/copy-cleanup.js?v=oct30" defer></script>
 <!-- Heritage timeline: swap 2025 Berbice chapter video for the real photo -->
 <script src="js/heritage-photo.js?v=oct26" defer></script>
 <!-- Nav extras: add News + Gallery links to the header nav -->
-<script src="js/nav-extras.js?v=oct26" defer></script>
+<script src="js/nav-extras.js?v=oct30" defer></script>
 <!-- Search widget: floating "find a programme/region" search (Cmd+K to open) -->
 <script src="js/search-widget.js?v=oct26" defer></script>
 <!-- Leadership / mandate section: CEO Maughn + Minister Griffith + 6 priorities -->
@@ -850,8 +852,6 @@
 <script src="js/mobile-fixes.js?v=oct26" defer></script>
 <!-- Review-1 fixes: strip Oil & Gas, chapter ticker, hero eyebrow, USAID underline -->
 <script src="js/review-fixes.js?v=oct26" defer></script>
-<!-- Certificate verify: JSON-backed lookup with 16 sample codes -->
-<script src="js/verify-backend.js?v=oct26" defer></script>
 <!-- Real Guyana administrative map (replaces the rough polygons) -->
 <script src="js/guyana-map.js?v=oct26" defer></script>
 <!-- Sectors & Occupational Areas catalogue section -->
@@ -859,11 +859,11 @@
 <!-- Two-way region ↔ matrix link (heatmap + region-click filter) -->
 <script src="js/region-matrix-link.js?v=oct26" defer></script>
 <!-- Wires footer + programme + matrix links to existing detail pages -->
-<script src="js/page-links.js?v=oct26" defer></script>
+<script src="js/page-links.js?v=oct30" defer></script>
 <!-- Accessibility widget (text size, high contrast, reduce motion) -->
 <script src="js/a11y-widget.js?v=oct26" defer></script>
 <!-- Mobile hamburger menu (nav links were invisible on phones) -->
-<script src="js/mobile-menu.js?v=oct26" defer></script>
+<script src="js/mobile-menu.js?v=oct30" defer></script>
 <!-- Forge BIT — interactive particle hero (replaces ember frame sequence) -->
 <script src="js/forge-scene.js?v=oct29" defer></script>
 <script src="js/hero-wordmark.js?v=oct29d" defer></script>
@@ -874,6 +874,6 @@
 <!-- Inline section-label rewrites — guaranteed to run regardless of
      deferred-script ordering. Replaces the bundle's "§ NN · Label"
      eyebrows with plain phrases a human would write. -->
-  <script defer src="js/inline/index-2.js?v=oct26"></script>
+  <script defer src="js/inline/index-2.js?v=oct30"></script>
 </body>
 </html>
